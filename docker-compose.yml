@@ -1,0 +1,55 @@
+version: '3.3'
+
+#Docker networks
+networks:
+  api-network:
+    driver: bridge
+
+#Docker volumns
+volumes:
+  dbdata:
+    driver: local
+
+services:
+  php:
+    container_name: HOSPITAL_PHP
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - api-network
+
+  app:
+    image: nginx:alpine
+    container_name: HOSPITAL_API
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    restart: unless-stopped
+    networks:
+      - api-network
+
+  db:
+    image: mysql
+    container_name: HOSPITAL_DB
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: "hospital"
+      MYSQL_ROOT_PASSWORD: "root"
+      SERICE_TAGS: "local"
+      SERIVE_NAME: "mysql"
+    networks:
+      - api-network
+    command: 
+      - --innodb_strict_mode=0
+      - --innodb-log-buffer-size=256M
+      - --innodb_redo_log_capacity=2147483648
+    volumes:
+      - dbdata:/var/lib/mysql/
