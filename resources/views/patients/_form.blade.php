@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="form-group @error('first_name') has-error @enderror">
                 <label for="first_name">{{ __('First Name') }}</label>
-                <input type="text" name="first_name" class="form-control" value="{{ $patient ? $patient->first_name : old('first_name') }}" required autofocus>
+                <input type="text" name="first_name" class="form-control" value="{{ $patient ? $patient->first_name : old('first_name') }}" autofocus>
                 @error('first_name')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
         <div class="col-md-6">
             <div class="form-group @error('last_name') has-error @enderror">
                 <label for="last_name">{{ __('Last Name') }}</label>
-                <input type="text" name="last_name" class="form-control" value="{{ $patient ? $patient->last_name : old('last_name') }}" required>
+                <input type="text" name="last_name" class="form-control" value="{{ $patient ? $patient->last_name : old('last_name') }}">
                 @error('last_name')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
@@ -40,10 +40,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group @error('age') has-error @enderror">
-                <label for="age">{{ __('Age') }}</label>
-                <input type="number" name="age" class="form-control" value="{{ $patient ? $patient->age : old('age') }}">
-                @error('age')
+            <div class="form-group @error('dob') has-error @enderror">
+                <label for="dob">{{ __('Date Of Birth') }}</label>
+                <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob->format('Y-m-d') : old('dob') }}">
+                @error('dob')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -70,7 +70,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-mobile"></i>
                     </div>
-                    <input type="text" name="mobile" class="form-control" value="{{ $patient ? $patient->mobile : old('mobile') }}" required data-inputmask='"mask": "999-999-9999"' data-mask>
+                    <input type="text" name="mobile" class="form-control" value="{{ $patient ? $patient->mobile : old('mobile') }}" data-inputmask='"mask": "999-999-9999"' data-mask>
                 </div>
                 @error('mobile')
                     <span class="help-block">
@@ -79,6 +79,32 @@
                 @enderror
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group @error('husband_name') has-error @enderror">
+                <label for="husband_name">{{ __('Husband Name') }}</label>
+                <input type="text" name="husband_name" class="form-control" value="{{ $patient ? $patient->husband_name : old('husband_name') }}">
+                @error('husband_name')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group @error('husband_dob') has-error @enderror">
+                <label for="husband_dob">{{ __('Husband Date Of Birth') }}</label>
+                <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob->format('Y-m-d') : old('husband_dob') }}">
+                @error('husband_dob')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="test">Test</label>
@@ -89,17 +115,11 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-
                 <label for="test">Dr. Name</label>
-                <select name="madamName" class="form-control select2">
-
-                    <option value="Dr. Manju Rathi" @if(($patient && $patient->madamName == "Dr. Manju Rathi") || (old('madamName') == "Dr. Manju Rathi")) selected  @endif>{{ __('Dr. Manju Rathi') }}</option>
-
-                    <option value="Dr. Archana Maheshwari" @if(($patient && $patient->madamName == "Dr. Archana Maheshwari") || (old('madamName') == "Dr. Archana Maheshwari")) selected  @endif>{{ __('Dr. Archana Maheshwari') }}</option>
-
-                    <option value="Dr. Mona Gupta" @if(($patient && $patient->madamName == "Dr. Mona Gupta") || (old('madamName') == "Dr. Mona Gupta")) selected  @endif>{{ __('Dr. Mona Gupta') }}</option>
-
-
+                <select name="doctor" class="form-control select2">
+                    <option value="Dr. Manju Rathi" @if(($patient && $patient->doctor == "Dr. Manju Rathi") || (old('doctor') == "Dr. Manju Rathi")) selected  @endif>{{ __('Dr. Manju Rathi') }}</option>
+                    <option value="Dr. Archana Maheshwari" @if(($patient && $patient->doctor == "Dr. Archana Maheshwari") || (old('doctor') == "Dr. Archana Maheshwari")) selected  @endif>{{ __('Dr. Archana Maheshwari') }}</option>
+                    <option value="Dr. Mona Gupta" @if(($patient && $patient->doctor == "Dr. Mona Gupta") || (old('doctor') == "Dr. Mona Gupta")) selected  @endif>{{ __('Dr. Mona Gupta') }}</option>
                 </select>
             </div>
         </div>

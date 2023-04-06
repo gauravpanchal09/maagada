@@ -7,6 +7,18 @@
     .select2-container .select2-selection--single {
         height: 35px !important;
     }
+
+    .d-flex {
+        display: flex !important;
+    }
+    
+    .justify-content-space-between {
+        justify-content: space-between !important;
+    }
+
+    .widget-user-header {
+        height: 180px !important;
+    }
 </style>
 @endpush
 
@@ -39,7 +51,7 @@
                             <select name="patient" class="form-control select2">
                                 @foreach ($patients as $patient)
                                     <option value="{{ $patient->id }}" @if(old('patient_id') == $patient->id) selected @endif>
-                                        #{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }} ( {{ $patient->madamName }} )
+                                        #{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }} ( {{ $patient->doctor }} )
                                     </option>
                                 @endforeach
                             </select>

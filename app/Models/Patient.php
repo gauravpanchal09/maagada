@@ -7,6 +7,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,15 +30,44 @@ class Patient extends Model
         'first_name',
         'last_name',
         'address',
-        'age',
+        'dob',
         'aadhar_card',
         'mobile',
-        'madamName',
-        'hospital_id',
-        'price',
-        'discharge_date',
-        'procedure'
+        'doctor',
+        'husband_name',
+        'husband_dob',
+        'hospital_id'
     ];
+
+    /**
+     * The attributes that are type castable.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'dob' => 'date',
+        'husband_dob' => 'date'
+    ];
+
+    /**
+     * The attributes that are type castable.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'age',
+        'husband_age'
+    ];
+
+    public function getAgeAttribute() 
+    {
+        return Carbon::parse($this->dob)->age;
+    }
+
+    public function getHusbandAgeAttribute() 
+    {
+        return Carbon::parse($this->husband_dob)->age;
+    }
 
     public function hospital()
     {

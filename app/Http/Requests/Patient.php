@@ -34,10 +34,12 @@ class Patient extends FormRequest
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'address' => 'required|max:255',
-            'age' => 'required|numeric',
+            'dob' => 'required|date',
             'aadhar_card' => 'required|numeric|digits:12',
             'mobile' => 'required|numeric|digits:10',
-            'madamName' => 'required|max:255',
+            'husband_name' => 'required|max:255',
+            'husband_dob' => 'required|date',
+            'doctor' => 'required|max:255',
             'hospital_id' => 'nullable|exists:hospitals,id',
             'test' => 'sometimes|required|in:'.implode(",", [Model::TEST_ANC, Model::TEST_INFERTILITY, Model::TEST_GYNAE])
         ];

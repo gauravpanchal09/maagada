@@ -36,9 +36,8 @@
                                 <th>{{ __('Registration Number') }}</th>
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Age') }}</th>
-                                <th>{{ __('Mobile') }}</th>
+                                <th>{{ __("Husband's Age") }}</th>
                                 <th>{{ __('Dr Name') }}</th>
-                                <th>{{ __('Aadhar') }}</th>
                                 <th>{{ __('Created At') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
@@ -48,12 +47,11 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $patient->registration_number }}</td>
-                                <td>{{ $patient->first_name }} {{ $patient->last_name }}</td>
-                                <td>{{ $patient->age }}</td>
-                                <td>{{ $patient->mobile }}</td>
-                                <td>{{ $patient->madamName }}</td>
-                                <td>{{ $patient->aadhar_card }}</td>
-                                <td>{{ $patient->created_at }}</td>
+                                <td>{{ $patient->first_name }} {{ $patient->husband_name }}</td>
+                                <td>{{ $patient->age }} Years</td>
+                                <td>{{ $patient->husband_age }} Years</td>
+                                <td>{{ $patient->doctor }}</td>
+                                <td>{{ $patient->created_at->format('d F Y, h:i A') }}</td>
                                 <td>
                                     <a href="{{ route('patients.edit', $patient) }}" class="btn btn-info">
                                         <i class="fa fa-edit"></i>

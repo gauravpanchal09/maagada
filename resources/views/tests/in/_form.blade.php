@@ -10,7 +10,7 @@
                 <select name="patient_id" class="form-control select2" @if($test) disabled @endif>
                     @foreach ($patients as $patient)
                         <option value="{{ $patient->id }}" @if(($test && $test->patient->id == $patient->id) || (old('patient_id') == $patient->id)) selected @endif>
-                            #{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }} ({{ $patient->madamName }})
+                            #{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }} ({{ $patient->doctor }})
                         </option>
                     @endforeach
                 </select>

@@ -3,8 +3,11 @@
         <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua-active">
-                <h3 class="widget-user-username">#{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }} Age: {{ $patient->age }}</h3>
-                 <h3 class="widget-user-username text-right">{{ $patient->madamName }}</h3>
+                <div class="d-flex justify-content-space-between">
+                    <h3 class="widget-user-username">#{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->husband_name }}</h3>
+                    <h3 class="widget-user-username">{{ $patient->doctor }}</h3>
+                </div>
+                <h5 class="widget-user-desc">{{ __('Age') }} : {{ $patient->age }} years</h5>
                 <h5 class="widget-user-desc">{{ __('Mobile') }} : {{ $patient->mobile ?: 'N/A' }}</h5>
                 <h5 class="widget-user-desc">{{ __('Aadhar Card') }} : {{ $patient->aadhar_card ?: 'N/A' }}</h5>
                 <h5 class="widget-user-desc">{{ $patient->address ?: 'N/A' }}</h5>
