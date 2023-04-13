@@ -15,6 +15,9 @@ class UpdateInTestsTable extends Migration
     {
         Schema::table('in_tests', function (Blueprint $table) {
             $table->dropColumn('inv_image');
+            $table->dropColumn('oi_plan');
+            $table->dropColumn('oi_iui');
+            $table->dropColumn('oi_iuf');
             $table->json('inv_images')->nullable();
         });
     }
@@ -29,6 +32,9 @@ class UpdateInTestsTable extends Migration
         Schema::table('in_tests', function (Blueprint $table) {
             $table->dropColumn('inv_images');
             $table->text('inv_image')->nullable();
+            $table->text('oi_plan')->nullable();
+            $table->text('oi_iui')->nullable();
+            $table->text('oi_iuf')->nullable();
         });
     }
 }

@@ -14,14 +14,14 @@ class UpdateInTestsColumnsTwo extends Migration
     public function up()
     {
         Schema::table('in_tests', function (Blueprint $table) {
-            $table->text('result_tton')->nullable();
-            $table->text('result_by')->nullable();
-            $table->text('result_remarks')->nullable();
-            $table->text('result_oc_start')->nullable();
-            $table->text('result_stop')->nullable();
+            $table->text('wife_lmp_discussion_stopped')->nullable();
+            $table->text('wife_lmp_discussion_tco')->nullable();
+            $table->text('wife_lmp_lupride')->nullable();
+            $table->text('wife_lmp_stared')->nullable();
+            $table->text('wife_lmp_tocome')->nullable();
+            $table->text('wife_lmp_protocol')->nullable();
             $table->text('result_lmp')->nullable();
             $table->text('result_stm_start')->nullable();
-            $table->text('result_protocol')->nullable();
             $table->date('result_date_1')->nullable();
             $table->text('result_cyc_day_1')->nullable();
             $table->text('result_stm_day_1')->nullable();
@@ -89,11 +89,6 @@ class UpdateInTestsColumnsTwo extends Migration
             $table->date('result_date_9')->nullable();
             $table->text('result_cyc_day_9')->nullable();
             $table->text('result_stm_day_9')->nullable();
-            $table->text('result_end_9')->nullable();
-            $table->text('result_rafc_9')->nullable();
-            $table->text('result_lafc_9')->nullable();
-            $table->text('result_stimulation_9')->nullable();
-            $table->text('result_misc_9')->nullable();
         });
     }
 
@@ -105,14 +100,14 @@ class UpdateInTestsColumnsTwo extends Migration
     public function down()
     {
         Schema::table('in_tests', function (Blueprint $table) {
-            $table->dropColumn('result_tton');
-            $table->dropColumn('result_by');
-            $table->dropColumn('result_remarks');
-            $table->dropColumn('result_oc_start');
-            $table->dropColumn('result_stop');
+            $table->dropColumn('wife_lmp_discussion_stopped');
+            $table->dropColumn('wife_lmp_discussion_tco');
+            $table->dropColumn('wife_lmp_lupride');
+            $table->dropColumn('wife_lmp_stared');
+            $table->dropColumn('wife_lmp_tocome');
+            $table->dropColumn('wife_lmp_protocol');
             $table->dropColumn('result_lmp');
             $table->dropColumn('result_stm_start');
-            $table->dropColumn('result_protocol');
             $table->dropColumn('result_date_1');
             $table->dropColumn('result_cyc_day_1');
             $table->dropColumn('result_stm_day_1');
@@ -180,11 +175,6 @@ class UpdateInTestsColumnsTwo extends Migration
             $table->dropColumn('result_date_9');
             $table->dropColumn('result_cyc_day_9');
             $table->dropColumn('result_stm_day_9');
-            $table->dropColumn('result_end_9');
-            $table->dropColumn('result_rafc_9');
-            $table->dropColumn('result_lafc_9');
-            $table->dropColumn('result_stimulation_9');
-            $table->dropColumn('result_misc_9');
         });
     }
 }

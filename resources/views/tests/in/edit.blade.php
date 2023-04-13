@@ -84,6 +84,46 @@
                 target.parent().after(html);
             }
         }
+
+        function showResultElements(target) {
+            $(`div.${target}-div`).show();
+        }
+
+        function hideResultElements(target) {
+            $(`div.${target}-div`).hide();
+        }
+
+        $('input[name="result_ivf"]').on('input', function (event) {
+            let value = $(this).val();
+            if (value > 0) {
+                showResultElements('ivf');
+            } else {
+                hideResultElements('ivf');
+            }
+        });
+
+        $('input[name="result_icsi"]').on('input', function (event) {
+            let value = $(this).val();
+            if (value > 0) {
+                showResultElements('icsi');
+            } else {
+                hideResultElements('icsi');
+            }
+        });
+
+        let result_ivf = $('input[name="result_ivf"]').val();
+        let result_icsi = $('input[name="result_icsi"]').val();
+        if (result_ivf > 0) {
+            showResultElements('ivf');
+        } else {
+            hideResultElements('ivf');
+        }
+
+        if (result_icsi > 0) {
+            showResultElements('icsi');            
+        } else {
+            hideResultElements('icsi');
+        }
     });
 </script>
 @endpush

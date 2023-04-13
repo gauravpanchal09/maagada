@@ -40,6 +40,17 @@ class UpdateInTestsColumns extends Migration
             $table->text('husband_i_semen_culture')->nullable();
             $table->text('husband_i_vdrl')->nullable();
             $table->text('husband_i_sperm')->nullable();
+            $table->text('wife_i_cbc')->nullable();
+            $table->text('wife_i_hb')->nullable();
+            $table->text('wife_i_td')->nullable();
+            $table->text('wife_i_esr')->nullable();
+            $table->text('wife_i_abo')->nullable();
+            $table->text('wife_i_hiv')->nullable();
+            $table->text('wife_i_blood_sugar')->nullable();
+            $table->text('wife_i_hbsag')->nullable();
+            $table->text('wife_i_urine')->nullable();
+            $table->text('wife_i_hcv')->nullable();
+            $table->text('wife_i_vdrl')->nullable();
             $table->date('wife_hea_date')->nullable();
             $table->text('wife_hea_toxoplasma_g')->nullable();
             $table->text('wife_hea_toxoplasma_m')->nullable();
@@ -57,6 +68,7 @@ class UpdateInTestsColumns extends Migration
             $table->text('wife_hea_ana_m')->nullable();
             $table->text('wife_hea_la_g')->nullable();
             $table->text('wife_hea_la_m')->nullable();
+            $table->text('sa_hrs_1')->nullable();
             $table->text('wife_ici_day_1')->nullable();
             $table->date('wife_ici_date_1')->nullable();
             $table->text('wife_ici_endo_1')->nullable();
@@ -77,22 +89,6 @@ class UpdateInTestsColumns extends Migration
             $table->text('wife_ici_remark_3')->nullable();
             $table->text('wife_ici_day_4')->nullable();
             $table->date('wife_ici_date_4')->nullable();
-            $table->text('wife_ici_endo_4')->nullable();
-            $table->text('wife_ici_rtov_4')->nullable();
-            $table->text('wife_ici_ltov_4')->nullable();
-            $table->text('wife_ici_remark_4')->nullable();
-            $table->text('wife_ici_day_5')->nullable();
-            $table->date('wife_ici_date_5')->nullable();
-            $table->text('wife_ici_endo_5')->nullable();
-            $table->text('wife_ici_rtov_5')->nullable();
-            $table->text('wife_ici_ltov_5')->nullable();
-            $table->text('wife_ici_remark_5')->nullable();
-            $table->text('wife_ici_day_6')->nullable();
-            $table->date('wife_ici_date_6')->nullable();
-            $table->text('wife_ici_endo_6')->nullable();
-            $table->text('wife_ici_rtov_6')->nullable();
-            $table->text('wife_ici_ltov_6')->nullable();
-            $table->text('wife_ici_remark_6')->nullable();
         });
     }
 
@@ -130,6 +126,17 @@ class UpdateInTestsColumns extends Migration
             $table->dropColumn('husband_i_semen_culture');
             $table->dropColumn('husband_i_vdrl');
             $table->dropColumn('husband_i_sperm');
+            $table->dropColumn('wife_i_cbc');
+            $table->dropColumn('wife_i_hb');
+            $table->dropColumn('wife_i_td');
+            $table->dropColumn('wife_i_esr');
+            $table->dropColumn('wife_i_abo');
+            $table->dropColumn('wife_i_hiv');
+            $table->dropColumn('wife_i_blood_sugar');
+            $table->dropColumn('wife_i_hbsag');
+            $table->dropColumn('wife_i_urine');
+            $table->dropColumn('wife_i_hcv');
+            $table->dropColumn('wife_i_vdrl');
             $table->dropColumn('wife_hea_date');
             $table->dropColumn('wife_hea_toxoplasma_g');
             $table->dropColumn('wife_hea_toxoplasma_m');
@@ -147,6 +154,7 @@ class UpdateInTestsColumns extends Migration
             $table->dropColumn('wife_hea_ana_m');
             $table->dropColumn('wife_hea_la_g');
             $table->dropColumn('wife_hea_la_m');
+            $table->dropColumn('sa_hrs_1');
             $table->dropColumn('wife_ici_day_1');
             $table->dropColumn('wife_ici_date_1');
             $table->dropColumn('wife_ici_endo_1');
@@ -167,22 +175,6 @@ class UpdateInTestsColumns extends Migration
             $table->dropColumn('wife_ici_remark_3');
             $table->dropColumn('wife_ici_day_4');
             $table->dropColumn('wife_ici_date_4');
-            $table->dropColumn('wife_ici_endo_4');
-            $table->dropColumn('wife_ici_rtov_4');
-            $table->dropColumn('wife_ici_ltov_4');
-            $table->dropColumn('wife_ici_remark_4');
-            $table->dropColumn('wife_ici_day_5');
-            $table->dropColumn('wife_ici_date_5');
-            $table->dropColumn('wife_ici_endo_5');
-            $table->dropColumn('wife_ici_rtov_5');
-            $table->dropColumn('wife_ici_ltov_5');
-            $table->dropColumn('wife_ici_remark_5');
-            $table->dropColumn('wife_ici_day_6');
-            $table->dropColumn('wife_ici_date_6');
-            $table->dropColumn('wife_ici_endo_6');
-            $table->dropColumn('wife_ici_rtov_6');
-            $table->dropColumn('wife_ici_ltov_6');
-            $table->dropColumn('wife_ici_remark_6');
         });
     }
 }

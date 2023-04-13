@@ -2,7 +2,7 @@ version: '3.3'
 
 #Docker networks
 networks:
-  api-network:
+  hospital-network:
     driver: bridge
 
 #Docker volumns
@@ -20,7 +20,7 @@ services:
     volumes:
       - ./:/var/www/html
     networks:
-      - api-network
+      - hospital-network
 
   app:
     image: nginx:alpine
@@ -32,7 +32,7 @@ services:
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
     restart: unless-stopped
     networks:
-      - api-network
+      - hospital-network
 
   db:
     image: mysql
@@ -46,10 +46,21 @@ services:
       SERICE_TAGS: "local"
       SERIVE_NAME: "mysql"
     networks:
-      - api-network
+      - hospital-network
     command: 
       - --innodb_strict_mode=0
       - --innodb-log-buffer-size=256M
       - --innodb_redo_log_capacity=2147483648
     volumes:
       - dbdata:/var/lib/mysql/
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: HOSPITAL_MAILHOG
+    logging:
+      driver: 'none'
+    ports:
+      - 1025:1025
+      - 8082:8025
+    networks:
+      - hospital-network
