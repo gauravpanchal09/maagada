@@ -25,7 +25,37 @@
 <script>
     $(function () {
         $('.box > .overlay').hide();
-        window.print();
+        $("span.form-control").each(function() {
+            let element = $(this);
+
+            if (!(element.text() && element.text() != 'N/A')) {
+                element.parents('div.form-group').parent().remove();
+            }
+        });
+
+        $("table.table").each(function() {
+            $(this).find('tbody > tr').each(function () {
+                let row = $(this), hide = true;
+                let exist = row.find('span.form-control');
+
+                if (exist.length == 0) {
+                    row.hide();
+                }
+            });
+        });
+
+        $(".report-content .row").each(function() {
+            let row = $(this);
+            let exist = row.find('span.form-control');
+
+            if (exist.length == 0) {
+                row.hide();
+            }
+        });
+
+        setTimeout(() => {
+            window.print();
+        }, 300);
     });
 </script>
 @endpush

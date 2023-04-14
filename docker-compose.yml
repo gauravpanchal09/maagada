@@ -53,6 +53,21 @@ services:
       - --innodb_redo_log_capacity=2147483648
     volumes:
       - dbdata:/var/lib/mysql/
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: HOSPITAL_PHPMYADMIN
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+    networks:
+      - hospital-network
 
   mailhog:
     image: mailhog/mailhog

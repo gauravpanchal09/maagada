@@ -194,7 +194,7 @@
         <div id="obstericHistoryCollapseOne" class="panel-collapse collapse">
             <div class="box-body">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('oh_delivery') has-error @enderror">
                             <label for="oh_delivery">{{ __('Delivery') }}</label>
                             <input type="text" name="oh_delivery" class="form-control" value="{{ $test ? $test->oh_delivery : old('oh_delivery') }}">
@@ -205,7 +205,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('oh_miscarriage') has-error @enderror">
                             <label for="oh_miscarriage">{{ __('Miscarriage') }}</label>
                             <input type="text" name="oh_miscarriage" class="form-control" value="{{ $test ? $test->oh_miscarriage : old('oh_miscarriage') }}">

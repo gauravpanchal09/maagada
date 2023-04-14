@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body report-content">
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
@@ -92,22 +92,16 @@
             <fieldset>
                 <legend>{{ __('Obsteric History') }}</legend>
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="oh_delivery">{{ __('Delivery') }}</label>
                             <span class="form-control">{{ $report->oh_delivery ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="oh_miscarriage">{{ __('Miscarriage') }}</label>
                             <span class="form-control">{{ $report->oh_miscarriage ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="oh_termination">{{ __('Termination') }}</label>
-                            <span class="form-control">{{ $report->oh_termination ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -496,13 +490,13 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group @error('husband_other_investigationq') has-error @enderror">
+                        <div class="form-group">
                             <label for="husband_other_investigationq">{{ __('Other Investigation') }}</label>
                             <span class="form-control">{{ $report->husband_other_investigationq ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group @error('husband_te_advised') has-error @enderror">
+                        <div class="form-group">
                             <label for="husband_te_advised">{{ __('Treatment Advised') }}</label>
                             <span class="form-control">{{ $report->husband_te_advised ?: 'N/A' }}</span>
                         </div>
@@ -585,7 +579,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('husband_i_sperm') has-error @enderror">
+                        <div class="form-group">
                             <label for="husband_i_sperm">{{ __('Sperm Antibodies') }}</label>
                             <span class="form-control">{{ $report->husband_i_sperm ?: 'N/A' }}</span>
                         </div>
@@ -634,6 +628,77 @@
                         <div class="form-group">
                             <label for="inv_hysterosalpingography">{{ __('HSG (Hysterosalpingography)') }}</label>
                             <span class="form-control">{{ $report->inv_hysterosalpingography ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+            <legend>{{ __('Investigations') }}</legend>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_cbc">{{ __('CBC') }}</label>
+                            <span class="form-control">{{ $report->wife_i_cbc ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_hb">{{ __('HB') }}</label>
+                            <span class="form-control">{{ $report->wife_i_hb ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_td">{{ __('T & D') }}</label>
+                            <span class="form-control">{{ $report->wife_i_td ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_esr">{{ __('ESR') }}</label>
+                            <span class="form-control">{{ $report->wife_i_esr ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_abo">{{ __('ABO-RH') }}</label>
+                            <span class="form-control">{{ $report->wife_i_abo ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_hiv">{{ __('HIV I & II') }}</label>
+                            <span class="form-control">{{ $report->wife_i_hiv ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_blood_sugar">{{ __('Blood Sugar') }}</label>
+                            <span class="form-control">{{ $report->wife_i_blood_sugar ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_hbsag">{{ __('HbsAg') }}</label>
+                            <span class="form-control">{{ $report->wife_i_hbsag ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_urine">{{ __('Urine') }}</label>
+                            <span class="form-control">{{ $report->wife_i_urine ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_hcv">{{ __('HCV') }}</label>
+                            <span class="form-control">{{ $report->wife_i_hcv ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="wife_i_vdrl">{{ __('VDRL') }}</label>
+                            <span class="form-control">{{ $report->wife_i_vdrl ?: 'N/A' }}</span>
                         </div>
                     </div>
                 </div>
@@ -979,8 +1044,10 @@
                         </tbody>
                     </table>
                 </div>
-                <p>Antibodies against husband's sperms:</p>
                 <div class="row">
+                    <div class="col-md-12">
+                        <p>Antibodies against husband's sperms:</p>
+                    </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="wife_hea_date">{{ __('Date') }}</label>
@@ -1655,6 +1722,32 @@
                 <legend>{{ __("Wife's LMP.") }}</legend>
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="form-control">{{ $report->result_description ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group ">
+                            <label for="result_tton">{{ __('Trial Transfer on') }}</label>
+                            <span class="form-control">{{ $report->result_tton ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="result_remarks">{{ __('Remarks') }}</label>
+                            <span class="form-control">{{ $report->result_remarks ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="result_by">{{ __('By Dr.') }}</label>
+                            <span class="form-control">{{ $report->result_by ?: 'N/A' }}</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -1686,27 +1779,6 @@
                                             <div class="form-group">
                                                 <span class="form-control">{{ $report->wife_lmp_oc_tco ?: 'N/A' }}</span>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group ">
-                                                <label for="result_tton">{{ __('Trial Transfer on') }}</label>
-                                                <span class="form-control">{{ $report->result_tton ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_remarks') has-error @enderror">
-                                                <label for="result_remarks">{{ __('Remarks') }}</label>
-                                                <span class="form-control">{{ $report->result_remarks ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_by') has-error @enderror">
-                                                <label for="result_by">{{ __('By Dr.') }}</label>
-                                                <span class="form-control">{{ $report->result_by ?: 'N/A' }}</span>
-                                            </div>
-                                            
                                         </td>
                                     </tr>
                                     <tr>
@@ -2621,7 +2693,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ovum_total') has-error @enderror">
+                        <div class="form-group">
                             <label for="sperm_source_ovum_total">{{ __('Total No. of Ovum Retrieve') }}</label>
                             <span class="form-control">{{ $report->sperm_source_ovum_total ?: 'N/A' }}</span>
                         </div>
@@ -2963,7 +3035,8 @@
                             </table>
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="result_ivf">{{ __('IVF') }}</label>
@@ -3021,7 +3094,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_2">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3040,7 +3113,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_1">{{ __('Cell stage') }}</label>
                             <span class="form-control">{{ $report->sa_2pn_1 ?: 'N/A' }}</span>
                         </div>
@@ -3083,19 +3156,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_1">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_1">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3108,19 +3181,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_2">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_2">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3133,19 +3206,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_1">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_1">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3158,19 +3231,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_2">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_2">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3183,19 +3256,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_1">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_1">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
@@ -3209,19 +3282,19 @@
                         </div>    
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_2pn_2">{{ __('2PN') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
+                        <div class="form-group">
                             <label for="sa_max2pn_2">{{ __('Discard') }}</label>
                             <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
                         </div>

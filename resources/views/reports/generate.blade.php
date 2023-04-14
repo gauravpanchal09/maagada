@@ -4,10 +4,10 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua-active">
                 <div class="d-flex justify-content-space-between">
-                    <h3 class="widget-user-username">#{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->husband_name }}</h3>
+                    <h3 class="widget-user-username">#{{ $patient->registration_number }} {{ $patient->first_name }} {{ $patient->last_name }}, {{ __('Age') }}: {{ $patient->age }}</h3>
                     <h3 class="widget-user-username">{{ $patient->doctor }}</h3>
                 </div>
-                <h5 class="widget-user-desc">{{ __('Age') }} : {{ $patient->age }} years</h5>
+                <h5 class="widget-user-desc">{{ __('Husband') }} : {{ $patient->husband_name }}, {{ __('Age') }}: {{ $patient->husband_age }}</h5>
                 <h5 class="widget-user-desc">{{ __('Mobile') }} : {{ $patient->mobile ?: 'N/A' }}</h5>
                 <h5 class="widget-user-desc">{{ __('Aadhar Card') }} : {{ $patient->aadhar_card ?: 'N/A' }}</h5>
                 <h5 class="widget-user-desc">{{ $patient->address ?: 'N/A' }}</h5>
@@ -68,6 +68,34 @@ $(function () {
                 window.location.reload(true)
             }
         });
+    });
+
+    $("span.form-control").each(function() {
+        let element = $(this);
+
+        if (!(element.text() && element.text() != 'N/A')) {
+            element.parents('div.form-group').parent().remove();
+        }
+    });
+
+    $("table.table").each(function() {
+        $(this).find('tbody > tr').each(function () {
+            let row = $(this), hide = true;
+            let exist = row.find('span.form-control');
+
+            if (exist.length == 0) {
+                row.hide();
+            }
+        });
+    });
+
+    $(".report-content .row").each(function() {
+        let row = $(this);
+        let exist = row.find('span.form-control');
+
+        if (exist.length == 0) {
+            row.hide();
+        }
     });
 });
 </script>
