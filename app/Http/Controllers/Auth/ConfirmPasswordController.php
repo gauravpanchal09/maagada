@@ -10,6 +10,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ConfirmPasswordController extends Controller
 {
@@ -41,5 +43,15 @@ class ConfirmPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function changePassword(Request $request)
+    {
+        $user = auth()->user();
+        $user->update(['password' => Hash::make($request->get('password', 'Password'))]);
+        return redirect()->back()->with(['success' => 'Password has been changed successfully!']);
     }
 }

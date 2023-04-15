@@ -56,4 +56,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}', [App\Http\Controllers\ReportController::class, 'generate'])->name('reports.generate');
         Route::get('/print/{id}', [App\Http\Controllers\ReportController::class, 'print'])->name('reports.print');
     });
+
+    Route::post('/change-password', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'changePassword'])->name('auth.changePassword');
 });

@@ -116,6 +116,36 @@
             @elseif(Session::has('warning'))
                 toastr.warning('{{ Session::get('warning') }}');
             @endif
+
+            // Change Password API
+            $('#change-password-form').submit(function (event) {
+                event.preventDefault();
+                let form = $(this);
+
+                let password = form.find('input[name="password"]');
+                let confirm_password = form.find('input[name="confirm_password"]');
+
+                password.parents('.form-group').removeClass('has-error');
+                confirm_password.parents('.form-group').removeClass('has-error');
+                if (!password.val() | !confirm_password.val()) {
+                    if (!password.val()) {
+                        password.parents('.form-group').addClass('has-error');
+                    }
+
+                    if (!confirm_password.val()) {
+                        confirm_password.parents('.form-group').addClass('has-error');
+                    }
+
+                    return false;
+                }
+
+                if (password.val() != confirm_password.val()) {
+                    confirm_password.parents('.form-group').addClass('has-error');
+                    return false;
+                }
+
+                form.unbind('submit').submit();
+            });
         });
     </script>
     @stack('scripts')
