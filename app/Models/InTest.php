@@ -511,49 +511,7 @@ class InTest extends Model
         'result_semen_cryo'
     ];
 
-    protected $casts = [
-        'inv_images' => 'array',
-        'husband_dob' => 'date',
-        'he_anh_date' => 'date',
-        'he_prolaction_date' => 'date',
-        'he_lh_date' => 'date',
-        'he_fsh_date' => 'date',
-        'he_testosterone_date' => 'date',
-        'he_oestrogen_date' => 'date',
-        'he_progesterone_date' => 'date',
-        'he_dheas_date' => 'date',
-        'he_cortisol_date' => 'date',
-        'he_t3_date' => 'date',
-        'he_t4_date' => 'date',
-        'he_tsh_date' => 'date',
-        'wife_hea_date' => 'date',
-        'wife_ici_date_1' => 'date',
-        'wife_ici_date_2' => 'date',
-        'wife_ici_date_3' => 'date',
-        'wife_ici_date_4' => 'date',
-        'wife_ici_date_5' => 'date',
-        'wife_ici_date_6' => 'date',
-        'result_tton' => 'date',
-        'result_date_1' => 'date',
-        'result_date_2' => 'date',
-        'result_date_3' => 'date',
-        'result_date_4' => 'date',
-        'result_date_5' => 'date',
-        'result_date_6' => 'date',
-        'result_date_7' => 'date',
-        'result_date_8' => 'date',
-        'result_date_9' => 'date',
-        'result_date_10' => 'date',
-        'result_date_11' => 'date',
-        'result_date_12' => 'date',
-        'result_date_13' => 'date',
-        'result_date_14' => 'date',
-        'result_date_15' => 'date',
-        'result_date_16' => 'date',
-        'et_date_of_et' => 'date',
-        'bt_date_of_et' => 'date',
-        'thawing_date_of_et' => 'date'
-    ];
+    protected $casts = ['inv_images' => 'array'];
 
     public function patient()
     {

@@ -44,16 +44,6 @@ class Patient extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'dob' => 'date',
-        'husband_dob' => 'date'
-    ];
-
-    /**
-     * The attributes that are type castable.
-     *
-     * @var array
-     */
     protected $appends = [
         'age',
         'husband_age'

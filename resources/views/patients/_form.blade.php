@@ -42,7 +42,7 @@
         <div class="col-md-6">
             <div class="form-group @error('dob') has-error @enderror">
                 <label for="dob">{{ __('Date Of Birth') }}</label>
-                <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob->format('Y-m-d') : old('dob') }}">
+                <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob : old('dob') }}">
                 @error('dob')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
         <div class="col-md-6">
             <div class="form-group @error('husband_dob') has-error @enderror">
                 <label for="husband_dob">{{ __('Husband Date Of Birth') }}</label>
-                <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob->format('Y-m-d') : old('husband_dob') }}">
+                <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob : old('husband_dob') }}">
                 @error('husband_dob')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
