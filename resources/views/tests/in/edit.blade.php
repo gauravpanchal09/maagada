@@ -111,8 +111,23 @@
             }
         });
 
+        $('select[name="treatment_plan"]').on('change' , function (event) {
+            let value = event.target.value;
+            if (value && value == 'iui') {
+                showResultElements('iui-treatment-plan');
+                hideResultElements('ivf-treatment-plan');
+            } else if (value && value == 'ivf') {
+                showResultElements('ivf-treatment-plan');
+                hideResultElements('iui-treatment-plan');
+            } else {
+                hideResultElements('ivf-treatment-plan');
+                hideResultElements('iui-treatment-plan');
+            }
+        });
+
         let result_ivf = $('input[name="result_ivf"]').val();
         let result_icsi = $('input[name="result_icsi"]').val();
+        let treatment_plan = $('select[name="treatment_plan"] :selected').val();
         if (result_ivf > 0) {
             showResultElements('ivf');
         } else {
@@ -120,9 +135,20 @@
         }
 
         if (result_icsi > 0) {
-            showResultElements('icsi');            
+            showResultElements('icsi');
         } else {
             hideResultElements('icsi');
+        }
+
+        if (treatment_plan && treatment_plan == 'iui') {
+            showResultElements('iui-treatment-plan');
+            hideResultElements('ivf-treatment-plan');
+        } else if (treatment_plan && treatment_plan == 'ivf') {
+            showResultElements('ivf-treatment-plan');
+            hideResultElements('iui-treatment-plan');
+        } else {
+            hideResultElements('ivf-treatment-plan');
+            hideResultElements('iui-treatment-plan');
         }
     });
 </script>

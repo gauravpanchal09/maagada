@@ -3049,256 +3049,271 @@
                             <span class="form-control">{{ $report->result_icsi ?: 'N/A' }}</span>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="IVF Day 1" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_no2pn_1">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_no2pn_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_2pn_1">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_2pn_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ivf_discard_1">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->ivf_discard_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="ICSI Day 1" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_no2pn_1">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_no2pn_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_2pn_1">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_2pn_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="icsi_discard_1">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->icsi_discard_1 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="IVF Day 1" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_no2pn_1 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="IVF Day 2" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_2pn_1 ?: 'N/A' }}</span>
+                            <label for="ivf_no2pn_2">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_no2pn_2 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_2pn_2">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_1 ?: 'N/A' }}</span>
+                            <label for="ivf_discard_2">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->ivf_discard_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="ICSI Day 2" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_no2pn_2">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_no2pn_2 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_2pn_2">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_2pn_2 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="icsi_discard_2">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->icsi_discard_2 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="ICSI Day 1" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_no2pn_2 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="IVF Day 3" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_2pn_2 ?: 'N/A' }}</span>
+                            <label for="ivf_no2pn_3">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_no2pn_3 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_2pn_3">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_2pn_3 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="ivf_discard_3">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->ivf_discard_3 ?: 'N/A' }}</span>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="ICSI Day 3" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_no2pn_3">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_no2pn_3 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_2pn_3">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_2pn_3 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="icsi_discard_3">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->icsi_discard_3 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="IVF Day 2" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">{{ __('Cell stage ') }}</label>
-                            <span class="form-control">{{ $report->sa_no2pn_1 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="IVF Day 4" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_1">{{ __('Cell stage') }}</label>
-                            <span class="form-control">{{ $report->sa_2pn_1 ?: 'N/A' }}</span>
+                            <label for="ivf_no2pn_4">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_no2pn_4 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_2pn_4">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_2pn_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_1 ?: 'N/A' }}</span>
+                            <label for="ivf_discard_4">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->ivf_discard_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="ICSI Day 2" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_no2pn_2 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="ICSI Day 4" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_2pn_2 ?: 'N/A' }}</span>
+                            <label for="icsi_no2pn_4">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_no2pn_4 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_2pn_4">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_2pn_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="icsi_discard_4">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->icsi_discard_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="IVF Day 3" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="IVF Day 5" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="ivf_no2pn_5">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_no2pn_5 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ivf_2pn_5">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->ivf_2pn_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="ivf_discard_5">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->ivf_discard_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    
+                </div>
+                <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="ICSI Day 3" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" value="ICSI Day 5" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="icsi_no2pn_5">{{ __('No.2 PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_no2pn_5 ?: 'N/A' }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="icsi_2pn_5">{{ __('2PN') }}</label>
+                            <span class="form-control">{{ $report->icsi_2pn_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
+                            <label for="icsi_discard_5">{{ __('Discard') }}</label>
+                            <span class="form-control">{{ $report->icsi_discard_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="IVF Day 4" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="ICSI Day 4" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="IVF Day 5" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" name="Day1" value="ICSI Day 5" readonly>
-                        </div>    
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <span class="form-control">{{ $report->sa_max2pn_2 ?: 'N/A' }}</span>
-                        </div>
-                    </div>            
+                </div>
             </fieldset>
             <fieldset>
                 <legend>{{ __('Embryo Transfer') }}</legend>

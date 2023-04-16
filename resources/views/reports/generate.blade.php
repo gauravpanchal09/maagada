@@ -87,6 +87,11 @@ $(function () {
                 row.hide();
             }
         });
+
+        let exist = $(this).find('span.form-control');
+        if (exist.length == 0) {
+            $(this).hide();
+        }
     });
 
     $(".report-content .row").each(function() {
