@@ -3156,7 +3156,7 @@
             <div class="box-header">
                 <h4 class="box-title">
                     <a class="text-muted" data-toggle="collapse" data-parent="#iVFTreatmentPanelOne" href="#iVFTreatmentCollapseOne">
-                        <strong>{{ __('IVF Treatment Plan') }}</strong>
+                        <strong>{{ __('IVF') }}</strong>
                     </a>
                 </h4>
             </div>
