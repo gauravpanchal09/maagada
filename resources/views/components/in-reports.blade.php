@@ -339,37 +339,37 @@
             <fieldset>
                 <legend><strong>{{ __('Husband') }}</strong></legend>
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="husband_dob">{{ __('Date of birth') }}</label>
-                            <span class="form-control">{{ $report->husband_dob ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+                    <!--<div class="col-md-2">-->
+                    <!--    <div class="form-group">-->
+                    <!--        <label for="husband_dob">{{ __('Date of birth') }}</label>-->
+                    <!--        <span class="form-control">{{ $report->husband_dob ?: 'N/A' }}</span>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="husband_occupation">{{ __('Occupation') }}</label>
                             <span class="form-control">{{ $report->husband_occupation ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="husband_married_previously">{{ __('Married Previously') }}</label>
                             <span class="form-control">{{ $report->husband_married_previously ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="husband_age">{{ __('Age') }}</label>
-                            <span class="form-control">{{ $report->husband_age ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+                    <!--<div class="col-md-2">-->
+                    <!--    <div class="form-group">-->
+                    <!--        <label for="husband_age">{{ __('Age') }}</label>-->
+                    <!--        <span class="form-control">{{ $report->husband_age ?: 'N/A' }}</span>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="husband_children">{{ __('Children') }}</label>
                             <span class="form-control">{{ $report->husband_children ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="husband_coitus_frequency">{{ __('Coitus frequency') }}</label>
                             <span class="form-control">{{ $report->husband_coitus_frequency ?: 'N/A' }}</span>
@@ -1726,25 +1726,6 @@
                             <span class="form-control">{{ $report->result_description ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group ">
-                            <label for="result_tton">{{ __('Trial Transfer on') }}</label>
-                            <span class="form-control">{{ $report->result_tton ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="result_remarks">{{ __('Remarks') }}</label>
-                            <span class="form-control">{{ $report->result_remarks ?: 'N/A' }}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="result_by">{{ __('By Dr.') }}</label>
-                            <span class="form-control">{{ $report->result_by ?: 'N/A' }}</span>
-                        </div>
-                        
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -1784,47 +1765,30 @@
                                     <tr>
                                         <td>
                                             <div class="form-group">
-                                                <input type="text" name="wife_lmp_telephone" class="form-control" value="Telephone Talk" readonly />
+                                                 <label for="result_tton"></label>
+                                                <input type="text" name="wife_lmp_telephone" class="form-control" value="" readonly />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group ">
+                                                <label for="result_tton">{{ __('Trial Transfer on') }}</label>
+                                                <span class="form-control">{{ $report->result_tton ?: 'N/A' }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_telephone_begin ?: 'N/A' }}</span>
+                                                <label for="result_remarks">{{ __('Remarks') }}</label>
+                                                <span class="form-control">{{ $report->result_remarks ?: 'N/A' }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_telephone_stopped ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_telephone_tco ?: 'N/A' }}</span>
+                                                <label for="result_by">{{ __('By Dr.') }}</label>
+                                                <span class="form-control">{{ $report->result_by ?: 'N/A' }}</span>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" name="wife_lmp_discussion" class="form-control" value="Discussion" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_discussion_begin ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_discussion_stopped ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group">
-                                                <span class="form-control">{{ $report->wife_lmp_discussion_tco ?: 'N/A' }}</span>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -3112,7 +3076,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="ivf_no2pn_2">{{ __('No.2 PN') }}</label>
+                            <label for="ivf_no2pn_2">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->ivf_no2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3138,7 +3102,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="icsi_no2pn_2">{{ __('No.2 PN') }}</label>
+                            <label for="icsi_no2pn_2">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->icsi_no2pn_2 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3165,7 +3129,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="ivf_no2pn_3">{{ __('No.2 PN') }}</label>
+                            <label for="ivf_no2pn_3">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->ivf_no2pn_3 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3191,7 +3155,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="icsi_no2pn_3">{{ __('No.2 PN') }}</label>
+                            <label for="icsi_no2pn_3">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->icsi_no2pn_3 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3218,7 +3182,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="ivf_no2pn_4">{{ __('No.2 PN') }}</label>
+                            <label for="ivf_no2pn_4">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->ivf_no2pn_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3244,7 +3208,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="icsi_no2pn_4">{{ __('No.2 PN') }}</label>
+                            <label for="icsi_no2pn_4">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->icsi_no2pn_4 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3271,7 +3235,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="ivf_no2pn_5">{{ __('No.2 PN') }}</label>
+                            <label for="ivf_no2pn_5">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->ivf_no2pn_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
@@ -3297,7 +3261,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="icsi_no2pn_5">{{ __('No.2 PN') }}</label>
+                            <label for="icsi_no2pn_5">{{ __('Cell Stage') }}</label>
                             <span class="form-control">{{ $report->icsi_no2pn_5 ?: 'N/A' }}</span>
                         </div>
                     </div>
