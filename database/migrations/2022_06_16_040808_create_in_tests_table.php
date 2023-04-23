@@ -64,7 +64,7 @@ class CreateInTestsTable extends Migration
             $table->text('tr_year')->nullable();
             $table->date('husband_dob')->nullable();
             $table->text('husband_occupation')->nullable();
-            $table->date('husband_married_previously')->nullable();
+            $table->text('husband_married_previously')->nullable();
             $table->text('husband_age')->nullable();
             $table->text('husband_children')->nullable();
             $table->text('husband_coitus_frequency')->nullable();
