@@ -262,6 +262,37 @@ class InTest extends FormRequest
             'wife_ici_rtov_6' => 'nullable|max:255',
             'wife_ici_ltov_6' => 'nullable|max:255',
             'wife_ici_remark_6' => 'nullable|max:255',
+            'wife_ici_day_7' => 'nullable|max:255',
+            'wife_ici_date_7' => 'nullable|date',
+            'wife_ici_endo_7' => 'nullable|max:255',
+            'wife_ici_rtov_7' => 'nullable|max:255',
+            'wife_ici_ltov_7' => 'nullable|max:255',
+            'wife_ici_remark_7' => 'nullable|max:255',
+            'wife_ici_day_8' => 'nullable|max:255',
+            'wife_ici_date_8' => 'nullable|date',
+            'wife_ici_endo_8' => 'nullable|max:255',
+            'wife_ici_rtov_8' => 'nullable|max:255',
+            'wife_ici_ltov_8' => 'nullable|max:255',
+            'wife_ici_remark_8' => 'nullable|max:255',
+            'wife_ici_day_9' => 'nullable|max:255',
+            'wife_ici_date_9' => 'nullable|date',
+            'wife_ici_endo_9' => 'nullable|max:255',
+            'wife_ici_rtov_9' => 'nullable|max:255',
+            'wife_ici_ltov_9' => 'nullable|max:255',
+            'wife_ici_remark_9' => 'nullable|max:255',
+            'wife_ici_day_10' => 'nullable|max:255',
+            'wife_ici_date_10' => 'nullable|date',
+            'wife_ici_endo_10' => 'nullable|max:255',
+            'wife_ici_rtov_10' => 'nullable|max:255',
+            'wife_ici_ltov_10' => 'nullable|max:255',
+            'wife_ici_remark_10' => 'nullable|max:255',
+            'wife_ici_extra_data' => 'array',
+            'wife_ici_extra_data.*.day' => 'nullable|max:255',
+            'wife_ici_extra_data.*.date' => 'nullable|date',
+            'wife_ici_extra_data.*.endo' => 'nullable|max:255',
+            'wife_ici_extra_data.*.rtov' => 'nullable|max:255',
+            'wife_ici_extra_data.*.ltov' => 'nullable|max:255',
+            'wife_ici_extra_data.*.remark' => 'nullable|max:255',
             'wife_iuid_day_1' => 'nullable|max:255',
             'wife_iuid_volume_1' => 'nullable|max:255',
             'wife_iuid_native_couint_1' => 'nullable|max:255',
@@ -555,5 +586,17 @@ class InTest extends FormRequest
         }
 
         return $rules;
+    }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'wife_ici_extra_data' => empty($this->get('wife_ici_extra_data', [])) ? [] : $this->get('wife_ici_extra_data')
+        ]);
     }
 }

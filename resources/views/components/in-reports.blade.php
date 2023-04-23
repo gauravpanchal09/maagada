@@ -603,18 +603,18 @@
                         <div class="form-group">
                             <label for="inv_images">{{ __('Images') }}</label>
                             @if ($report->inv_images)
-                                <div class="row">
-                                    @foreach($report->inv_images as $index => $file)
-                                        <div class="col-md-6">
-                                            <button data-href="{{ route('in.deleteImage', ['id' => $report->id, 'index' => $index]) }}" class="btn btn-remove pull-right">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                            <img src="{{ route('in.displayImage', ['id' => $report->id, 'index' => $index]) }}" class="img-thumbnail" />
-                                        </div>
-                                    @endforeach
+                            <div class="row">
+                                @foreach($report->inv_images as $index => $file)
+                                <div class="col-md-6">
+                                    <button data-href="{{ route('in.deleteImage', ['id' => $report->id, 'index' => $index]) }}" class="btn btn-remove pull-right">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                    <img src="{{ route('in.displayImage', ['id' => $report->id, 'index' => $index]) }}" class="img-thumbnail" />
                                 </div>
+                                @endforeach
+                            </div>
                             @else
-                                <span class="form-control">{{ __('N/A') }}</span>
+                            <span class="form-control">{{ __('N/A') }}</span>
                             @endif
                         </div>
                     </div>
@@ -633,7 +633,7 @@
                 </div>
             </fieldset>
             <fieldset>
-            <legend>{{ __('Investigations') }}</legend>
+                <legend>{{ __('Investigations') }}</legend>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -720,7 +720,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="AMH" readonly/>
+                                        <input type="text" class="form-control" value="AMH" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -747,7 +747,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="Prolaction" readonly/>
+                                        <input type="text" class="form-control" value="Prolaction" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -774,7 +774,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="L.H" readonly/>
+                                        <input type="text" class="form-control" value="L.H" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -801,7 +801,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="F.S.H" readonly/>
+                                        <input type="text" class="form-control" value="F.S.H" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -828,7 +828,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="Testosterone" readonly/>
+                                        <input type="text" class="form-control" value="Testosterone" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -855,7 +855,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="Oestrogen" readonly/>
+                                        <input type="text" class="form-control" value="Oestrogen" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -882,7 +882,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="Progesterone" readonly/>
+                                        <input type="text" class="form-control" value="Progesterone" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -909,7 +909,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="DHEAS" readonly/>
+                                        <input type="text" class="form-control" value="DHEAS" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -936,7 +936,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="Cortisol" readonly/>
+                                        <input type="text" class="form-control" value="Cortisol" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -963,7 +963,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="T3" readonly/>
+                                        <input type="text" class="form-control" value="T3" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -990,7 +990,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="T4" readonly/>
+                                        <input type="text" class="form-control" value="T4" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -1017,7 +1017,7 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" value="TSH" readonly/>
+                                        <input type="text" class="form-control" value="TSH" readonly />
                                     </div>
                                 </td>
                                 <td>
@@ -1215,7 +1215,7 @@
                             <span class="form-control">{{ $report->sa_hrs_1 ?: 'N/A' }}</span>
                         </div>
                     </div>
-                </div>   
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
@@ -1431,12 +1431,179 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_day_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_date_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_endo_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_rtov_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_ltov_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_remark_7 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_day_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_date_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_endo_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_rtov_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_ltov_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_remark_8 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_day_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_date_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_endo_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_rtov_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_ltov_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_remark_9 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_day_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_date_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_endo_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_rtov_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_ltov_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <span class="form-control">{{ $report->wife_ici_remark_10 ?: 'N/A' }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @foreach($report->wife_ici_extra_data as $key => $data)
+                                        <tr>
+                                            <td>{{ $key + 11 }}</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['day'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['date'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['endo'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['rtov'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['ltov'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="form-control">{{ $data['remark'] ?: 'N/A' }}</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="col-md-12">
-                    <div class="table-responsive">
+                        <div class="table-responsive">
                             <table class="table">
                                 <caption>{{ __('Intra-Uterine Insemination Details') }}</caption>
                                 <thead>
@@ -1765,7 +1932,7 @@
                                     <tr>
                                         <td>
                                             <div class="form-group">
-                                                 <label for="result_tton"></label>
+                                                <label for="result_tton"></label>
                                                 <input type="text" name="wife_lmp_telephone" class="form-control" value="" readonly />
                                             </div>
                                         </td>
@@ -1788,7 +1955,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -1817,7 +1984,7 @@
                             <span class="form-control">{{ $report->wife_lmp_protocol ?: 'N/A' }}</span>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="wife_lmp_inj">{{ __('LMP') }}</label>
@@ -2611,7 +2778,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="wife_lmp_opu">{{ __('OPU') }}</label>
-                            <span class="form-control">{{ $report->wife_lmp_opu ?: 'N/A' }}</span>                            
+                            <span class="form-control">{{ $report->wife_lmp_opu ?: 'N/A' }}</span>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -2665,7 +2832,7 @@
                 </div>
             </fieldset>
             <fieldset>
-            <legend>{{ __('OOCYTE QUALITY') }}</legend>
+                <legend>{{ __('OOCYTE QUALITY') }}</legend>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -3000,6 +3167,9 @@
                         </div>
                     </div>
                 </div>
+            </fieldset>
+            <fieldset>
+                <legend>{{ __('IVF/ICSI') }}</legend>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

@@ -11,6 +11,10 @@
     .centered-text th, .centered-text td {
         text-align: center !important;
     }
+
+    button.mb-2 {
+        margin-bottom: 20px;
+    }
 </style>
 @endpush
 
@@ -150,6 +154,67 @@
             hideResultElements('ivf-treatment-plan');
             hideResultElements('iui-treatment-plan');
         }
+
+        const generateTableRow = (count, key) => {
+            return `
+                <tr>
+                    <td>${count}</td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="wife_ici_extra_data[${key}][day]" class="form-control"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" name="wife_ici_extra_data[${key}][date]" class="form-control"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="wife_ici_extra_data[${key}][endo]" class="form-control"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="wife_ici_extra_data[${key}][rtov]" class="form-control"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="wife_ici_extra_data[${key}][ltov]" class="form-control"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="wife_ici_extra_data[${key}][remark]" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        };
+
+        $('button.add-more-btn').on('click', function() {
+            let target = $('table.wife-ici-table > tbody'), 
+            totalRow = $('table.wife-ici-table tr').length - 1;
+
+            for (let index = 1; index < 11; index++) {
+                let count = totalRow + index, key = (totalRow - 11) + index;
+                target.append(generateTableRow(count, key));
+            }
+        });
+
+        $('button.remove-more-btn').on('click', function() {
+            let target = $('table.wife-ici-table > tbody'), 
+            totalRow = $('table.wife-ici-table tr').length - 1;
+
+            if (totalRow <= 10) {
+                return;
+            }
+
+            for (let index = 1; index < 11; index++) {
+                target.find('tr:last').remove();
+            }
+        });
     });
 </script>
 @endpush

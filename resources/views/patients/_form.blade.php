@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="form-group @error('husband_dob') has-error @enderror">
                 <label for="husband_dob">{{ __('Husband Date Of Birth') }}</label>
                 <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob : old('husband_dob') }}">
@@ -68,11 +68,33 @@
                 @enderror
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
+            <div class="form-group @error('husband_age') has-error @enderror">
+                <label for="husband_age">{{ __('Husband Age') }}</label>
+                <input type="number" name="husband_age" class="form-control" value="{{ $patient ? $patient->husband_age : old('husband_age') }}">
+                @error('husband_age')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-3">
             <div class="form-group @error('dob') has-error @enderror">
                 <label for="dob">{{ __('Wife Date Of Birth') }}</label>
                 <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob : old('dob') }}">
                 @error('dob')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group @error('age') has-error @enderror">
+                <label for="age">{{ __('Wife Age') }}</label>
+                <input type="number" name="age" class="form-control" value="{{ $patient ? $patient->age : old('age') }}">
+                @error('age')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
                     </span>

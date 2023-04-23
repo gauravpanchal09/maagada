@@ -70,7 +70,7 @@ class CreateInTestsTable extends Migration
             $table->text('husband_coitus_frequency')->nullable();
             $table->text('husband_exection')->nullable();
             $table->text('husband_ejaculation')->nullable();
-            $table->date('husband_orgasm')->nullable();
+            $table->text('husband_orgasm')->nullable();
             $table->text('husband_drugs')->nullable();
             $table->text('husband_smoking')->nullable();
             $table->text('husband_alcohol')->nullable();
