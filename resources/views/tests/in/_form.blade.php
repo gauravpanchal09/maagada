@@ -22,11 +22,17 @@
                 @enderror
             </div>
         </div>
-        @if ($test && $history)
+        @if ($test)
         <div class="col-md-8">
-            <a href="#" class="btn btn-app pull-right" data-toggle="modal" data-target="#modal-default">
-                <i class="fa fa-history"></i> History
+            <a href="{{ route('in.snapshot', $test) }}" class="btn btn-app pull-right">
+                <i class="fa fa-file-text"></i> Take Snapshot
             </a>
+
+            @if(count($history))
+                <a href="{{ route('in.history', $test) }}" target="_blank" class="btn btn-app pull-right">
+                    <i class="fa fa-history"></i> History
+                </a>
+            @endif
         </div>
         @endif
     </div>
@@ -6550,7 +6556,3 @@
         <button type="submit" class="btn btn-primary">{{ $test ? __('Update') : __('Submit') }}</button>
     </div>
 </form>
-
-@if ($test && $history)
-<x-history-model :histories="$history" test="Infertility" />
-@endif

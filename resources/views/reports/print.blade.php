@@ -53,6 +53,10 @@
             }
         });
 
+        $(".exclude-hide").each(function() {
+            $(this).parents('.row').show().parents('.main-row').show();
+        });
+
         setTimeout(() => {
             window.print();
         }, 300);

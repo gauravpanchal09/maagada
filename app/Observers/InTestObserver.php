@@ -8,7 +8,6 @@
 namespace App\Observers;
 
 use App\Models\InTest;
-use App\Models\TestHistory;
 
 class InTestObserver
 {
@@ -20,7 +19,6 @@ class InTestObserver
      */
     public function creating(InTest $model)
     {
-        
     }
 
     /**
@@ -31,7 +29,6 @@ class InTestObserver
      */
     public function created(InTest $model)
     {
-        
     }
 
     /**
@@ -42,15 +39,6 @@ class InTestObserver
      */
     public function updating(InTest $model)
     {
-        if (method_exists($model, "getChanges") && !empty($model->getChanges())) {
-            $history = new TestHistory();
-            $history->fill([
-                'test_id' => $model->id,
-                'title' => InTest::class,
-                'change_set' => $model->getChanges()
-            ]);
-            $history->save();
-        }
     }
 
     /**
@@ -61,6 +49,5 @@ class InTestObserver
      */
     public function updated(InTest $model)
     {
-        
     }
 }

@@ -97,5 +97,9 @@ $(function () {
             row.hide();
         }
     });
+
+    $(".exclude-hide").each(function() {
+        $(this).parents('.row').show().parents('.main-row').show();
+    });
 });
 </script>
