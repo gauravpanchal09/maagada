@@ -57,5 +57,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/print/{id}', [App\Http\Controllers\ReportController::class, 'print'])->name('reports.print');
     });
 
+    // History
+    Route::prefix('history')->group(function () {
+        Route::get('/in/{id}/snapshot', [App\Http\Controllers\HistoryController::class, 'inSnapshot'])->name('in.snapshot');
+        Route::get('/in/{id}', [App\Http\Controllers\HistoryController::class, 'inHistory'])->name('in.history');
+    });
+
     Route::post('/change-password', [App\Http\Controllers\Auth\ConfirmPasswordController::class, 'changePassword'])->name('auth.changePassword');
 });

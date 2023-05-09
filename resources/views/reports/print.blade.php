@@ -12,6 +12,10 @@
         .widget-user-header {
             height: 180px !important;
         }
+
+        fieldset .row {
+            margin-left: 0.5rem !important;
+        }
     </style>
     @include('reports.generate', [
         'patient' => $patient,
@@ -29,28 +33,32 @@
             let element = $(this);
 
             if (!(element.text() && element.text() != 'N/A')) {
-                element.parents('div.form-group').parent().remove();
+                element.addClass('marked-as-hide');
             }
-        });
-
-        $("table.table").each(function() {
-            $(this).find('tbody > tr').each(function () {
-                let row = $(this), hide = true;
-                let exist = row.find('span.form-control');
-
-                if (exist.length == 0) {
-                    row.hide();
-                }
-            });
         });
 
         $(".report-content .row").each(function() {
             let row = $(this);
-            let exist = row.find('span.form-control');
+            let markAsHide = row.find('span.form-control.marked-as-hide').length, 
+            total = row.find('span.form-control').length;
 
-            if (exist.length == 0) {
+            if (markAsHide === total) {
                 row.hide();
             }
+        });
+
+        $(".report-content table.table").each(function() {
+            let row = $(this);
+            let markAsHide = row.find('span.form-control.marked-as-hide').length, 
+            total = row.find('span.form-control').length;
+
+            if (markAsHide === total) {
+                row.hide();
+            }
+        });
+
+        $(".exclude-hide").each(function() {
+            $(this).parents('.row').show().parents('.main-row').show();
         });
 
         setTimeout(() => {

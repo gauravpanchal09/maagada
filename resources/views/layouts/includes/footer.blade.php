@@ -1,7 +1,7 @@
 <div class="pull-right hidden-xs">
     
 </div>
-<strong>Copyright © 2022-{{ date('Y') }} <a href="https://github.com/abbackend">AB Backend</a>.</strong> All rights reserved.
+<strong>Copyright © 2022-{{ date('Y') }} .</strong> 
 
 <!-- Change Passwod Model -->
 <div class="modal fade" id="change-password-model">

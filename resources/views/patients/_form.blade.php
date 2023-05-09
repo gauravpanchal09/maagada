@@ -29,34 +29,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group @error('address') has-error @enderror">
-                <label for="address">{{ __('Address') }}</label>
-                <input type="text" name="address" class="form-control" value="{{ $patient ? $patient->address : old('address') }}">
-                @error('address')
-                    <span class="help-block">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group @error('dob') has-error @enderror">
-                <label for="dob">{{ __('Date Of Birth') }}</label>
-                <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob : old('dob') }}">
-                @error('dob')
-                    <span class="help-block">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group @error('aadhar_card') has-error @enderror">
-                <label for="aadhar_card">{{ __('Aadhar Card') }}</label>
-                <input type="text" name="aadhar_card" class="form-control" value="{{ $patient ? $patient->aadhar_card : old('aadhar_card') }}" data-inputmask='"mask": "9999 9999 9999"' data-mask>
-                @error('aadhar_card')
+            <div class="form-group @error('husband_name') has-error @enderror">
+                <label for="husband_name">{{ __('Husband Name') }}</label>
+                <input type="text" name="husband_name" class="form-control" value="{{ $patient ? $patient->husband_name : old('husband_name') }}">
+                @error('husband_name')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -81,11 +57,57 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-3">
+            <div class="form-group @error('husband_dob') has-error @enderror">
+                <label for="husband_dob">{{ __('Husband Date Of Birth') }}</label>
+                <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob : old('husband_dob') }}">
+                @error('husband_dob')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group @error('husband_age') has-error @enderror">
+                <label for="husband_age">{{ __('Husband Age') }}</label>
+                <input type="number" name="husband_age" class="form-control" value="{{ $patient ? $patient->husband_age : old('husband_age') }}">
+                @error('husband_age')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group @error('dob') has-error @enderror">
+                <label for="dob">{{ __('Wife Date Of Birth') }}</label>
+                <input type="date" name="dob" class="form-control" value="{{ $patient ? $patient->dob : old('dob') }}">
+                @error('dob')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group @error('age') has-error @enderror">
+                <label for="age">{{ __('Wife Age') }}</label>
+                <input type="number" name="age" class="form-control" value="{{ $patient ? $patient->age : old('age') }}">
+                @error('age')
+                    <span class="help-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
-            <div class="form-group @error('husband_name') has-error @enderror">
-                <label for="husband_name">{{ __('Husband Name') }}</label>
-                <input type="text" name="husband_name" class="form-control" value="{{ $patient ? $patient->husband_name : old('husband_name') }}">
-                @error('husband_name')
+            <div class="form-group @error('address') has-error @enderror">
+                <label for="address">{{ __('Address') }}</label>
+                <input type="text" name="address" class="form-control" value="{{ $patient ? $patient->address : old('address') }}">
+                @error('address')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -93,10 +115,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group @error('husband_dob') has-error @enderror">
-                <label for="husband_dob">{{ __('Husband Date Of Birth') }}</label>
-                <input type="date" name="husband_dob" class="form-control" value="{{ $patient ? $patient->husband_dob : old('husband_dob') }}">
-                @error('husband_dob')
+            <div class="form-group @error('aadhar_card') has-error @enderror">
+                <label for="aadhar_card">{{ __('Aadhar Card') }}</label>
+                <input type="text" name="aadhar_card" class="form-control" value="{{ $patient ? $patient->aadhar_card : old('aadhar_card') }}" data-inputmask='"mask": "9999 9999 9999"' data-mask>
+                @error('aadhar_card')
                     <span class="help-block">
                         <strong>{{ $message }}</strong>
                     </span>

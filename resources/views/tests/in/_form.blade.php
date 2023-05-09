@@ -22,11 +22,17 @@
                 @enderror
             </div>
         </div>
-        @if ($test && $history)
+        @if ($test)
         <div class="col-md-8">
-            <a href="#" class="btn btn-app pull-right" data-toggle="modal" data-target="#modal-default">
-                <i class="fa fa-history"></i> History
+            <a href="{{ route('in.snapshot', $test) }}" class="btn btn-app pull-right">
+                <i class="fa fa-file-text"></i> Take Snapshot
             </a>
+
+            @if(count($history))
+                <a href="{{ route('in.history', $test) }}" target="_blank" class="btn btn-app pull-right">
+                    <i class="fa fa-history"></i> History
+                </a>
+            @endif
         </div>
         @endif
     </div>
@@ -682,18 +688,7 @@
         <div id="husbandCollapseOne" class="panel-collapse collapse">
             <div class="box-body">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group @error('husband_dob') has-error @enderror">
-                            <label for="husband_dob">{{ __('Date of birth') }}</label>
-                            <input type="date" name="husband_dob" class="form-control" value="{{ $test ? $test->husband_dob : old('husband_dob') }}" />
-                            @error('husband_dob')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('husband_occupation') has-error @enderror">
                             <label for="husband_occupation">{{ __('Occupation') }}</label>
                             <input type="text" name="husband_occupation" class="form-control" value="{{ $test ? $test->husband_occupation : old('husband_occupation') }}" />
@@ -704,7 +699,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('husband_married_previously') has-error @enderror">
                             <label for="husband_married_previously">{{ __('Married Previously') }}</label>
                             <input type="text" name="husband_married_previously" class="form-control" value="{{ $test ? $test->husband_married_previously : old('husband_married_previously') }}" />
@@ -715,18 +710,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group @error('husband_age') has-error @enderror">
-                            <label for="husband_age">{{ __('Age') }}</label>
-                            <input type="text" name="husband_age" class="form-control" value="{{ $test ? $test->husband_age : old('husband_age') }}" />
-                            @error('husband_age')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('husband_children') has-error @enderror">
                             <label for="husband_children">{{ __('Children') }}</label>
                             <input type="text" name="husband_children" class="form-control" value="{{ $test ? $test->husband_children : old('husband_children') }}" />
@@ -737,7 +721,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group @error('husband_coitus_frequency') has-error @enderror">
                             <label for="husband_coitus_frequency">{{ __('Coitus frequency') }}</label>
                             <input type="text" name="husband_coitus_frequency" class="form-control" value="{{ $test ? $test->husband_coitus_frequency : old('husband_coitus_frequency') }}" />
@@ -2204,4112 +2188,4507 @@
             </div>
         </div>
     </div>
-    <div class="panel box" id="iUICyclePanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#iUICyclePanelOne" href="#iUICycleCollapseOne">
-                    {{ __('IUI Cycle') }}
-                </a>
-            </h4>
-        </div>
-        <div id="iUICycleCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Day</th>
-                                        <th>Date</th>
-                                        <th>Endo.</th>
-                                        <th>Rt. Ov.</th>
-                                        <th>Lt. Ov.</th>
-                                        <th>Remark</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_1') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_1" class="form-control" value="{{ $test ? $test->wife_ici_day_1 : old('wife_ici_day_1') }}" />
-                                                @error('wife_ici_day_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_1') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_1" class="form-control" value="{{ $test ? $test->wife_ici_date_1 : old('wife_ici_date_1') }}" />
-                                                @error('wife_ici_date_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_1') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_1" class="form-control" value="{{ $test ? $test->wife_ici_endo_1 : old('wife_ici_endo_1') }}" />
-                                                @error('wife_ici_endo_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_1') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_1" class="form-control" value="{{ $test ? $test->wife_ici_rtov_1 : old('wife_ici_rtov_1') }}" />
-                                                @error('wife_ici_rtov_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_1') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_1" class="form-control" value="{{ $test ? $test->wife_ici_ltov_1 : old('wife_ici_ltov_1') }}" />
-                                                @error('wife_ici_ltov_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_1') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_1" class="form-control" value="{{ $test ? $test->wife_ici_remark_1 : old('wife_ici_remark_1') }}" />
-                                                @error('wife_ici_remark_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_2') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_2" class="form-control" value="{{ $test ? $test->wife_ici_day_2 : old('wife_ici_day_2') }}" />
-                                                @error('wife_ici_day_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_2') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_2" class="form-control" value="{{ $test ? $test->wife_ici_date_2 : old('wife_ici_date_2') }}" />
-                                                @error('wife_ici_date_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_2') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_2" class="form-control" value="{{ $test ? $test->wife_ici_endo_2 : old('wife_ici_endo_2') }}" />
-                                                @error('wife_ici_endo_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_2') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_2" class="form-control" value="{{ $test ? $test->wife_ici_rtov_2 : old('wife_ici_rtov_2') }}" />
-                                                @error('wife_ici_rtov_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_2') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_2" class="form-control" value="{{ $test ? $test->wife_ici_ltov_2 : old('wife_ici_ltov_2') }}" />
-                                                @error('wife_ici_ltov_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_2') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_2" class="form-control" value="{{ $test ? $test->wife_ici_remark_2 : old('wife_ici_remark_2') }}" />
-                                                @error('wife_ici_remark_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_3') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_3" class="form-control" value="{{ $test ? $test->wife_ici_day_3 : old('wife_ici_day_3') }}" />
-                                                @error('wife_ici_day_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_3') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_3" class="form-control" value="{{ $test ? $test->wife_ici_date_3 : old('wife_ici_date_3') }}" />
-                                                @error('wife_ici_date_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_3') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_3" class="form-control" value="{{ $test ? $test->wife_ici_endo_3 : old('wife_ici_endo_3') }}" />
-                                                @error('wife_ici_endo_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_3') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_3" class="form-control" value="{{ $test ? $test->wife_ici_rtov_3 : old('wife_ici_rtov_3') }}" />
-                                                @error('wife_ici_rtov_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_3') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_3" class="form-control" value="{{ $test ? $test->wife_ici_ltov_3 : old('wife_ici_ltov_3') }}" />
-                                                @error('wife_ici_ltov_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_3') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_3" class="form-control" value="{{ $test ? $test->wife_ici_remark_3 : old('wife_ici_remark_3') }}" />
-                                                @error('wife_ici_remark_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_4') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_4" class="form-control" value="{{ $test ? $test->wife_ici_day_4 : old('wife_ici_day_4') }}" />
-                                                @error('wife_ici_day_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_4') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_4" class="form-control" value="{{ $test ? $test->wife_ici_date_4 : old('wife_ici_date_4') }}" />
-                                                @error('wife_ici_date_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_4') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_4" class="form-control" value="{{ $test ? $test->wife_ici_endo_4 : old('wife_ici_endo_4') }}" />
-                                                @error('wife_ici_endo_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_4') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_4" class="form-control" value="{{ $test ? $test->wife_ici_rtov_4 : old('wife_ici_rtov_4') }}" />
-                                                @error('wife_ici_rtov_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_4') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_4" class="form-control" value="{{ $test ? $test->wife_ici_ltov_4 : old('wife_ici_ltov_4') }}" />
-                                                @error('wife_ici_ltov_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_4') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_4" class="form-control" value="{{ $test ? $test->wife_ici_remark_4 : old('wife_ici_remark_4') }}" />
-                                                @error('wife_ici_remark_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_5') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_5" class="form-control" value="{{ $test ? $test->wife_ici_day_5 : old('wife_ici_day_5') }}" />
-                                                @error('wife_ici_day_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_5') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_5" class="form-control" value="{{ $test ? $test->wife_ici_date_5 : old('wife_ici_date_5') }}" />
-                                                @error('wife_ici_date_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_5') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_5" class="form-control" value="{{ $test ? $test->wife_ici_endo_5 : old('wife_ici_endo_5') }}" />
-                                                @error('wife_ici_endo_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_5') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_5" class="form-control" value="{{ $test ? $test->wife_ici_rtov_5 : old('wife_ici_rtov_5') }}" />
-                                                @error('wife_ici_rtov_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_5') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_5" class="form-control" value="{{ $test ? $test->wife_ici_ltov_5 : old('wife_ici_ltov_5') }}" />
-                                                @error('wife_ici_ltov_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_5') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_5" class="form-control" value="{{ $test ? $test->wife_ici_remark_5 : old('wife_ici_remark_5') }}" />
-                                                @error('wife_ici_remark_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_day_6') has-error @enderror">
-                                                <input type="text" name="wife_ici_day_6" class="form-control" value="{{ $test ? $test->wife_ici_day_6 : old('wife_ici_day_6') }}" />
-                                                @error('wife_ici_day_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_date_6') has-error @enderror">
-                                                <input type="date" name="wife_ici_date_6" class="form-control" value="{{ $test ? $test->wife_ici_date_6 : old('wife_ici_date_6') }}" />
-                                                @error('wife_ici_date_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_endo_6') has-error @enderror">
-                                                <input type="text" name="wife_ici_endo_6" class="form-control" value="{{ $test ? $test->wife_ici_endo_6 : old('wife_ici_endo_6') }}" />
-                                                @error('wife_ici_endo_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_rtov_6') has-error @enderror">
-                                                <input type="text" name="wife_ici_rtov_6" class="form-control" value="{{ $test ? $test->wife_ici_rtov_6 : old('wife_ici_rtov_6') }}" />
-                                                @error('wife_ici_rtov_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_ltov_6') has-error @enderror">
-                                                <input type="text" name="wife_ici_ltov_6" class="form-control" value="{{ $test ? $test->wife_ici_ltov_6 : old('wife_ici_ltov_6') }}" />
-                                                @error('wife_ici_ltov_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_ici_remark_6') has-error @enderror">
-                                                <input type="text" name="wife_ici_remark_6" class="form-control" value="{{ $test ? $test->wife_ici_remark_6 : old('wife_ici_remark_6') }}" />
-                                                @error('wife_ici_remark_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+    <div class="form-group @error('treatment_plan') has-error @enderror">
+        <label for="treatment_plan">{{ __('Treatment Plan') }}</label>
+        <select name="treatment_plan" class="form-control select2">
+            <option value="" @if(($test && !$test->treatment_plan) || !old('treatment_plan')) selected @endif>{{ __('Select Plan') }}</option>
+            <option value="iui" @if(($test && $test->treatment_plan == "iui") || (old('treatment_plan') == "iui")) selected @endif>IUI</option>
+            <option value="ivf" @if(($test && $test->treatment_plan == "ivf") || (old('treatment_plan') == "ivf")) selected @endif>IVF</option>
+        </select>
+        @error('treatment_plan')
+        <span class="help-block">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+    <div class="iui-treatment-plan-div">
+        <div class="panel box" id="iUICyclePanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#iUICyclePanelOne" href="#iUICycleCollapseOne">
+                        {{ __('IUI Cycle') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="iUICycleCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table wife-ici-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Day</th>
+                                            <th>Date</th>
+                                            <th>Endo.</th>
+                                            <th>Rt. Ov.</th>
+                                            <th>Lt. Ov.</th>
+                                            <th>Remark</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_1') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_1" class="form-control" value="{{ $test ? $test->wife_ici_day_1 : old('wife_ici_day_1') }}" />
+                                                    @error('wife_ici_day_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_1') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_1" class="form-control" value="{{ $test ? $test->wife_ici_date_1 : old('wife_ici_date_1') }}" />
+                                                    @error('wife_ici_date_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_1') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_1" class="form-control" value="{{ $test ? $test->wife_ici_endo_1 : old('wife_ici_endo_1') }}" />
+                                                    @error('wife_ici_endo_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_1') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_1" class="form-control" value="{{ $test ? $test->wife_ici_rtov_1 : old('wife_ici_rtov_1') }}" />
+                                                    @error('wife_ici_rtov_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_1') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_1" class="form-control" value="{{ $test ? $test->wife_ici_ltov_1 : old('wife_ici_ltov_1') }}" />
+                                                    @error('wife_ici_ltov_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_1') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_1" class="form-control" value="{{ $test ? $test->wife_ici_remark_1 : old('wife_ici_remark_1') }}" />
+                                                    @error('wife_ici_remark_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_2') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_2" class="form-control" value="{{ $test ? $test->wife_ici_day_2 : old('wife_ici_day_2') }}" />
+                                                    @error('wife_ici_day_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_2') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_2" class="form-control" value="{{ $test ? $test->wife_ici_date_2 : old('wife_ici_date_2') }}" />
+                                                    @error('wife_ici_date_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_2') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_2" class="form-control" value="{{ $test ? $test->wife_ici_endo_2 : old('wife_ici_endo_2') }}" />
+                                                    @error('wife_ici_endo_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_2') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_2" class="form-control" value="{{ $test ? $test->wife_ici_rtov_2 : old('wife_ici_rtov_2') }}" />
+                                                    @error('wife_ici_rtov_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_2') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_2" class="form-control" value="{{ $test ? $test->wife_ici_ltov_2 : old('wife_ici_ltov_2') }}" />
+                                                    @error('wife_ici_ltov_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_2') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_2" class="form-control" value="{{ $test ? $test->wife_ici_remark_2 : old('wife_ici_remark_2') }}" />
+                                                    @error('wife_ici_remark_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_3') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_3" class="form-control" value="{{ $test ? $test->wife_ici_day_3 : old('wife_ici_day_3') }}" />
+                                                    @error('wife_ici_day_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_3') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_3" class="form-control" value="{{ $test ? $test->wife_ici_date_3 : old('wife_ici_date_3') }}" />
+                                                    @error('wife_ici_date_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_3') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_3" class="form-control" value="{{ $test ? $test->wife_ici_endo_3 : old('wife_ici_endo_3') }}" />
+                                                    @error('wife_ici_endo_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_3') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_3" class="form-control" value="{{ $test ? $test->wife_ici_rtov_3 : old('wife_ici_rtov_3') }}" />
+                                                    @error('wife_ici_rtov_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_3') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_3" class="form-control" value="{{ $test ? $test->wife_ici_ltov_3 : old('wife_ici_ltov_3') }}" />
+                                                    @error('wife_ici_ltov_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_3') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_3" class="form-control" value="{{ $test ? $test->wife_ici_remark_3 : old('wife_ici_remark_3') }}" />
+                                                    @error('wife_ici_remark_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_4') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_4" class="form-control" value="{{ $test ? $test->wife_ici_day_4 : old('wife_ici_day_4') }}" />
+                                                    @error('wife_ici_day_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_4') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_4" class="form-control" value="{{ $test ? $test->wife_ici_date_4 : old('wife_ici_date_4') }}" />
+                                                    @error('wife_ici_date_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_4') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_4" class="form-control" value="{{ $test ? $test->wife_ici_endo_4 : old('wife_ici_endo_4') }}" />
+                                                    @error('wife_ici_endo_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_4') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_4" class="form-control" value="{{ $test ? $test->wife_ici_rtov_4 : old('wife_ici_rtov_4') }}" />
+                                                    @error('wife_ici_rtov_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_4') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_4" class="form-control" value="{{ $test ? $test->wife_ici_ltov_4 : old('wife_ici_ltov_4') }}" />
+                                                    @error('wife_ici_ltov_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_4') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_4" class="form-control" value="{{ $test ? $test->wife_ici_remark_4 : old('wife_ici_remark_4') }}" />
+                                                    @error('wife_ici_remark_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_5') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_5" class="form-control" value="{{ $test ? $test->wife_ici_day_5 : old('wife_ici_day_5') }}" />
+                                                    @error('wife_ici_day_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_5') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_5" class="form-control" value="{{ $test ? $test->wife_ici_date_5 : old('wife_ici_date_5') }}" />
+                                                    @error('wife_ici_date_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_5') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_5" class="form-control" value="{{ $test ? $test->wife_ici_endo_5 : old('wife_ici_endo_5') }}" />
+                                                    @error('wife_ici_endo_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_5') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_5" class="form-control" value="{{ $test ? $test->wife_ici_rtov_5 : old('wife_ici_rtov_5') }}" />
+                                                    @error('wife_ici_rtov_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_5') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_5" class="form-control" value="{{ $test ? $test->wife_ici_ltov_5 : old('wife_ici_ltov_5') }}" />
+                                                    @error('wife_ici_ltov_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_5') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_5" class="form-control" value="{{ $test ? $test->wife_ici_remark_5 : old('wife_ici_remark_5') }}" />
+                                                    @error('wife_ici_remark_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_6') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_6" class="form-control" value="{{ $test ? $test->wife_ici_day_6 : old('wife_ici_day_6') }}" />
+                                                    @error('wife_ici_day_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_6') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_6" class="form-control" value="{{ $test ? $test->wife_ici_date_6 : old('wife_ici_date_6') }}" />
+                                                    @error('wife_ici_date_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_6') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_6" class="form-control" value="{{ $test ? $test->wife_ici_endo_6 : old('wife_ici_endo_6') }}" />
+                                                    @error('wife_ici_endo_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_6') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_6" class="form-control" value="{{ $test ? $test->wife_ici_rtov_6 : old('wife_ici_rtov_6') }}" />
+                                                    @error('wife_ici_rtov_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_6') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_6" class="form-control" value="{{ $test ? $test->wife_ici_ltov_6 : old('wife_ici_ltov_6') }}" />
+                                                    @error('wife_ici_ltov_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_6') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_6" class="form-control" value="{{ $test ? $test->wife_ici_remark_6 : old('wife_ici_remark_6') }}" />
+                                                    @error('wife_ici_remark_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_7') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_7" class="form-control" value="{{ $test ? $test->wife_ici_day_7 : old('wife_ici_day_7') }}" />
+                                                    @error('wife_ici_day_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_7') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_7" class="form-control" value="{{ $test ? $test->wife_ici_date_7 : old('wife_ici_date_7') }}" />
+                                                    @error('wife_ici_date_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_7') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_7" class="form-control" value="{{ $test ? $test->wife_ici_endo_7 : old('wife_ici_endo_7') }}" />
+                                                    @error('wife_ici_endo_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_7') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_7" class="form-control" value="{{ $test ? $test->wife_ici_rtov_7 : old('wife_ici_rtov_7') }}" />
+                                                    @error('wife_ici_rtov_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_7') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_7" class="form-control" value="{{ $test ? $test->wife_ici_ltov_7 : old('wife_ici_ltov_7') }}" />
+                                                    @error('wife_ici_ltov_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_7') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_7" class="form-control" value="{{ $test ? $test->wife_ici_remark_7 : old('wife_ici_remark_7') }}" />
+                                                    @error('wife_ici_remark_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_8') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_8" class="form-control" value="{{ $test ? $test->wife_ici_day_8 : old('wife_ici_day_8') }}" />
+                                                    @error('wife_ici_day_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_8') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_8" class="form-control" value="{{ $test ? $test->wife_ici_date_8 : old('wife_ici_date_8') }}" />
+                                                    @error('wife_ici_date_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_8') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_8" class="form-control" value="{{ $test ? $test->wife_ici_endo_8 : old('wife_ici_endo_8') }}" />
+                                                    @error('wife_ici_endo_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_8') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_8" class="form-control" value="{{ $test ? $test->wife_ici_rtov_8 : old('wife_ici_rtov_8') }}" />
+                                                    @error('wife_ici_rtov_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_8') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_8" class="form-control" value="{{ $test ? $test->wife_ici_ltov_8 : old('wife_ici_ltov_8') }}" />
+                                                    @error('wife_ici_ltov_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_8') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_8" class="form-control" value="{{ $test ? $test->wife_ici_remark_8 : old('wife_ici_remark_8') }}" />
+                                                    @error('wife_ici_remark_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_9') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_9" class="form-control" value="{{ $test ? $test->wife_ici_day_9 : old('wife_ici_day_9') }}" />
+                                                    @error('wife_ici_day_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_9') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_9" class="form-control" value="{{ $test ? $test->wife_ici_date_9 : old('wife_ici_date_9') }}" />
+                                                    @error('wife_ici_date_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_9') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_9" class="form-control" value="{{ $test ? $test->wife_ici_endo_9 : old('wife_ici_endo_9') }}" />
+                                                    @error('wife_ici_endo_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_9') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_9" class="form-control" value="{{ $test ? $test->wife_ici_rtov_9 : old('wife_ici_rtov_9') }}" />
+                                                    @error('wife_ici_rtov_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_9') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_9" class="form-control" value="{{ $test ? $test->wife_ici_ltov_9 : old('wife_ici_ltov_9') }}" />
+                                                    @error('wife_ici_ltov_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_9') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_9" class="form-control" value="{{ $test ? $test->wife_ici_remark_9 : old('wife_ici_remark_9') }}" />
+                                                    @error('wife_ici_remark_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_day_10') has-error @enderror">
+                                                    <input type="text" name="wife_ici_day_10" class="form-control" value="{{ $test ? $test->wife_ici_day_10 : old('wife_ici_day_10') }}" />
+                                                    @error('wife_ici_day_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_date_10') has-error @enderror">
+                                                    <input type="date" name="wife_ici_date_10" class="form-control" value="{{ $test ? $test->wife_ici_date_10 : old('wife_ici_date_10') }}" />
+                                                    @error('wife_ici_date_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_endo_10') has-error @enderror">
+                                                    <input type="text" name="wife_ici_endo_10" class="form-control" value="{{ $test ? $test->wife_ici_endo_10 : old('wife_ici_endo_10') }}" />
+                                                    @error('wife_ici_endo_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_rtov_10') has-error @enderror">
+                                                    <input type="text" name="wife_ici_rtov_10" class="form-control" value="{{ $test ? $test->wife_ici_rtov_10 : old('wife_ici_rtov_10') }}" />
+                                                    @error('wife_ici_rtov_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_ltov_10') has-error @enderror">
+                                                    <input type="text" name="wife_ici_ltov_10" class="form-control" value="{{ $test ? $test->wife_ici_ltov_10 : old('wife_ici_ltov_10') }}" />
+                                                    @error('wife_ici_ltov_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_ici_remark_10') has-error @enderror">
+                                                    <input type="text" name="wife_ici_remark_10" class="form-control" value="{{ $test ? $test->wife_ici_remark_10 : old('wife_ici_remark_10') }}" />
+                                                    @error('wife_ici_remark_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @if($test)
+                                            @php $cycle = 2; @endphp
+                                            @foreach($test->wife_ici_extra_data as $key => $data)
+                                                @if (($key + 10) % 10 == 0)
+                                                    <tr class="skip-tr">
+                                                        <td colspan="7">
+                                                            <strong> IUI Cycle {{ $cycle }} </strong>
+                                                        </td>
+                                                    </tr>
+                                                    @php $cycle ++; @endphp
+                                                @endif
+                                                <tr>
+                                                    <td>{{ $key + 11 }}</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" name="wife_ici_extra_data[{{$key}}][day]" class="form-control" value="{{ $data['day'] }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="date" name="wife_ici_extra_data[{{$key}}][date]" class="form-control" value="{{ $data['date'] }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" name="wife_ici_extra_data[{{$key}}][endo]" class="form-control" value="{{ $data['endo'] }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" name="wife_ici_extra_data[{{$key}}][rtov]" class="form-control" value="{{ $data['rtov'] }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" name="wife_ici_extra_data[{{$key}}][ltov]" class="form-control" value="{{ $data['ltov'] }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" name="wife_ici_extra_data[{{$key}}][remark]" class="form-control" value="{{ $data['remark'] }}" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                                @if($test)
+                                    <button type="button" class="btn btn-info mb-2 add-more-btn">Add More 10 Fields</button>
+                                    <button type="button" class="btn btn-danger mb-2 remove-more-btn">Remove Last 10 Fields</button>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <caption><b>{{ __('Intra-Uterine Insemination Details') }}</b></caption>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Day</th>
-                                        <th>Volume</th>
-                                        <th>Native Count</th>
-                                        <th>Motility</th>
-                                        <th>Harvest Count</th>
-                                        <th>Motility</th>
-                                        <th>Grade</th>
-                                        <th>Remark</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_1" class="form-control" value="{{ $test ? $test->wife_iuid_day_1 : old('wife_iuid_day_1') }}" />
-                                                @error('wife_iuid_day_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_1" class="form-control" value="{{ $test ? $test->wife_iuid_volume_1 : old('wife_iuid_volume_1') }}" />
-                                                @error('wife_iuid_volume_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_1" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_1 : old('wife_iuid_native_couint_1') }}" />
-                                                @error('wife_iuid_native_couint_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_1 : old('wife_iuid_motility1_1') }}" />
-                                                @error('wife_iuid_motility1_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_1" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_1 : old('wife_iuid_harvest_count_1') }}" />
-                                                @error('wife_iuid_harvest_count_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_1 : old('wife_iuid_motility2_1') }}" />
-                                                @error('wife_iuid_motility2_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_1 : old('wife_iuid_motility3_1') }}" />
-                                                @error('wife_iuid_motility3_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_1') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_1" class="form-control" value="{{ $test ? $test->wife_iuid_remark_1 : old('wife_iuid_remark_1') }}" />
-                                                @error('wife_iuid_remark_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_2" class="form-control" value="{{ $test ? $test->wife_iuid_day_2 : old('wife_iuid_day_2') }}" />
-                                                @error('wife_iuid_day_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_2" class="form-control" value="{{ $test ? $test->wife_iuid_volume_2 : old('wife_iuid_volume_2') }}" />
-                                                @error('wife_iuid_volume_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_2" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_2 : old('wife_iuid_native_couint_2') }}" />
-                                                @error('wife_iuid_native_couint_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_2 : old('wife_iuid_motility1_2') }}" />
-                                                @error('wife_iuid_motility1_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_2" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_2 : old('wife_iuid_harvest_count_2') }}" />
-                                                @error('wife_iuid_harvest_count_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_2 : old('wife_iuid_motility2_2') }}" />
-                                                @error('wife_iuid_motility2_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_2 : old('wife_iuid_motility3_2') }}" />
-                                                @error('wife_iuid_motility3_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_2') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_2" class="form-control" value="{{ $test ? $test->wife_iuid_remark_2 : old('wife_iuid_remark_2') }}" />
-                                                @error('wife_iuid_remark_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_3" class="form-control" value="{{ $test ? $test->wife_iuid_day_3 : old('wife_iuid_day_3') }}" />
-                                                @error('wife_iuid_day_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_3" class="form-control" value="{{ $test ? $test->wife_iuid_volume_3 : old('wife_iuid_volume_3') }}" />
-                                                @error('wife_iuid_volume_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_3" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_3 : old('wife_iuid_native_couint_3') }}" />
-                                                @error('wife_iuid_native_couint_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_3 : old('wife_iuid_motility1_3') }}" />
-                                                @error('wife_iuid_motility1_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_3" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_3 : old('wife_iuid_harvest_count_3') }}" />
-                                                @error('wife_iuid_harvest_count_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_3 : old('wife_iuid_motility2_3') }}" />
-                                                @error('wife_iuid_motility2_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_3 : old('wife_iuid_motility3_3') }}" />
-                                                @error('wife_iuid_motility3_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_3') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_3" class="form-control" value="{{ $test ? $test->wife_iuid_remark_3 : old('wife_iuid_remark_3') }}" />
-                                                @error('wife_iuid_remark_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_4" class="form-control" value="{{ $test ? $test->wife_iuid_day_4 : old('wife_iuid_day_4') }}" />
-                                                @error('wife_iuid_day_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_4" class="form-control" value="{{ $test ? $test->wife_iuid_volume_4 : old('wife_iuid_volume_4') }}" />
-                                                @error('wife_iuid_volume_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_4" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_4 : old('wife_iuid_native_couint_4') }}" />
-                                                @error('wife_iuid_native_couint_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_4 : old('wife_iuid_motility1_4') }}" />
-                                                @error('wife_iuid_motility1_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_4" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_4 : old('wife_iuid_harvest_count_4') }}" />
-                                                @error('wife_iuid_harvest_count_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_4 : old('wife_iuid_motility2_4') }}" />
-                                                @error('wife_iuid_motility2_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_4 : old('wife_iuid_motility3_4') }}" />
-                                                @error('wife_iuid_motility3_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_4') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_4" class="form-control" value="{{ $test ? $test->wife_iuid_remark_4 : old('wife_iuid_remark_4') }}" />
-                                                @error('wife_iuid_remark_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_5" class="form-control" value="{{ $test ? $test->wife_iuid_day_5 : old('wife_iuid_day_5') }}" />
-                                                @error('wife_iuid_day_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_5" class="form-control" value="{{ $test ? $test->wife_iuid_volume_5 : old('wife_iuid_volume_5') }}" />
-                                                @error('wife_iuid_volume_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_5" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_5 : old('wife_iuid_native_couint_5') }}" />
-                                                @error('wife_iuid_native_couint_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_5 : old('wife_iuid_motility1_5') }}" />
-                                                @error('wife_iuid_motility1_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_5" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_5 : old('wife_iuid_harvest_count_5') }}" />
-                                                @error('wife_iuid_harvest_count_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_5 : old('wife_iuid_motility2_5') }}" />
-                                                @error('wife_iuid_motility2_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_5 : old('wife_iuid_motility3_5') }}" />
-                                                @error('wife_iuid_motility3_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_5') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_5" class="form-control" value="{{ $test ? $test->wife_iuid_remark_5 : old('wife_iuid_remark_5') }}" />
-                                                @error('wife_iuid_remark_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_day_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_day_6" class="form-control" value="{{ $test ? $test->wife_iuid_day_6 : old('wife_iuid_day_6') }}" />
-                                                @error('wife_iuid_day_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_volume_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_volume_6" class="form-control" value="{{ $test ? $test->wife_iuid_volume_6 : old('wife_iuid_volume_6') }}" />
-                                                @error('wife_iuid_volume_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_native_couint_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_native_couint_6" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_6 : old('wife_iuid_native_couint_6') }}" />
-                                                @error('wife_iuid_native_couint_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility1_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility1_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_6 : old('wife_iuid_motility1_6') }}" />
-                                                @error('wife_iuid_motility1_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_harvest_count_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_harvest_count_6" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_6 : old('wife_iuid_harvest_count_6') }}" />
-                                                @error('wife_iuid_harvest_count_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility2_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility2_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_6 : old('wife_iuid_motility2_6') }}" />
-                                                @error('wife_iuid_motility2_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_motility3_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_motility3_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_6 : old('wife_iuid_motility3_6') }}" />
-                                                @error('wife_iuid_motility3_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_iuid_remark_6') has-error @enderror">
-                                                <input type="text" name="wife_iuid_remark_6" class="form-control" value="{{ $test ? $test->wife_iuid_remark_6 : old('wife_iuid_remark_6') }}" />
-                                                @error('wife_iuid_remark_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_hcg_trigger') has-error @enderror">
+                                <label for="wife_ici_hcg_trigger">{{ __('Inj. / HCG / Trigger') }}</label>
+                                <input type="text" name="wife_ici_hcg_trigger" class="form-control" value="{{ $test ? $test->wife_ici_hcg_trigger : old('wife_ici_hcg_trigger') }}" />
+                                @error('wife_ici_hcg_trigger')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_dose') has-error @enderror">
+                                <label for="wife_ici_dose">{{ __('Dose') }}</label>
+                                <input type="text" name="wife_ici_dose" class="form-control" value="{{ $test ? $test->wife_ici_dose : old('wife_ici_dose') }}" />
+                                @error('wife_ici_dose')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_datetime') has-error @enderror">
+                                <label for="wife_ici_datetime">{{ __('Date / Time AM/PM') }}</label>
+                                <input type="text" name="wife_ici_datetime" class="form-control" value="{{ $test ? $test->wife_ici_datetime : old('wife_ici_datetime') }}" />
+                                @error('wife_ici_datetime')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_iui') has-error @enderror">
+                                <label for="wife_ici_iui">{{ __('IUI') }}</label>
+                                <input type="text" name="wife_ici_iui" class="form-control" value="{{ $test ? $test->wife_ici_iui : old('wife_ici_iui') }}" />
+                                @error('wife_ici_iui')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_time') has-error @enderror">
+                                <label for="wife_ici_time">{{ __('Time AM/PM') }}</label>
+                                <input type="text" name="wife_ici_time" class="form-control" value="{{ $test ? $test->wife_ici_time : old('wife_ici_time') }}" />
+                                @error('wife_ici_time')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_treatment_advice') has-error @enderror">
+                                <label for="wife_ici_treatment_advice">{{ __('Treatment Advice') }}</label>
+                                <input type="text" name="wife_ici_treatment_advice" class="form-control" value="{{ $test ? $test->wife_ici_treatment_advice : old('wife_ici_treatment_advice') }}" />
+                                @error('wife_ici_treatment_advice')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_fu_date') has-error @enderror">
+                                <label for="wife_ici_fu_date">{{ __('F/U Date') }}</label>
+                                <input type="text" name="wife_ici_fu_date" class="form-control" value="{{ $test ? $test->wife_ici_fu_date : old('wife_ici_fu_date') }}" />
+                                @error('wife_ici_fu_date')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_bhcg') has-error @enderror">
+                                <label for="wife_ici_bhcg">{{ __('B-HCG Value') }}</label>
+                                <input type="text" name="wife_ici_bhcg" class="form-control" value="{{ $test ? $test->wife_ici_bhcg : old('wife_ici_bhcg') }}" />
+                                @error('wife_ici_bhcg')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_result') has-error @enderror">
+                                <label for="wife_ici_result">{{ __('Result') }}</label>
+                                <input type="text" name="wife_ici_result" class="form-control" value="{{ $test ? $test->wife_ici_result : old('wife_ici_result') }}" />
+                                @error('wife_ici_result')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <caption><b>{{ __('Intra-Uterine Insemination Details') }}</b></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Day</th>
+                                            <th>Volume</th>
+                                            <th>Native Count</th>
+                                            <th>Motility</th>
+                                            <th>Harvest Count</th>
+                                            <th>Motility</th>
+                                            <th>Grade</th>
+                                            <th>Remark</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_1" class="form-control" value="{{ $test ? $test->wife_iuid_day_1 : old('wife_iuid_day_1') }}" />
+                                                    @error('wife_iuid_day_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_1" class="form-control" value="{{ $test ? $test->wife_iuid_volume_1 : old('wife_iuid_volume_1') }}" />
+                                                    @error('wife_iuid_volume_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_1" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_1 : old('wife_iuid_native_couint_1') }}" />
+                                                    @error('wife_iuid_native_couint_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_1 : old('wife_iuid_motility1_1') }}" />
+                                                    @error('wife_iuid_motility1_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_1" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_1 : old('wife_iuid_harvest_count_1') }}" />
+                                                    @error('wife_iuid_harvest_count_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_1 : old('wife_iuid_motility2_1') }}" />
+                                                    @error('wife_iuid_motility2_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_1" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_1 : old('wife_iuid_motility3_1') }}" />
+                                                    @error('wife_iuid_motility3_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_1') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_1" class="form-control" value="{{ $test ? $test->wife_iuid_remark_1 : old('wife_iuid_remark_1') }}" />
+                                                    @error('wife_iuid_remark_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_2" class="form-control" value="{{ $test ? $test->wife_iuid_day_2 : old('wife_iuid_day_2') }}" />
+                                                    @error('wife_iuid_day_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_2" class="form-control" value="{{ $test ? $test->wife_iuid_volume_2 : old('wife_iuid_volume_2') }}" />
+                                                    @error('wife_iuid_volume_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_2" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_2 : old('wife_iuid_native_couint_2') }}" />
+                                                    @error('wife_iuid_native_couint_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_2 : old('wife_iuid_motility1_2') }}" />
+                                                    @error('wife_iuid_motility1_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_2" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_2 : old('wife_iuid_harvest_count_2') }}" />
+                                                    @error('wife_iuid_harvest_count_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_2 : old('wife_iuid_motility2_2') }}" />
+                                                    @error('wife_iuid_motility2_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_2" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_2 : old('wife_iuid_motility3_2') }}" />
+                                                    @error('wife_iuid_motility3_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_2') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_2" class="form-control" value="{{ $test ? $test->wife_iuid_remark_2 : old('wife_iuid_remark_2') }}" />
+                                                    @error('wife_iuid_remark_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_3" class="form-control" value="{{ $test ? $test->wife_iuid_day_3 : old('wife_iuid_day_3') }}" />
+                                                    @error('wife_iuid_day_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_3" class="form-control" value="{{ $test ? $test->wife_iuid_volume_3 : old('wife_iuid_volume_3') }}" />
+                                                    @error('wife_iuid_volume_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_3" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_3 : old('wife_iuid_native_couint_3') }}" />
+                                                    @error('wife_iuid_native_couint_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_3 : old('wife_iuid_motility1_3') }}" />
+                                                    @error('wife_iuid_motility1_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_3" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_3 : old('wife_iuid_harvest_count_3') }}" />
+                                                    @error('wife_iuid_harvest_count_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_3 : old('wife_iuid_motility2_3') }}" />
+                                                    @error('wife_iuid_motility2_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_3" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_3 : old('wife_iuid_motility3_3') }}" />
+                                                    @error('wife_iuid_motility3_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_3') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_3" class="form-control" value="{{ $test ? $test->wife_iuid_remark_3 : old('wife_iuid_remark_3') }}" />
+                                                    @error('wife_iuid_remark_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_4" class="form-control" value="{{ $test ? $test->wife_iuid_day_4 : old('wife_iuid_day_4') }}" />
+                                                    @error('wife_iuid_day_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_4" class="form-control" value="{{ $test ? $test->wife_iuid_volume_4 : old('wife_iuid_volume_4') }}" />
+                                                    @error('wife_iuid_volume_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_4" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_4 : old('wife_iuid_native_couint_4') }}" />
+                                                    @error('wife_iuid_native_couint_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_4 : old('wife_iuid_motility1_4') }}" />
+                                                    @error('wife_iuid_motility1_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_4" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_4 : old('wife_iuid_harvest_count_4') }}" />
+                                                    @error('wife_iuid_harvest_count_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_4 : old('wife_iuid_motility2_4') }}" />
+                                                    @error('wife_iuid_motility2_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_4" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_4 : old('wife_iuid_motility3_4') }}" />
+                                                    @error('wife_iuid_motility3_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_4') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_4" class="form-control" value="{{ $test ? $test->wife_iuid_remark_4 : old('wife_iuid_remark_4') }}" />
+                                                    @error('wife_iuid_remark_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_5" class="form-control" value="{{ $test ? $test->wife_iuid_day_5 : old('wife_iuid_day_5') }}" />
+                                                    @error('wife_iuid_day_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_5" class="form-control" value="{{ $test ? $test->wife_iuid_volume_5 : old('wife_iuid_volume_5') }}" />
+                                                    @error('wife_iuid_volume_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_5" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_5 : old('wife_iuid_native_couint_5') }}" />
+                                                    @error('wife_iuid_native_couint_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_5 : old('wife_iuid_motility1_5') }}" />
+                                                    @error('wife_iuid_motility1_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_5" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_5 : old('wife_iuid_harvest_count_5') }}" />
+                                                    @error('wife_iuid_harvest_count_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_5 : old('wife_iuid_motility2_5') }}" />
+                                                    @error('wife_iuid_motility2_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_5" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_5 : old('wife_iuid_motility3_5') }}" />
+                                                    @error('wife_iuid_motility3_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_5') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_5" class="form-control" value="{{ $test ? $test->wife_iuid_remark_5 : old('wife_iuid_remark_5') }}" />
+                                                    @error('wife_iuid_remark_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_day_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_day_6" class="form-control" value="{{ $test ? $test->wife_iuid_day_6 : old('wife_iuid_day_6') }}" />
+                                                    @error('wife_iuid_day_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_volume_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_volume_6" class="form-control" value="{{ $test ? $test->wife_iuid_volume_6 : old('wife_iuid_volume_6') }}" />
+                                                    @error('wife_iuid_volume_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_native_couint_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_native_couint_6" class="form-control" value="{{ $test ? $test->wife_iuid_native_couint_6 : old('wife_iuid_native_couint_6') }}" />
+                                                    @error('wife_iuid_native_couint_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility1_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility1_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility1_6 : old('wife_iuid_motility1_6') }}" />
+                                                    @error('wife_iuid_motility1_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_harvest_count_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_harvest_count_6" class="form-control" value="{{ $test ? $test->wife_iuid_harvest_count_6 : old('wife_iuid_harvest_count_6') }}" />
+                                                    @error('wife_iuid_harvest_count_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility2_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility2_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility2_6 : old('wife_iuid_motility2_6') }}" />
+                                                    @error('wife_iuid_motility2_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_motility3_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_motility3_6" class="form-control" value="{{ $test ? $test->wife_iuid_motility3_6 : old('wife_iuid_motility3_6') }}" />
+                                                    @error('wife_iuid_motility3_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_iuid_remark_6') has-error @enderror">
+                                                    <input type="text" name="wife_iuid_remark_6" class="form-control" value="{{ $test ? $test->wife_iuid_remark_6 : old('wife_iuid_remark_6') }}" />
+                                                    @error('wife_iuid_remark_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="panel box" id="iVFTreatmentPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#iVFTreatmentPanelOne" href="#iVFTreatmentCollapseOne">
-                    <strong>{{ __('IVF Treatment Plan') }}</strong>
-                </a>
-            </h4>
-        </div>
-        <div id="iVFTreatmentCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <legend>{{ __("Wife's LMP.") }}</legend>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group @error('result_description') has-error @enderror">
-                            <textarea name="result_description" class="form-control">{{ $test ? $test->result_description : old('result_description') }}</textarea>
-                            @error('result_description')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+    <div class="ivf-treatment-plan-div">
+        <div class="panel box" id="iVFTreatmentPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#iVFTreatmentPanelOne" href="#iVFTreatmentCollapseOne">
+                        <strong>{{ __('IVF') }}</strong>
+                    </a>
+                </h4>
+            </div>
+            <div id="iVFTreatmentCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <legend>{{ __("Wife's LMP.") }}</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group @error('result_description') has-error @enderror">
+                                <textarea name="result_description" class="form-control">{{ $test ? $test->result_description : old('result_description') }}</textarea>
+                                @error('result_description')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('result_tton') has-error @enderror">
-                            <label for="result_tton">{{ __('Trial Transfer on') }}</label>
-                            <input type="date" name="result_tton" class="form-control" value="{{ $test ? $test->result_tton : old('result_tton') }}" />
-                            @error('result_tton')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('result_remarks') has-error @enderror">
-                            <label for="result_remarks">{{ __('Remarks') }}</label>
-                            <input type="text" name="result_remarks" class="form-control" value="{{ $test ? $test->result_remarks : old('result_remarks') }}" />
-                            @error('result_remarks')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('result_by') has-error @enderror">
-                            <label for="result_by">{{ __('By Dr.') }}</label>
-                            <input type="text" name="result_by" class="form-control" value="{{ $test ? $test->result_by : old('result_by') }}" />
-                            @error('result_by')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>{{ __('Begin on') }}</th>
-                                        <th>{{ __('Stopped on') }}</th>
-                                        <th>{{ __('To Come on') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="O.C." readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_oc_begin') has-error @enderror">
-                                                <input type="text" name="wife_lmp_oc_begin" class="form-control" value="{{ $test ? $test->wife_lmp_oc_begin : old('wife_lmp_oc_begin') }}" />
-                                                @error('wife_lmp_oc_begin')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_oc_stopped') has-error @enderror">
-                                                <input type="text" name="wife_lmp_oc_stopped" class="form-control" value="{{ $test ? $test->wife_lmp_oc_stopped : old('wife_lmp_oc_stopped') }}" />
-                                                @error('wife_lmp_oc_stopped')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_oc_tco') has-error @enderror">
-                                                <input type="text" name="wife_lmp_oc_tco" class="form-control" value="{{ $test ? $test->wife_lmp_oc_tco : old('wife_lmp_oc_tco') }}" />
-                                                @error('wife_lmp_oc_tco')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
 
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="Telephone Talk" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_telephone_begin') has-error @enderror">
-                                                <input type="text" name="wife_lmp_telephone_begin" class="form-control" value="{{ $test ? $test->wife_lmp_telephone_begin : old('wife_lmp_telephone_begin') }}" />
-                                                @error('wife_lmp_telephone_begin')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_telephone_stopped') has-error @enderror">
-                                                <input type="text" name="wife_lmp_telephone_stopped" class="form-control" value="{{ $test ? $test->wife_lmp_telephone_stopped : old('wife_lmp_telephone_stopped') }}" />
-                                                @error('wife_lmp_telephone_stopped')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_telephone_tco') has-error @enderror">
-                                                <input type="text" name="wife_lmp_telephone_tco" class="form-control" value="{{ $test ? $test->wife_lmp_telephone_tco : old('wife_lmp_telephone_tco') }}" />
-                                                @error('wife_lmp_telephone_tco')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="Discussion" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_discussion_begin') has-error @enderror">
-                                                <input type="text" name="wife_lmp_discussion_begin" class="form-control" value="{{ $test ? $test->wife_lmp_discussion_begin : old('wife_lmp_discussion_begin') }}" />
-                                                @error('wife_lmp_discussion_begin')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_discussion_stopped') has-error @enderror">
-                                                <input type="text" name="wife_lmp_discussion_stopped" class="form-control" value="{{ $test ? $test->wife_lmp_discussion_stopped : old('wife_lmp_discussion_stopped') }}" />
-                                                @error('wife_lmp_discussion_stopped')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('wife_lmp_discussion_tco') has-error @enderror">
-                                                <input type="text" name="wife_lmp_discussion_tco" class="form-control" value="{{ $test ? $test->wife_lmp_discussion_tco : old('wife_lmp_discussion_tco') }}" />
-                                                @error('wife_lmp_discussion_tco')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>{{ __('Begin on') }}</th>
+                                            <th>{{ __('Stopped on') }}</th>
+                                            <th>{{ __('To Come on') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="O.C." readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_lmp_oc_begin') has-error @enderror">
+                                                    <input type="text" name="wife_lmp_oc_begin" class="form-control" value="{{ $test ? $test->wife_lmp_oc_begin : old('wife_lmp_oc_begin') }}" />
+                                                    @error('wife_lmp_oc_begin')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_lmp_oc_stopped') has-error @enderror">
+                                                    <input type="text" name="wife_lmp_oc_stopped" class="form-control" value="{{ $test ? $test->wife_lmp_oc_stopped : old('wife_lmp_oc_stopped') }}" />
+                                                    @error('wife_lmp_oc_stopped')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('wife_lmp_oc_tco') has-error @enderror">
+                                                    <input type="text" name="wife_lmp_oc_tco" class="form-control" value="{{ $test ? $test->wife_lmp_oc_tco : old('wife_lmp_oc_tco') }}" />
+                                                    @error('wife_lmp_oc_tco')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="result_remarks"></label>
+                                                    <input type="text" class="form-control" value="" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_tton') has-error @enderror">
+                                                    <label for="result_tton">{{ __('Trial Transfer on') }}</label>
+                                                    <input type="date" name="result_tton" class="form-control" value="{{ $test ? $test->result_tton : old('result_tton') }}" />
+                                                    @error('result_tton')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_remarks') has-error @enderror">
+                                                    <label for="result_remarks">{{ __('Remarks') }}</label>
+                                                    <input type="text" name="result_remarks" class="form-control" value="{{ $test ? $test->result_remarks : old('result_remarks') }}" />
+                                                    @error('result_remarks')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_by') has-error @enderror">
+                                                    <label for="result_by">{{ __('By Dr.') }}</label>
+                                                    <input type="text" name="result_by" class="form-control" value="{{ $test ? $test->result_by : old('result_by') }}" />
+                                                    @error('result_by')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_lupride') has-error @enderror">
+                                <label for="wife_lmp_lupride">{{ __('Lupride') }}</label>
+                                <input type="text" name="wife_lmp_lupride" class="form-control" value="{{ $test ? $test->wife_lmp_lupride : old('wife_lmp_lupride') }}" />
+                                @error('wife_lmp_lupride')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_stared') has-error @enderror">
+                                <label for="wife_lmp_stared">{{ __('Stared') }}</label>
+                                <input type="text" name="wife_lmp_stared" class="form-control" value="{{ $test ? $test->wife_lmp_stared : old('wife_lmp_stared') }}" />
+                                @error('wife_lmp_stared')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_tocome') has-error @enderror">
+                                <label for="wife_lmp_tocome">{{ __('To Come On') }}</label>
+                                <input type="text" name="wife_lmp_tocome" class="form-control" value="{{ $test ? $test->wife_lmp_tocome : old('wife_lmp_tocome') }}" />
+                                @error('wife_lmp_tocome')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_protocol') has-error @enderror">
+                                <label for="wife_lmp_protocol">{{ __('Protocol') }}</label>
+                                <input type="text" name="wife_lmp_protocol" class="form-control" value="{{ $test ? $test->wife_lmp_protocol : old('wife_lmp_protocol') }}" />
+                                @error('wife_lmp_protocol')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_lmp') has-error @enderror">
+                                <label for="result_lmp">{{ __('LMP') }}</label>
+                                <input type="text" name="result_lmp" class="form-control" value="{{ $test ? $test->result_lmp : old('result_lmp') }}" />
+                                @error('result_lmp')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_stm_start') has-error @enderror">
+                                <label for="result_stm_start">{{ __('Stm Start') }}</label>
+                                <input type="text" name="result_stm_start" class="form-control" value="{{ $test ? $test->result_stm_start : old('result_stm_start') }}" />
+                                @error('result_stm_start')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_lupride') has-error @enderror">
-                            <label for="wife_lmp_lupride">{{ __('Lupride') }}</label>
-                            <input type="text" name="wife_lmp_lupride" class="form-control" value="{{ $test ? $test->wife_lmp_lupride : old('wife_lmp_lupride') }}" />
-                            @error('wife_lmp_lupride')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __('#') }}</th>
+                                            <th>{{ __('Date') }}</th>
+                                            <th>{{ __('Cyc Day') }}</th>
+                                            <th>{{ __('Sym Day') }}</th>
+                                            <th>{{ __('End') }}</th>
+                                            <th>{{ __('R Ovary AFC') }}</th>
+                                            <th>{{ __('L Ovary AFC') }}</th>
+                                            <th>{{ __('Stimulation Inj. Name') }}</th>
+                                            <th>{{ __('Dose.') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_1') has-error @enderror">
+                                                    <input type="date" name="result_date_1" class="form-control" value="{{ $test ? $test->result_date_1 : old('result_date_1') }}" />
+                                                    @error('result_date_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_1') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_1" class="form-control" value="{{ $test ? $test->result_cyc_day_1 : old('result_cyc_day_1') }}" />
+                                                    @error('result_cyc_day_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_1') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_1" class="form-control" value="{{ $test ? $test->result_stm_day_1 : old('result_stm_day_1') }}" />
+                                                    @error('result_stm_day_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_1') has-error @enderror">
+                                                    <input type="text" name="result_end_1" class="form-control" value="{{ $test ? $test->result_end_1 : old('result_end_1') }}" />
+                                                    @error('result_end_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_1') has-error @enderror">
+                                                    <input type="text" name="result_rafc_1" class="form-control" value="{{ $test ? $test->result_rafc_1 : old('result_rafc_1') }}" />
+                                                    @error('result_rafc_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_1') has-error @enderror">
+                                                    <input type="text" name="result_lafc_1" class="form-control" value="{{ $test ? $test->result_lafc_1 : old('result_lafc_1') }}" />
+                                                    @error('result_lafc_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_1') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_1" class="form-control" value="{{ $test ? $test->result_stimulation_1 : old('result_stimulation_1') }}" />
+                                                    @error('result_stimulation_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_1') has-error @enderror">
+                                                    <input type="text" name="result_misc_1" class="form-control" value="{{ $test ? $test->result_misc_1 : old('result_misc_1') }}" />
+                                                    @error('result_misc_1')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_2') has-error @enderror">
+                                                    <input type="date" name="result_date_2" class="form-control" value="{{ $test ? $test->result_date_2 : old('result_date_2') }}" />
+                                                    @error('result_date_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_2') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_2" class="form-control" value="{{ $test ? $test->result_cyc_day_2 : old('result_cyc_day_2') }}" />
+                                                    @error('result_cyc_day_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_2') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_2" class="form-control" value="{{ $test ? $test->result_stm_day_2 : old('result_stm_day_2') }}" />
+                                                    @error('result_stm_day_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_2') has-error @enderror">
+                                                    <input type="text" name="result_end_2" class="form-control" value="{{ $test ? $test->result_end_2 : old('result_end_2') }}" />
+                                                    @error('result_end_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_2') has-error @enderror">
+                                                    <input type="text" name="result_rafc_2" class="form-control" value="{{ $test ? $test->result_rafc_2 : old('result_rafc_2') }}" />
+                                                    @error('result_rafc_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_2') has-error @enderror">
+                                                    <input type="text" name="result_lafc_2" class="form-control" value="{{ $test ? $test->result_lafc_2 : old('result_lafc_2') }}" />
+                                                    @error('result_lafc_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_2') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_2" class="form-control" value="{{ $test ? $test->result_stimulation_2 : old('result_stimulation_2') }}" />
+                                                    @error('result_stimulation_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_2') has-error @enderror">
+                                                    <input type="text" name="result_misc_2" class="form-control" value="{{ $test ? $test->result_misc_2 : old('result_misc_2') }}" />
+                                                    @error('result_misc_2')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_3') has-error @enderror">
+                                                    <input type="date" name="result_date_3" class="form-control" value="{{ $test ? $test->result_date_3 : old('result_date_3') }}" />
+                                                    @error('result_date_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_3') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_3" class="form-control" value="{{ $test ? $test->result_cyc_day_3 : old('result_cyc_day_3') }}" />
+                                                    @error('result_cyc_day_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_3') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_3" class="form-control" value="{{ $test ? $test->result_stm_day_3 : old('result_stm_day_3') }}" />
+                                                    @error('result_stm_day_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_3') has-error @enderror">
+                                                    <input type="text" name="result_end_3" class="form-control" value="{{ $test ? $test->result_end_3 : old('result_end_3') }}" />
+                                                    @error('result_end_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_3') has-error @enderror">
+                                                    <input type="text" name="result_rafc_3" class="form-control" value="{{ $test ? $test->result_rafc_3 : old('result_rafc_3') }}" />
+                                                    @error('result_rafc_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_3') has-error @enderror">
+                                                    <input type="text" name="result_lafc_3" class="form-control" value="{{ $test ? $test->result_lafc_3 : old('result_lafc_3') }}" />
+                                                    @error('result_lafc_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_3') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_3" class="form-control" value="{{ $test ? $test->result_stimulation_3 : old('result_stimulation_3') }}" />
+                                                    @error('result_stimulation_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_3') has-error @enderror">
+                                                    <input type="text" name="result_misc_3" class="form-control" value="{{ $test ? $test->result_misc_3 : old('result_misc_3') }}" />
+                                                    @error('result_misc_3')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_4') has-error @enderror">
+                                                    <input type="date" name="result_date_4" class="form-control" value="{{ $test ? $test->result_date_4 : old('result_date_4') }}" />
+                                                    @error('result_date_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_4') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_4" class="form-control" value="{{ $test ? $test->result_cyc_day_4 : old('result_cyc_day_4') }}" />
+                                                    @error('result_cyc_day_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_4') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_4" class="form-control" value="{{ $test ? $test->result_stm_day_4 : old('result_stm_day_4') }}" />
+                                                    @error('result_stm_day_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_4') has-error @enderror">
+                                                    <input type="text" name="result_end_4" class="form-control" value="{{ $test ? $test->result_end_4 : old('result_end_4') }}" />
+                                                    @error('result_end_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_4') has-error @enderror">
+                                                    <input type="text" name="result_rafc_4" class="form-control" value="{{ $test ? $test->result_rafc_4 : old('result_rafc_4') }}" />
+                                                    @error('result_rafc_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_4') has-error @enderror">
+                                                    <input type="text" name="result_lafc_4" class="form-control" value="{{ $test ? $test->result_lafc_4 : old('result_lafc_4') }}" />
+                                                    @error('result_lafc_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_4') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_4" class="form-control" value="{{ $test ? $test->result_stimulation_4 : old('result_stimulation_4') }}" />
+                                                    @error('result_stimulation_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_4') has-error @enderror">
+                                                    <input type="text" name="result_misc_4" class="form-control" value="{{ $test ? $test->result_misc_4 : old('result_misc_4') }}" />
+                                                    @error('result_misc_4')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                5
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_5') has-error @enderror">
+                                                    <input type="date" name="result_date_5" class="form-control" value="{{ $test ? $test->result_date_5 : old('result_date_5') }}" />
+                                                    @error('result_date_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_5') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_5" class="form-control" value="{{ $test ? $test->result_cyc_day_5 : old('result_cyc_day_5') }}" />
+                                                    @error('result_cyc_day_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_5') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_5" class="form-control" value="{{ $test ? $test->result_stm_day_5 : old('result_stm_day_5') }}" />
+                                                    @error('result_stm_day_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_5') has-error @enderror">
+                                                    <input type="text" name="result_end_5" class="form-control" value="{{ $test ? $test->result_end_5 : old('result_end_5') }}" />
+                                                    @error('result_end_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_5') has-error @enderror">
+                                                    <input type="text" name="result_rafc_5" class="form-control" value="{{ $test ? $test->result_rafc_5 : old('result_rafc_5') }}" />
+                                                    @error('result_rafc_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_5') has-error @enderror">
+                                                    <input type="text" name="result_lafc_5" class="form-control" value="{{ $test ? $test->result_lafc_5 : old('result_lafc_5') }}" />
+                                                    @error('result_lafc_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_5') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_5" class="form-control" value="{{ $test ? $test->result_stimulation_5 : old('result_stimulation_5') }}" />
+                                                    @error('result_stimulation_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_5') has-error @enderror">
+                                                    <input type="text" name="result_misc_5" class="form-control" value="{{ $test ? $test->result_misc_5 : old('result_misc_5') }}" />
+                                                    @error('result_misc_5')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_6') has-error @enderror">
+                                                    <input type="date" name="result_date_6" class="form-control" value="{{ $test ? $test->result_date_6 : old('result_date_6') }}" />
+                                                    @error('result_date_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_6') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_6" class="form-control" value="{{ $test ? $test->result_cyc_day_6 : old('result_cyc_day_6') }}" />
+                                                    @error('result_cyc_day_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_6') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_6" class="form-control" value="{{ $test ? $test->result_stm_day_6 : old('result_stm_day_6') }}" />
+                                                    @error('result_stm_day_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_6') has-error @enderror">
+                                                    <input type="text" name="result_end_6" class="form-control" value="{{ $test ? $test->result_end_6 : old('result_end_6') }}" />
+                                                    @error('result_end_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_6') has-error @enderror">
+                                                    <input type="text" name="result_rafc_6" class="form-control" value="{{ $test ? $test->result_rafc_6 : old('result_rafc_6') }}" />
+                                                    @error('result_rafc_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_6') has-error @enderror">
+                                                    <input type="text" name="result_lafc_6" class="form-control" value="{{ $test ? $test->result_lafc_6 : old('result_lafc_6') }}" />
+                                                    @error('result_lafc_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_6') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_6" class="form-control" value="{{ $test ? $test->result_stimulation_6 : old('result_stimulation_6') }}" />
+                                                    @error('result_stimulation_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_6') has-error @enderror">
+                                                    <input type="text" name="result_misc_6" class="form-control" value="{{ $test ? $test->result_misc_6 : old('result_misc_6') }}" />
+                                                    @error('result_misc_6')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_7') has-error @enderror">
+                                                    <input type="date" name="result_date_7" class="form-control" value="{{ $test ? $test->result_date_7 : old('result_date_7') }}" />
+                                                    @error('result_date_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_7') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_7" class="form-control" value="{{ $test ? $test->result_cyc_day_7 : old('result_cyc_day_7') }}" />
+                                                    @error('result_cyc_day_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_7') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_7" class="form-control" value="{{ $test ? $test->result_stm_day_7 : old('result_stm_day_7') }}" />
+                                                    @error('result_stm_day_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_7') has-error @enderror">
+                                                    <input type="text" name="result_end_7" class="form-control" value="{{ $test ? $test->result_end_7 : old('result_end_7') }}" />
+                                                    @error('result_end_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_7') has-error @enderror">
+                                                    <input type="text" name="result_rafc_7" class="form-control" value="{{ $test ? $test->result_rafc_7 : old('result_rafc_7') }}" />
+                                                    @error('result_rafc_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_7') has-error @enderror">
+                                                    <input type="text" name="result_lafc_7" class="form-control" value="{{ $test ? $test->result_lafc_7 : old('result_lafc_7') }}" />
+                                                    @error('result_lafc_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_7') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_7" class="form-control" value="{{ $test ? $test->result_stimulation_7 : old('result_stimulation_7') }}" />
+                                                    @error('result_stimulation_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_7') has-error @enderror">
+                                                    <input type="text" name="result_misc_7" class="form-control" value="{{ $test ? $test->result_misc_7 : old('result_misc_7') }}" />
+                                                    @error('result_misc_7')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                8
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_8') has-error @enderror">
+                                                    <input type="date" name="result_date_8" class="form-control" value="{{ $test ? $test->result_date_8 : old('result_date_8') }}" />
+                                                    @error('result_date_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_8') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_8" class="form-control" value="{{ $test ? $test->result_cyc_day_8 : old('result_cyc_day_8') }}" />
+                                                    @error('result_cyc_day_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_8') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_8" class="form-control" value="{{ $test ? $test->result_stm_day_8 : old('result_stm_day_8') }}" />
+                                                    @error('result_stm_day_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_8') has-error @enderror">
+                                                    <input type="text" name="result_end_8" class="form-control" value="{{ $test ? $test->result_end_8 : old('result_end_8') }}" />
+                                                    @error('result_end_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_8') has-error @enderror">
+                                                    <input type="text" name="result_rafc_8" class="form-control" value="{{ $test ? $test->result_rafc_8 : old('result_rafc_8') }}" />
+                                                    @error('result_rafc_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_8') has-error @enderror">
+                                                    <input type="text" name="result_lafc_8" class="form-control" value="{{ $test ? $test->result_lafc_8 : old('result_lafc_8') }}" />
+                                                    @error('result_lafc_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_8') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_8" class="form-control" value="{{ $test ? $test->result_stimulation_8 : old('result_stimulation_8') }}" />
+                                                    @error('result_stimulation_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_8') has-error @enderror">
+                                                    <input type="text" name="result_misc_8" class="form-control" value="{{ $test ? $test->result_misc_8 : old('result_misc_8') }}" />
+                                                    @error('result_misc_8')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                9
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_9') has-error @enderror">
+                                                    <input type="date" name="result_date_9" class="form-control" value="{{ $test ? $test->result_date_9 : old('result_date_9') }}" />
+                                                    @error('result_date_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_9') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_9" class="form-control" value="{{ $test ? $test->result_cyc_day_9 : old('result_cyc_day_9') }}" />
+                                                    @error('result_cyc_day_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_9') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_9" class="form-control" value="{{ $test ? $test->result_stm_day_9 : old('result_stm_day_9') }}" />
+                                                    @error('result_stm_day_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_9') has-error @enderror">
+                                                    <input type="text" name="result_end_9" class="form-control" value="{{ $test ? $test->result_end_9 : old('result_end_9') }}" />
+                                                    @error('result_end_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_9') has-error @enderror">
+                                                    <input type="text" name="result_rafc_9" class="form-control" value="{{ $test ? $test->result_rafc_9 : old('result_rafc_9') }}" />
+                                                    @error('result_rafc_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_9') has-error @enderror">
+                                                    <input type="text" name="result_lafc_9" class="form-control" value="{{ $test ? $test->result_lafc_9 : old('result_lafc_9') }}" />
+                                                    @error('result_lafc_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_9') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_9" class="form-control" value="{{ $test ? $test->result_stimulation_9 : old('result_stimulation_9') }}" />
+                                                    @error('result_stimulation_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_9') has-error @enderror">
+                                                    <input type="text" name="result_misc_9" class="form-control" value="{{ $test ? $test->result_misc_9 : old('result_misc_9') }}" />
+                                                    @error('result_misc_9')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_10') has-error @enderror">
+                                                    <input type="date" name="result_date_10" class="form-control" value="{{ $test ? $test->result_date_10 : old('result_date_10') }}" />
+                                                    @error('result_date_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_10') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_10" class="form-control" value="{{ $test ? $test->result_cyc_day_10 : old('result_cyc_day_10') }}" />
+                                                    @error('result_cyc_day_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_10') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_10" class="form-control" value="{{ $test ? $test->result_stm_day_10 : old('result_stm_day_10') }}" />
+                                                    @error('result_stm_day_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_10') has-error @enderror">
+                                                    <input type="text" name="result_end_10" class="form-control" value="{{ $test ? $test->result_end_10 : old('result_end_10') }}" />
+                                                    @error('result_end_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_10') has-error @enderror">
+                                                    <input type="text" name="result_rafc_10" class="form-control" value="{{ $test ? $test->result_rafc_10 : old('result_rafc_10') }}" />
+                                                    @error('result_rafc_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_10') has-error @enderror">
+                                                    <input type="text" name="result_lafc_10" class="form-control" value="{{ $test ? $test->result_lafc_10 : old('result_lafc_10') }}" />
+                                                    @error('result_lafc_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_10') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_10" class="form-control" value="{{ $test ? $test->result_stimulation_10 : old('result_stimulation_10') }}" />
+                                                    @error('result_stimulation_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_10') has-error @enderror">
+                                                    <input type="text" name="result_misc_10" class="form-control" value="{{ $test ? $test->result_misc_10 : old('result_misc_10') }}" />
+                                                    @error('result_misc_10')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                11
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_11') has-error @enderror">
+                                                    <input type="date" name="result_date_11" class="form-control" value="{{ $test ? $test->result_date_11 : old('result_date_11') }}" />
+                                                    @error('result_date_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_11') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_11" class="form-control" value="{{ $test ? $test->result_cyc_day_11 : old('result_cyc_day_11') }}" />
+                                                    @error('result_cyc_day_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_11') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_11" class="form-control" value="{{ $test ? $test->result_stm_day_11 : old('result_stm_day_11') }}" />
+                                                    @error('result_stm_day_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_11') has-error @enderror">
+                                                    <input type="text" name="result_end_11" class="form-control" value="{{ $test ? $test->result_end_11 : old('result_end_11') }}" />
+                                                    @error('result_end_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_11') has-error @enderror">
+                                                    <input type="text" name="result_rafc_11" class="form-control" value="{{ $test ? $test->result_rafc_11 : old('result_rafc_11') }}" />
+                                                    @error('result_rafc_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_11') has-error @enderror">
+                                                    <input type="text" name="result_lafc_11" class="form-control" value="{{ $test ? $test->result_lafc_11 : old('result_lafc_11') }}" />
+                                                    @error('result_lafc_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_11') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_11" class="form-control" value="{{ $test ? $test->result_stimulation_11 : old('result_stimulation_11') }}" />
+                                                    @error('result_stimulation_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_11') has-error @enderror">
+                                                    <input type="text" name="result_misc_11" class="form-control" value="{{ $test ? $test->result_misc_11 : old('result_misc_11') }}" />
+                                                    @error('result_misc_11')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                12
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_12') has-error @enderror">
+                                                    <input type="date" name="result_date_12" class="form-control" value="{{ $test ? $test->result_date_12 : old('result_date_12') }}" />
+                                                    @error('result_date_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_12') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_12" class="form-control" value="{{ $test ? $test->result_cyc_day_12 : old('result_cyc_day_12') }}" />
+                                                    @error('result_cyc_day_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_12') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_12" class="form-control" value="{{ $test ? $test->result_stm_day_12 : old('result_stm_day_12') }}" />
+                                                    @error('result_stm_day_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_12') has-error @enderror">
+                                                    <input type="text" name="result_end_12" class="form-control" value="{{ $test ? $test->result_end_12 : old('result_end_12') }}" />
+                                                    @error('result_end_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_12') has-error @enderror">
+                                                    <input type="text" name="result_rafc_12" class="form-control" value="{{ $test ? $test->result_rafc_12 : old('result_rafc_12') }}" />
+                                                    @error('result_rafc_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_12') has-error @enderror">
+                                                    <input type="text" name="result_lafc_12" class="form-control" value="{{ $test ? $test->result_lafc_12 : old('result_lafc_12') }}" />
+                                                    @error('result_lafc_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_12') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_12" class="form-control" value="{{ $test ? $test->result_stimulation_12 : old('result_stimulation_12') }}" />
+                                                    @error('result_stimulation_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_12') has-error @enderror">
+                                                    <input type="text" name="result_misc_12" class="form-control" value="{{ $test ? $test->result_misc_12 : old('result_misc_12') }}" />
+                                                    @error('result_misc_12')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                13
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_13') has-error @enderror">
+                                                    <input type="date" name="result_date_13" class="form-control" value="{{ $test ? $test->result_date_13 : old('result_date_13') }}" />
+                                                    @error('result_date_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_13') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_13" class="form-control" value="{{ $test ? $test->result_cyc_day_13 : old('result_cyc_day_13') }}" />
+                                                    @error('result_cyc_day_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_13') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_13" class="form-control" value="{{ $test ? $test->result_stm_day_13 : old('result_stm_day_13') }}" />
+                                                    @error('result_stm_day_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_13') has-error @enderror">
+                                                    <input type="text" name="result_end_13" class="form-control" value="{{ $test ? $test->result_end_13 : old('result_end_13') }}" />
+                                                    @error('result_end_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_13') has-error @enderror">
+                                                    <input type="text" name="result_rafc_13" class="form-control" value="{{ $test ? $test->result_rafc_13 : old('result_rafc_13') }}" />
+                                                    @error('result_rafc_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_13') has-error @enderror">
+                                                    <input type="text" name="result_lafc_13" class="form-control" value="{{ $test ? $test->result_lafc_13 : old('result_lafc_13') }}" />
+                                                    @error('result_lafc_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_13') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_13" class="form-control" value="{{ $test ? $test->result_stimulation_13 : old('result_stimulation_13') }}" />
+                                                    @error('result_stimulation_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_13') has-error @enderror">
+                                                    <input type="text" name="result_misc_13" class="form-control" value="{{ $test ? $test->result_misc_13 : old('result_misc_13') }}" />
+                                                    @error('result_misc_13')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                14
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_14') has-error @enderror">
+                                                    <input type="date" name="result_date_14" class="form-control" value="{{ $test ? $test->result_date_14 : old('result_date_14') }}" />
+                                                    @error('result_date_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_14') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_14" class="form-control" value="{{ $test ? $test->result_cyc_day_14 : old('result_cyc_day_14') }}" />
+                                                    @error('result_cyc_day_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_14') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_14" class="form-control" value="{{ $test ? $test->result_stm_day_14 : old('result_stm_day_14') }}" />
+                                                    @error('result_stm_day_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_14') has-error @enderror">
+                                                    <input type="text" name="result_end_14" class="form-control" value="{{ $test ? $test->result_end_14 : old('result_end_14') }}" />
+                                                    @error('result_end_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_14') has-error @enderror">
+                                                    <input type="text" name="result_rafc_14" class="form-control" value="{{ $test ? $test->result_rafc_14 : old('result_rafc_14') }}" />
+                                                    @error('result_rafc_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_14') has-error @enderror">
+                                                    <input type="text" name="result_lafc_14" class="form-control" value="{{ $test ? $test->result_lafc_14 : old('result_lafc_14') }}" />
+                                                    @error('result_lafc_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_14') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_14" class="form-control" value="{{ $test ? $test->result_stimulation_14 : old('result_stimulation_14') }}" />
+                                                    @error('result_stimulation_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_14') has-error @enderror">
+                                                    <input type="text" name="result_misc_14" class="form-control" value="{{ $test ? $test->result_misc_14 : old('result_misc_14') }}" />
+                                                    @error('result_misc_14')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                15
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_15') has-error @enderror">
+                                                    <input type="date" name="result_date_15" class="form-control" value="{{ $test ? $test->result_date_15 : old('result_date_15') }}" />
+                                                    @error('result_date_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_15') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_15" class="form-control" value="{{ $test ? $test->result_cyc_day_15 : old('result_cyc_day_15') }}" />
+                                                    @error('result_cyc_day_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_15') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_15" class="form-control" value="{{ $test ? $test->result_stm_day_15 : old('result_stm_day_15') }}" />
+                                                    @error('result_stm_day_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_15') has-error @enderror">
+                                                    <input type="text" name="result_end_15" class="form-control" value="{{ $test ? $test->result_end_15 : old('result_end_15') }}" />
+                                                    @error('result_end_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_15') has-error @enderror">
+                                                    <input type="text" name="result_rafc_15" class="form-control" value="{{ $test ? $test->result_rafc_15 : old('result_rafc_15') }}" />
+                                                    @error('result_rafc_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_15') has-error @enderror">
+                                                    <input type="text" name="result_lafc_15" class="form-control" value="{{ $test ? $test->result_lafc_15 : old('result_lafc_15') }}" />
+                                                    @error('result_lafc_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_15') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_15" class="form-control" value="{{ $test ? $test->result_stimulation_15 : old('result_stimulation_15') }}" />
+                                                    @error('result_stimulation_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_15') has-error @enderror">
+                                                    <input type="text" name="result_misc_15" class="form-control" value="{{ $test ? $test->result_misc_15 : old('result_misc_15') }}" />
+                                                    @error('result_misc_15')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                16
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_date_16') has-error @enderror">
+                                                    <input type="date" name="result_date_16" class="form-control" value="{{ $test ? $test->result_date_16 : old('result_date_16') }}" />
+                                                    @error('result_date_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_cyc_day_16') has-error @enderror">
+                                                    <input type="text" name="result_cyc_day_16" class="form-control" value="{{ $test ? $test->result_cyc_day_16 : old('result_cyc_day_16') }}" />
+                                                    @error('result_cyc_day_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stm_day_16') has-error @enderror">
+                                                    <input type="text" name="result_stm_day_16" class="form-control" value="{{ $test ? $test->result_stm_day_16 : old('result_stm_day_16') }}" />
+                                                    @error('result_stm_day_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_end_16') has-error @enderror">
+                                                    <input type="text" name="result_end_16" class="form-control" value="{{ $test ? $test->result_end_16 : old('result_end_16') }}" />
+                                                    @error('result_end_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_rafc_16') has-error @enderror">
+                                                    <input type="text" name="result_rafc_16" class="form-control" value="{{ $test ? $test->result_rafc_16 : old('result_rafc_16') }}" />
+                                                    @error('result_rafc_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_lafc_16') has-error @enderror">
+                                                    <input type="text" name="result_lafc_16" class="form-control" value="{{ $test ? $test->result_lafc_16 : old('result_lafc_16') }}" />
+                                                    @error('result_lafc_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_stimulation_16') has-error @enderror">
+                                                    <input type="text" name="result_stimulation_16" class="form-control" value="{{ $test ? $test->result_stimulation_16 : old('result_stimulation_16') }}" />
+                                                    @error('result_stimulation_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('result_misc_16') has-error @enderror">
+                                                    <input type="text" name="result_misc_16" class="form-control" value="{{ $test ? $test->result_misc_16 : old('result_misc_16') }}" />
+                                                    @error('result_misc_16')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_stared') has-error @enderror">
-                            <label for="wife_lmp_stared">{{ __('Stared') }}</label>
-                            <input type="text" name="wife_lmp_stared" class="form-control" value="{{ $test ? $test->wife_lmp_stared : old('wife_lmp_stared') }}" />
-                            @error('wife_lmp_stared')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-6">
+                            <div class="form-group @error('wife_lmp_lh') has-error @enderror">
+                                <label for="wife_lmp_lh">{{ __('LH') }}</label>
+                                <input type="text" name="wife_lmp_lh" class="form-control" value="{{ $test ? $test->wife_lmp_lh : old('wife_lmp_lh') }}" />
+                                @error('wife_lmp_lh')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_tocome') has-error @enderror">
-                            <label for="wife_lmp_tocome">{{ __('To Come On') }}</label>
-                            <input type="text" name="wife_lmp_tocome" class="form-control" value="{{ $test ? $test->wife_lmp_tocome : old('wife_lmp_tocome') }}" />
-                            @error('wife_lmp_tocome')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-6">
+                            <div class="form-group @error('wife_lmp_e2') has-error @enderror">
+                                <label for="wife_lmp_e2">{{ __('E2') }}</label>
+                                <input type="text" name="wife_lmp_e2" class="form-control" value="{{ $test ? $test->wife_lmp_e2 : old('wife_lmp_e2') }}" />
+                                @error('wife_lmp_e2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_protocol') has-error @enderror">
-                            <label for="wife_lmp_protocol">{{ __('Protocol') }}</label>
-                            <input type="text" name="wife_lmp_protocol" class="form-control" value="{{ $test ? $test->wife_lmp_protocol : old('wife_lmp_protocol') }}" />
-                            @error('wife_lmp_protocol')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_inj') has-error @enderror">
+                                <label for="wife_lmp_inj">{{ __('Inj./ HCG / Trigger ') }}</label>
+                                <input type="text" name="wife_lmp_inj" class="form-control" value="{{ $test ? $test->wife_lmp_inj : old('wife_lmp_inj') }}" />
+                                @error('wife_lmp_inj')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_lmp') has-error @enderror">
-                            <label for="result_lmp">{{ __('LMP') }}</label>
-                            <input type="text" name="result_lmp" class="form-control" value="{{ $test ? $test->result_lmp : old('result_lmp') }}" />
-                            @error('result_lmp')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_dose') has-error @enderror">
+                                <label for="wife_lmp_dose">{{ __('Dose') }}</label>
+                                <input type="text" name="wife_lmp_dose" class="form-control" value="{{ $test ? $test->wife_lmp_dose : old('wife_lmp_dose') }}" />
+                                @error('wife_lmp_dose')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_stm_start') has-error @enderror">
-                            <label for="result_stm_start">{{ __('Stm Start') }}</label>
-                            <input type="text" name="result_stm_start" class="form-control" value="{{ $test ? $test->result_stm_start : old('result_stm_start') }}" />
-                            @error('result_stm_start')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_hcg') has-error @enderror">
+                                <label for="wife_lmp_hcg">{{ __('Date/ Time AM/PM') }}</label>
+                                <input type="text" name="wife_lmp_hcg" class="form-control" value="{{ $test ? $test->wife_lmp_hcg : old('wife_lmp_hcg') }}" />
+                                @error('wife_lmp_hcg')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('#') }}</th>
-                                        <th>{{ __('Date') }}</th>
-                                        <th>{{ __('Cyc Day') }}</th>
-                                        <th>{{ __('Sym Day') }}</th>
-                                        <th>{{ __('End') }}</th>
-                                        <th>{{ __('R Ovary AFC') }}</th>
-                                        <th>{{ __('L Ovary AFC') }}</th>
-                                        <th>{{ __('Stimulation Inj. Name') }}</th>
-                                        <th>{{ __('Dose.') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_1') has-error @enderror">
-                                                <input type="date" name="result_date_1" class="form-control" value="{{ $test ? $test->result_date_1 : old('result_date_1') }}" />
-                                                @error('result_date_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_1') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_1" class="form-control" value="{{ $test ? $test->result_cyc_day_1 : old('result_cyc_day_1') }}" />
-                                                @error('result_cyc_day_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_1') has-error @enderror">
-                                                <input type="text" name="result_stm_day_1" class="form-control" value="{{ $test ? $test->result_stm_day_1 : old('result_stm_day_1') }}" />
-                                                @error('result_stm_day_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_1') has-error @enderror">
-                                                <input type="text" name="result_end_1" class="form-control" value="{{ $test ? $test->result_end_1 : old('result_end_1') }}" />
-                                                @error('result_end_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_1') has-error @enderror">
-                                                <input type="text" name="result_rafc_1" class="form-control" value="{{ $test ? $test->result_rafc_1 : old('result_rafc_1') }}" />
-                                                @error('result_rafc_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_1') has-error @enderror">
-                                                <input type="text" name="result_lafc_1" class="form-control" value="{{ $test ? $test->result_lafc_1 : old('result_lafc_1') }}" />
-                                                @error('result_lafc_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_1') has-error @enderror">
-                                                <input type="text" name="result_stimulation_1" class="form-control" value="{{ $test ? $test->result_stimulation_1 : old('result_stimulation_1') }}" />
-                                                @error('result_stimulation_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_1') has-error @enderror">
-                                                <input type="text" name="result_misc_1" class="form-control" value="{{ $test ? $test->result_misc_1 : old('result_misc_1') }}" />
-                                                @error('result_misc_1')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_2') has-error @enderror">
-                                                <input type="date" name="result_date_2" class="form-control" value="{{ $test ? $test->result_date_2 : old('result_date_2') }}" />
-                                                @error('result_date_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_2') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_2" class="form-control" value="{{ $test ? $test->result_cyc_day_2 : old('result_cyc_day_2') }}" />
-                                                @error('result_cyc_day_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_2') has-error @enderror">
-                                                <input type="text" name="result_stm_day_2" class="form-control" value="{{ $test ? $test->result_stm_day_2 : old('result_stm_day_2') }}" />
-                                                @error('result_stm_day_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_2') has-error @enderror">
-                                                <input type="text" name="result_end_2" class="form-control" value="{{ $test ? $test->result_end_2 : old('result_end_2') }}" />
-                                                @error('result_end_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_2') has-error @enderror">
-                                                <input type="text" name="result_rafc_2" class="form-control" value="{{ $test ? $test->result_rafc_2 : old('result_rafc_2') }}" />
-                                                @error('result_rafc_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_2') has-error @enderror">
-                                                <input type="text" name="result_lafc_2" class="form-control" value="{{ $test ? $test->result_lafc_2 : old('result_lafc_2') }}" />
-                                                @error('result_lafc_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_2') has-error @enderror">
-                                                <input type="text" name="result_stimulation_2" class="form-control" value="{{ $test ? $test->result_stimulation_2 : old('result_stimulation_2') }}" />
-                                                @error('result_stimulation_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_2') has-error @enderror">
-                                                <input type="text" name="result_misc_2" class="form-control" value="{{ $test ? $test->result_misc_2 : old('result_misc_2') }}" />
-                                                @error('result_misc_2')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_3') has-error @enderror">
-                                                <input type="date" name="result_date_3" class="form-control" value="{{ $test ? $test->result_date_3 : old('result_date_3') }}" />
-                                                @error('result_date_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_3') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_3" class="form-control" value="{{ $test ? $test->result_cyc_day_3 : old('result_cyc_day_3') }}" />
-                                                @error('result_cyc_day_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_3') has-error @enderror">
-                                                <input type="text" name="result_stm_day_3" class="form-control" value="{{ $test ? $test->result_stm_day_3 : old('result_stm_day_3') }}" />
-                                                @error('result_stm_day_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_3') has-error @enderror">
-                                                <input type="text" name="result_end_3" class="form-control" value="{{ $test ? $test->result_end_3 : old('result_end_3') }}" />
-                                                @error('result_end_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_3') has-error @enderror">
-                                                <input type="text" name="result_rafc_3" class="form-control" value="{{ $test ? $test->result_rafc_3 : old('result_rafc_3') }}" />
-                                                @error('result_rafc_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_3') has-error @enderror">
-                                                <input type="text" name="result_lafc_3" class="form-control" value="{{ $test ? $test->result_lafc_3 : old('result_lafc_3') }}" />
-                                                @error('result_lafc_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_3') has-error @enderror">
-                                                <input type="text" name="result_stimulation_3" class="form-control" value="{{ $test ? $test->result_stimulation_3 : old('result_stimulation_3') }}" />
-                                                @error('result_stimulation_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_3') has-error @enderror">
-                                                <input type="text" name="result_misc_3" class="form-control" value="{{ $test ? $test->result_misc_3 : old('result_misc_3') }}" />
-                                                @error('result_misc_3')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            4
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_4') has-error @enderror">
-                                                <input type="date" name="result_date_4" class="form-control" value="{{ $test ? $test->result_date_4 : old('result_date_4') }}" />
-                                                @error('result_date_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_4') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_4" class="form-control" value="{{ $test ? $test->result_cyc_day_4 : old('result_cyc_day_4') }}" />
-                                                @error('result_cyc_day_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_4') has-error @enderror">
-                                                <input type="text" name="result_stm_day_4" class="form-control" value="{{ $test ? $test->result_stm_day_4 : old('result_stm_day_4') }}" />
-                                                @error('result_stm_day_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_4') has-error @enderror">
-                                                <input type="text" name="result_end_4" class="form-control" value="{{ $test ? $test->result_end_4 : old('result_end_4') }}" />
-                                                @error('result_end_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_4') has-error @enderror">
-                                                <input type="text" name="result_rafc_4" class="form-control" value="{{ $test ? $test->result_rafc_4 : old('result_rafc_4') }}" />
-                                                @error('result_rafc_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_4') has-error @enderror">
-                                                <input type="text" name="result_lafc_4" class="form-control" value="{{ $test ? $test->result_lafc_4 : old('result_lafc_4') }}" />
-                                                @error('result_lafc_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_4') has-error @enderror">
-                                                <input type="text" name="result_stimulation_4" class="form-control" value="{{ $test ? $test->result_stimulation_4 : old('result_stimulation_4') }}" />
-                                                @error('result_stimulation_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_4') has-error @enderror">
-                                                <input type="text" name="result_misc_4" class="form-control" value="{{ $test ? $test->result_misc_4 : old('result_misc_4') }}" />
-                                                @error('result_misc_4')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_5') has-error @enderror">
-                                                <input type="date" name="result_date_5" class="form-control" value="{{ $test ? $test->result_date_5 : old('result_date_5') }}" />
-                                                @error('result_date_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_5') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_5" class="form-control" value="{{ $test ? $test->result_cyc_day_5 : old('result_cyc_day_5') }}" />
-                                                @error('result_cyc_day_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_5') has-error @enderror">
-                                                <input type="text" name="result_stm_day_5" class="form-control" value="{{ $test ? $test->result_stm_day_5 : old('result_stm_day_5') }}" />
-                                                @error('result_stm_day_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_5') has-error @enderror">
-                                                <input type="text" name="result_end_5" class="form-control" value="{{ $test ? $test->result_end_5 : old('result_end_5') }}" />
-                                                @error('result_end_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_5') has-error @enderror">
-                                                <input type="text" name="result_rafc_5" class="form-control" value="{{ $test ? $test->result_rafc_5 : old('result_rafc_5') }}" />
-                                                @error('result_rafc_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_5') has-error @enderror">
-                                                <input type="text" name="result_lafc_5" class="form-control" value="{{ $test ? $test->result_lafc_5 : old('result_lafc_5') }}" />
-                                                @error('result_lafc_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_5') has-error @enderror">
-                                                <input type="text" name="result_stimulation_5" class="form-control" value="{{ $test ? $test->result_stimulation_5 : old('result_stimulation_5') }}" />
-                                                @error('result_stimulation_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_5') has-error @enderror">
-                                                <input type="text" name="result_misc_5" class="form-control" value="{{ $test ? $test->result_misc_5 : old('result_misc_5') }}" />
-                                                @error('result_misc_5')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            6
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_6') has-error @enderror">
-                                                <input type="date" name="result_date_6" class="form-control" value="{{ $test ? $test->result_date_6 : old('result_date_6') }}" />
-                                                @error('result_date_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_6') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_6" class="form-control" value="{{ $test ? $test->result_cyc_day_6 : old('result_cyc_day_6') }}" />
-                                                @error('result_cyc_day_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_6') has-error @enderror">
-                                                <input type="text" name="result_stm_day_6" class="form-control" value="{{ $test ? $test->result_stm_day_6 : old('result_stm_day_6') }}" />
-                                                @error('result_stm_day_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_6') has-error @enderror">
-                                                <input type="text" name="result_end_6" class="form-control" value="{{ $test ? $test->result_end_6 : old('result_end_6') }}" />
-                                                @error('result_end_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_6') has-error @enderror">
-                                                <input type="text" name="result_rafc_6" class="form-control" value="{{ $test ? $test->result_rafc_6 : old('result_rafc_6') }}" />
-                                                @error('result_rafc_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_6') has-error @enderror">
-                                                <input type="text" name="result_lafc_6" class="form-control" value="{{ $test ? $test->result_lafc_6 : old('result_lafc_6') }}" />
-                                                @error('result_lafc_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_6') has-error @enderror">
-                                                <input type="text" name="result_stimulation_6" class="form-control" value="{{ $test ? $test->result_stimulation_6 : old('result_stimulation_6') }}" />
-                                                @error('result_stimulation_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_6') has-error @enderror">
-                                                <input type="text" name="result_misc_6" class="form-control" value="{{ $test ? $test->result_misc_6 : old('result_misc_6') }}" />
-                                                @error('result_misc_6')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            7
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_7') has-error @enderror">
-                                                <input type="date" name="result_date_7" class="form-control" value="{{ $test ? $test->result_date_7 : old('result_date_7') }}" />
-                                                @error('result_date_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_7') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_7" class="form-control" value="{{ $test ? $test->result_cyc_day_7 : old('result_cyc_day_7') }}" />
-                                                @error('result_cyc_day_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_7') has-error @enderror">
-                                                <input type="text" name="result_stm_day_7" class="form-control" value="{{ $test ? $test->result_stm_day_7 : old('result_stm_day_7') }}" />
-                                                @error('result_stm_day_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_7') has-error @enderror">
-                                                <input type="text" name="result_end_7" class="form-control" value="{{ $test ? $test->result_end_7 : old('result_end_7') }}" />
-                                                @error('result_end_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_7') has-error @enderror">
-                                                <input type="text" name="result_rafc_7" class="form-control" value="{{ $test ? $test->result_rafc_7 : old('result_rafc_7') }}" />
-                                                @error('result_rafc_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_7') has-error @enderror">
-                                                <input type="text" name="result_lafc_7" class="form-control" value="{{ $test ? $test->result_lafc_7 : old('result_lafc_7') }}" />
-                                                @error('result_lafc_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_7') has-error @enderror">
-                                                <input type="text" name="result_stimulation_7" class="form-control" value="{{ $test ? $test->result_stimulation_7 : old('result_stimulation_7') }}" />
-                                                @error('result_stimulation_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_7') has-error @enderror">
-                                                <input type="text" name="result_misc_7" class="form-control" value="{{ $test ? $test->result_misc_7 : old('result_misc_7') }}" />
-                                                @error('result_misc_7')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            8
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_8') has-error @enderror">
-                                                <input type="date" name="result_date_8" class="form-control" value="{{ $test ? $test->result_date_8 : old('result_date_8') }}" />
-                                                @error('result_date_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_8') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_8" class="form-control" value="{{ $test ? $test->result_cyc_day_8 : old('result_cyc_day_8') }}" />
-                                                @error('result_cyc_day_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_8') has-error @enderror">
-                                                <input type="text" name="result_stm_day_8" class="form-control" value="{{ $test ? $test->result_stm_day_8 : old('result_stm_day_8') }}" />
-                                                @error('result_stm_day_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_8') has-error @enderror">
-                                                <input type="text" name="result_end_8" class="form-control" value="{{ $test ? $test->result_end_8 : old('result_end_8') }}" />
-                                                @error('result_end_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_8') has-error @enderror">
-                                                <input type="text" name="result_rafc_8" class="form-control" value="{{ $test ? $test->result_rafc_8 : old('result_rafc_8') }}" />
-                                                @error('result_rafc_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_8') has-error @enderror">
-                                                <input type="text" name="result_lafc_8" class="form-control" value="{{ $test ? $test->result_lafc_8 : old('result_lafc_8') }}" />
-                                                @error('result_lafc_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_8') has-error @enderror">
-                                                <input type="text" name="result_stimulation_8" class="form-control" value="{{ $test ? $test->result_stimulation_8 : old('result_stimulation_8') }}" />
-                                                @error('result_stimulation_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_8') has-error @enderror">
-                                                <input type="text" name="result_misc_8" class="form-control" value="{{ $test ? $test->result_misc_8 : old('result_misc_8') }}" />
-                                                @error('result_misc_8')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            9
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_9') has-error @enderror">
-                                                <input type="date" name="result_date_9" class="form-control" value="{{ $test ? $test->result_date_9 : old('result_date_9') }}" />
-                                                @error('result_date_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_9') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_9" class="form-control" value="{{ $test ? $test->result_cyc_day_9 : old('result_cyc_day_9') }}" />
-                                                @error('result_cyc_day_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_9') has-error @enderror">
-                                                <input type="text" name="result_stm_day_9" class="form-control" value="{{ $test ? $test->result_stm_day_9 : old('result_stm_day_9') }}" />
-                                                @error('result_stm_day_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_9') has-error @enderror">
-                                                <input type="text" name="result_end_9" class="form-control" value="{{ $test ? $test->result_end_9 : old('result_end_9') }}" />
-                                                @error('result_end_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_9') has-error @enderror">
-                                                <input type="text" name="result_rafc_9" class="form-control" value="{{ $test ? $test->result_rafc_9 : old('result_rafc_9') }}" />
-                                                @error('result_rafc_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_9') has-error @enderror">
-                                                <input type="text" name="result_lafc_9" class="form-control" value="{{ $test ? $test->result_lafc_9 : old('result_lafc_9') }}" />
-                                                @error('result_lafc_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_9') has-error @enderror">
-                                                <input type="text" name="result_stimulation_9" class="form-control" value="{{ $test ? $test->result_stimulation_9 : old('result_stimulation_9') }}" />
-                                                @error('result_stimulation_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_9') has-error @enderror">
-                                                <input type="text" name="result_misc_9" class="form-control" value="{{ $test ? $test->result_misc_9 : old('result_misc_9') }}" />
-                                                @error('result_misc_9')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            10
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_10') has-error @enderror">
-                                                <input type="date" name="result_date_10" class="form-control" value="{{ $test ? $test->result_date_10 : old('result_date_10') }}" />
-                                                @error('result_date_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_10') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_10" class="form-control" value="{{ $test ? $test->result_cyc_day_10 : old('result_cyc_day_10') }}" />
-                                                @error('result_cyc_day_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_10') has-error @enderror">
-                                                <input type="text" name="result_stm_day_10" class="form-control" value="{{ $test ? $test->result_stm_day_10 : old('result_stm_day_10') }}" />
-                                                @error('result_stm_day_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_10') has-error @enderror">
-                                                <input type="text" name="result_end_10" class="form-control" value="{{ $test ? $test->result_end_10 : old('result_end_10') }}" />
-                                                @error('result_end_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_10') has-error @enderror">
-                                                <input type="text" name="result_rafc_10" class="form-control" value="{{ $test ? $test->result_rafc_10 : old('result_rafc_10') }}" />
-                                                @error('result_rafc_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_10') has-error @enderror">
-                                                <input type="text" name="result_lafc_10" class="form-control" value="{{ $test ? $test->result_lafc_10 : old('result_lafc_10') }}" />
-                                                @error('result_lafc_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_10') has-error @enderror">
-                                                <input type="text" name="result_stimulation_10" class="form-control" value="{{ $test ? $test->result_stimulation_10 : old('result_stimulation_10') }}" />
-                                                @error('result_stimulation_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_10') has-error @enderror">
-                                                <input type="text" name="result_misc_10" class="form-control" value="{{ $test ? $test->result_misc_10 : old('result_misc_10') }}" />
-                                                @error('result_misc_10')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            11
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_11') has-error @enderror">
-                                                <input type="date" name="result_date_11" class="form-control" value="{{ $test ? $test->result_date_11 : old('result_date_11') }}" />
-                                                @error('result_date_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_11') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_11" class="form-control" value="{{ $test ? $test->result_cyc_day_11 : old('result_cyc_day_11') }}" />
-                                                @error('result_cyc_day_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_11') has-error @enderror">
-                                                <input type="text" name="result_stm_day_11" class="form-control" value="{{ $test ? $test->result_stm_day_11 : old('result_stm_day_11') }}" />
-                                                @error('result_stm_day_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_11') has-error @enderror">
-                                                <input type="text" name="result_end_11" class="form-control" value="{{ $test ? $test->result_end_11 : old('result_end_11') }}" />
-                                                @error('result_end_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_11') has-error @enderror">
-                                                <input type="text" name="result_rafc_11" class="form-control" value="{{ $test ? $test->result_rafc_11 : old('result_rafc_11') }}" />
-                                                @error('result_rafc_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_11') has-error @enderror">
-                                                <input type="text" name="result_lafc_11" class="form-control" value="{{ $test ? $test->result_lafc_11 : old('result_lafc_11') }}" />
-                                                @error('result_lafc_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_11') has-error @enderror">
-                                                <input type="text" name="result_stimulation_11" class="form-control" value="{{ $test ? $test->result_stimulation_11 : old('result_stimulation_11') }}" />
-                                                @error('result_stimulation_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_11') has-error @enderror">
-                                                <input type="text" name="result_misc_11" class="form-control" value="{{ $test ? $test->result_misc_11 : old('result_misc_11') }}" />
-                                                @error('result_misc_11')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            12
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_12') has-error @enderror">
-                                                <input type="date" name="result_date_12" class="form-control" value="{{ $test ? $test->result_date_12 : old('result_date_12') }}" />
-                                                @error('result_date_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_12') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_12" class="form-control" value="{{ $test ? $test->result_cyc_day_12 : old('result_cyc_day_12') }}" />
-                                                @error('result_cyc_day_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_12') has-error @enderror">
-                                                <input type="text" name="result_stm_day_12" class="form-control" value="{{ $test ? $test->result_stm_day_12 : old('result_stm_day_12') }}" />
-                                                @error('result_stm_day_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_12') has-error @enderror">
-                                                <input type="text" name="result_end_12" class="form-control" value="{{ $test ? $test->result_end_12 : old('result_end_12') }}" />
-                                                @error('result_end_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_12') has-error @enderror">
-                                                <input type="text" name="result_rafc_12" class="form-control" value="{{ $test ? $test->result_rafc_12 : old('result_rafc_12') }}" />
-                                                @error('result_rafc_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_12') has-error @enderror">
-                                                <input type="text" name="result_lafc_12" class="form-control" value="{{ $test ? $test->result_lafc_12 : old('result_lafc_12') }}" />
-                                                @error('result_lafc_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_12') has-error @enderror">
-                                                <input type="text" name="result_stimulation_12" class="form-control" value="{{ $test ? $test->result_stimulation_12 : old('result_stimulation_12') }}" />
-                                                @error('result_stimulation_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_12') has-error @enderror">
-                                                <input type="text" name="result_misc_12" class="form-control" value="{{ $test ? $test->result_misc_12 : old('result_misc_12') }}" />
-                                                @error('result_misc_12')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            13
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_13') has-error @enderror">
-                                                <input type="date" name="result_date_13" class="form-control" value="{{ $test ? $test->result_date_13 : old('result_date_13') }}" />
-                                                @error('result_date_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_13') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_13" class="form-control" value="{{ $test ? $test->result_cyc_day_13 : old('result_cyc_day_13') }}" />
-                                                @error('result_cyc_day_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_13') has-error @enderror">
-                                                <input type="text" name="result_stm_day_13" class="form-control" value="{{ $test ? $test->result_stm_day_13 : old('result_stm_day_13') }}" />
-                                                @error('result_stm_day_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_13') has-error @enderror">
-                                                <input type="text" name="result_end_13" class="form-control" value="{{ $test ? $test->result_end_13 : old('result_end_13') }}" />
-                                                @error('result_end_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_13') has-error @enderror">
-                                                <input type="text" name="result_rafc_13" class="form-control" value="{{ $test ? $test->result_rafc_13 : old('result_rafc_13') }}" />
-                                                @error('result_rafc_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_13') has-error @enderror">
-                                                <input type="text" name="result_lafc_13" class="form-control" value="{{ $test ? $test->result_lafc_13 : old('result_lafc_13') }}" />
-                                                @error('result_lafc_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_13') has-error @enderror">
-                                                <input type="text" name="result_stimulation_13" class="form-control" value="{{ $test ? $test->result_stimulation_13 : old('result_stimulation_13') }}" />
-                                                @error('result_stimulation_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_13') has-error @enderror">
-                                                <input type="text" name="result_misc_13" class="form-control" value="{{ $test ? $test->result_misc_13 : old('result_misc_13') }}" />
-                                                @error('result_misc_13')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            14
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_14') has-error @enderror">
-                                                <input type="date" name="result_date_14" class="form-control" value="{{ $test ? $test->result_date_14 : old('result_date_14') }}" />
-                                                @error('result_date_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_14') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_14" class="form-control" value="{{ $test ? $test->result_cyc_day_14 : old('result_cyc_day_14') }}" />
-                                                @error('result_cyc_day_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_14') has-error @enderror">
-                                                <input type="text" name="result_stm_day_14" class="form-control" value="{{ $test ? $test->result_stm_day_14 : old('result_stm_day_14') }}" />
-                                                @error('result_stm_day_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_14') has-error @enderror">
-                                                <input type="text" name="result_end_14" class="form-control" value="{{ $test ? $test->result_end_14 : old('result_end_14') }}" />
-                                                @error('result_end_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_14') has-error @enderror">
-                                                <input type="text" name="result_rafc_14" class="form-control" value="{{ $test ? $test->result_rafc_14 : old('result_rafc_14') }}" />
-                                                @error('result_rafc_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_14') has-error @enderror">
-                                                <input type="text" name="result_lafc_14" class="form-control" value="{{ $test ? $test->result_lafc_14 : old('result_lafc_14') }}" />
-                                                @error('result_lafc_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_14') has-error @enderror">
-                                                <input type="text" name="result_stimulation_14" class="form-control" value="{{ $test ? $test->result_stimulation_14 : old('result_stimulation_14') }}" />
-                                                @error('result_stimulation_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_14') has-error @enderror">
-                                                <input type="text" name="result_misc_14" class="form-control" value="{{ $test ? $test->result_misc_14 : old('result_misc_14') }}" />
-                                                @error('result_misc_14')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            15
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_15') has-error @enderror">
-                                                <input type="date" name="result_date_15" class="form-control" value="{{ $test ? $test->result_date_15 : old('result_date_15') }}" />
-                                                @error('result_date_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_15') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_15" class="form-control" value="{{ $test ? $test->result_cyc_day_15 : old('result_cyc_day_15') }}" />
-                                                @error('result_cyc_day_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_15') has-error @enderror">
-                                                <input type="text" name="result_stm_day_15" class="form-control" value="{{ $test ? $test->result_stm_day_15 : old('result_stm_day_15') }}" />
-                                                @error('result_stm_day_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_15') has-error @enderror">
-                                                <input type="text" name="result_end_15" class="form-control" value="{{ $test ? $test->result_end_15 : old('result_end_15') }}" />
-                                                @error('result_end_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_15') has-error @enderror">
-                                                <input type="text" name="result_rafc_15" class="form-control" value="{{ $test ? $test->result_rafc_15 : old('result_rafc_15') }}" />
-                                                @error('result_rafc_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_15') has-error @enderror">
-                                                <input type="text" name="result_lafc_15" class="form-control" value="{{ $test ? $test->result_lafc_15 : old('result_lafc_15') }}" />
-                                                @error('result_lafc_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_15') has-error @enderror">
-                                                <input type="text" name="result_stimulation_15" class="form-control" value="{{ $test ? $test->result_stimulation_15 : old('result_stimulation_15') }}" />
-                                                @error('result_stimulation_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_15') has-error @enderror">
-                                                <input type="text" name="result_misc_15" class="form-control" value="{{ $test ? $test->result_misc_15 : old('result_misc_15') }}" />
-                                                @error('result_misc_15')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            16
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_date_16') has-error @enderror">
-                                                <input type="date" name="result_date_16" class="form-control" value="{{ $test ? $test->result_date_16 : old('result_date_16') }}" />
-                                                @error('result_date_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_cyc_day_16') has-error @enderror">
-                                                <input type="text" name="result_cyc_day_16" class="form-control" value="{{ $test ? $test->result_cyc_day_16 : old('result_cyc_day_16') }}" />
-                                                @error('result_cyc_day_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stm_day_16') has-error @enderror">
-                                                <input type="text" name="result_stm_day_16" class="form-control" value="{{ $test ? $test->result_stm_day_16 : old('result_stm_day_16') }}" />
-                                                @error('result_stm_day_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_end_16') has-error @enderror">
-                                                <input type="text" name="result_end_16" class="form-control" value="{{ $test ? $test->result_end_16 : old('result_end_16') }}" />
-                                                @error('result_end_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_rafc_16') has-error @enderror">
-                                                <input type="text" name="result_rafc_16" class="form-control" value="{{ $test ? $test->result_rafc_16 : old('result_rafc_16') }}" />
-                                                @error('result_rafc_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_lafc_16') has-error @enderror">
-                                                <input type="text" name="result_lafc_16" class="form-control" value="{{ $test ? $test->result_lafc_16 : old('result_lafc_16') }}" />
-                                                @error('result_lafc_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_stimulation_16') has-error @enderror">
-                                                <input type="text" name="result_stimulation_16" class="form-control" value="{{ $test ? $test->result_stimulation_16 : old('result_stimulation_16') }}" />
-                                                @error('result_stimulation_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('result_misc_16') has-error @enderror">
-                                                <input type="text" name="result_misc_16" class="form-control" value="{{ $test ? $test->result_misc_16 : old('result_misc_16') }}" />
-                                                @error('result_misc_16')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-3">
+                            <div class="form-group @error('wife_lmp_hcg_day') has-error @enderror">
+                                <label for="wife_lmp_hcg_day">{{ __('Day Of HCG') }}</label>
+                                <input type="text" name="wife_lmp_hcg_day" class="form-control" value="{{ $test ? $test->wife_lmp_hcg_day : old('wife_lmp_hcg_day') }}" />
+                                @error('wife_lmp_hcg_day')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('wife_lmp_lh') has-error @enderror">
-                            <label for="wife_lmp_lh">{{ __('LH') }}</label>
-                            <input type="text" name="wife_lmp_lh" class="form-control" value="{{ $test ? $test->wife_lmp_lh : old('wife_lmp_lh') }}" />
-                            @error('wife_lmp_lh')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-6">
+                            <div class="form-group @error('wife_lmp_opu') has-error @enderror">
+                                <label for="wife_lmp_opu">{{ __('OPU') }}</label>
+                                <input type="text" name="wife_lmp_opu" class="form-control" value="{{ $test ? $test->wife_lmp_opu : old('wife_lmp_opu') }}" />
+                                @error('wife_lmp_opu')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('wife_lmp_e2') has-error @enderror">
-                            <label for="wife_lmp_e2">{{ __('E2') }}</label>
-                            <input type="text" name="wife_lmp_e2" class="form-control" value="{{ $test ? $test->wife_lmp_e2 : old('wife_lmp_e2') }}" />
-                            @error('wife_lmp_e2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-6">
+                            <div class="form-group @error('wife_lmp_ampm') has-error @enderror">
+                                <label for="wife_lmp_ampm">{{ __('Time AM/PM') }}</label>
+                                <input type="text" name="wife_lmp_ampm" class="form-control" value="{{ $test ? $test->wife_lmp_ampm : old('wife_lmp_ampm') }}" />
+                                @error('wife_lmp_ampm')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_inj') has-error @enderror">
-                            <label for="wife_lmp_inj">{{ __('Inj./ HCG / Trigger ') }}</label>
-                            <input type="text" name="wife_lmp_inj" class="form-control" value="{{ $test ? $test->wife_lmp_inj : old('wife_lmp_inj') }}" />
-                            @error('wife_lmp_inj')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('sperm_source_folliciles_right') has-error @enderror">
+                                <label for="sperm_source_folliciles_right">{{ __('Total No. of Follicles (Right)') }}</label>
+                                <input type="text" name="sperm_source_folliciles_right" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_right : old('sperm_source_folliciles_right') }}" />
+                                @error('sperm_source_folliciles_right')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_dose') has-error @enderror">
-                            <label for="wife_lmp_dose">{{ __('Dose') }}</label>
-                            <input type="text" name="wife_lmp_dose" class="form-control" value="{{ $test ? $test->wife_lmp_dose : old('wife_lmp_dose') }}" />
-                            @error('wife_lmp_dose')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('sperm_source_folliciles_left') has-error @enderror">
+                                <label for="sperm_source_folliciles_left">{{ __('Total No. of Follicles (Left)') }}</label>
+                                <input type="text" name="sperm_source_folliciles_left" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_left : old('sperm_source_folliciles_left') }}" />
+                                @error('sperm_source_folliciles_left')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_hcg') has-error @enderror">
-                            <label for="wife_lmp_hcg">{{ __('Date/ Time AM/PM') }}</label>
-                            <input type="text" name="wife_lmp_hcg" class="form-control" value="{{ $test ? $test->wife_lmp_hcg : old('wife_lmp_hcg') }}" />
-                            @error('wife_lmp_hcg')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('sperm_source_folliciles_total') has-error @enderror">
+                                <label for="sperm_source_folliciles_total">{{ __('Total No. of Follicles') }}</label>
+                                <input type="text" name="sperm_source_folliciles_total" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_total : old('sperm_source_folliciles_total') }}" />
+                                @error('sperm_source_folliciles_total')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('wife_lmp_hcg_day') has-error @enderror">
-                            <label for="wife_lmp_hcg_day">{{ __('Day Of HCG') }}</label>
-                            <input type="text" name="wife_lmp_hcg_day" class="form-control" value="{{ $test ? $test->wife_lmp_hcg_day : old('wife_lmp_hcg_day') }}" />
-                            @error('wife_lmp_hcg_day')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_ovum_right') has-error @enderror">
+                                <label for="sperm_source_ovum_right">{{ __('Total No. of Ovum Retrieve (Right)') }}</label>
+                                <input type="text" name="sperm_source_ovum_right" class="form-control" value="{{ $test ? $test->sperm_source_ovum_right : old('sperm_source_ovum_right') }}" />
+                                @error('sperm_source_ovum_right')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('wife_lmp_opu') has-error @enderror">
-                            <label for="wife_lmp_opu">{{ __('OPU') }}</label>
-                            <input type="text" name="wife_lmp_opu" class="form-control" value="{{ $test ? $test->wife_lmp_opu : old('wife_lmp_opu') }}" />
-                            @error('wife_lmp_opu')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_ovum_left') has-error @enderror">
+                                <label for="sperm_source_ovum_left">{{ __('Total No. of Ovum Retrieve (Left)') }}</label>
+                                <input type="text" name="sperm_source_ovum_left" class="form-control" value="{{ $test ? $test->sperm_source_ovum_left : old('sperm_source_ovum_left') }}" />
+                                @error('sperm_source_ovum_left')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('wife_lmp_ampm') has-error @enderror">
-                            <label for="wife_lmp_ampm">{{ __('Time AM/PM') }}</label>
-                            <input type="text" name="wife_lmp_ampm" class="form-control" value="{{ $test ? $test->wife_lmp_ampm : old('wife_lmp_ampm') }}" />
-                            @error('wife_lmp_ampm')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_ovum_pod') has-error @enderror">
+                                <label for="sperm_source_ovum_pod">{{ __('Total No. of Ovum Retrieve (POD)') }}</label>
+                                <input type="text" name="sperm_source_ovum_pod" class="form-control" value="{{ $test ? $test->sperm_source_ovum_pod : old('sperm_source_ovum_pod') }}" />
+                                @error('sperm_source_ovum_pod')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('sperm_source_folliciles_right') has-error @enderror">
-                            <label for="sperm_source_folliciles_right">{{ __('Total No. of Follicles (Right)') }}</label>
-                            <input type="text" name="sperm_source_folliciles_right" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_right : old('sperm_source_folliciles_right') }}" />
-                            @error('sperm_source_folliciles_right')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('sperm_source_folliciles_left') has-error @enderror">
-                            <label for="sperm_source_folliciles_left">{{ __('Total No. of Follicles (Left)') }}</label>
-                            <input type="text" name="sperm_source_folliciles_left" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_left : old('sperm_source_folliciles_left') }}" />
-                            @error('sperm_source_folliciles_left')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('sperm_source_folliciles_total') has-error @enderror">
-                            <label for="sperm_source_folliciles_total">{{ __('Total No. of Follicles') }}</label>
-                            <input type="text" name="sperm_source_folliciles_total" class="form-control" value="{{ $test ? $test->sperm_source_folliciles_total : old('sperm_source_folliciles_total') }}" />
-                            @error('sperm_source_folliciles_total')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ovum_right') has-error @enderror">
-                            <label for="sperm_source_ovum_right">{{ __('Total No. of Ovum Retrieve (Right)') }}</label>
-                            <input type="text" name="sperm_source_ovum_right" class="form-control" value="{{ $test ? $test->sperm_source_ovum_right : old('sperm_source_ovum_right') }}" />
-                            @error('sperm_source_ovum_right')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ovum_left') has-error @enderror">
-                            <label for="sperm_source_ovum_left">{{ __('Total No. of Ovum Retrieve (Left)') }}</label>
-                            <input type="text" name="sperm_source_ovum_left" class="form-control" value="{{ $test ? $test->sperm_source_ovum_left : old('sperm_source_ovum_left') }}" />
-                            @error('sperm_source_ovum_left')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ovum_pod') has-error @enderror">
-                            <label for="sperm_source_ovum_pod">{{ __('Total No. of Ovum Retrieve (POD)') }}</label>
-                            <input type="text" name="sperm_source_ovum_pod" class="form-control" value="{{ $test ? $test->sperm_source_ovum_pod : old('sperm_source_ovum_pod') }}" />
-                            @error('sperm_source_ovum_pod')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ovum_total') has-error @enderror">
-                            <label for="sperm_source_ovum_total">{{ __('Total No. of Ovum Retrieve') }}</label>
-                            <input type="text" name="sperm_source_ovum_total" class="form-control" value="{{ $test ? $test->sperm_source_ovum_total : old('sperm_source_ovum_total') }}" />
-                            @error('sperm_source_ovum_total')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_ovum_total') has-error @enderror">
+                                <label for="sperm_source_ovum_total">{{ __('Total No. of Ovum Retrieve') }}</label>
+                                <input type="text" name="sperm_source_ovum_total" class="form-control" value="{{ $test ? $test->sperm_source_ovum_total : old('sperm_source_ovum_total') }}" />
+                                @error('sperm_source_ovum_total')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="oOCYTEQUALITYPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#oOCYTEQUALITYPanelOne" href="#oOCYTEQUALITYCollapseOne">
-                    {{ __('OOCYTE QUALITY') }}
-                </a>
-            </h4>
-        </div>
-        <div id="oOCYTEQUALITYCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('Maturation Stage.') }}</th>
-                                        <th>{{ __('No. of Oocyte') }}</th>
-                                        <th>{{ __('Remark any other') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="M2" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_1_no') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_1_no" class="form-control" value="{{ $test ? $test->oocyte_quality_1_no : old('oocyte_quality_1_no') }}" />
-                                                @error('oocyte_quality_1_no')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_1_stage') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_1_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_1_stage : old('oocyte_quality_1_stage') }}" />
-                                                @error('oocyte_quality_1_stage')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="M1" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_2_no') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_2_no" class="form-control" value="{{ $test ? $test->oocyte_quality_2_no : old('oocyte_quality_2_no') }}" />
-                                                @error('oocyte_quality_2_no')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_2_stage') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_2_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_2_stage : old('oocyte_quality_2_stage') }}" />
-                                                @error('oocyte_quality_2_stage')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="GV" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_3_no') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_3_no" class="form-control" value="{{ $test ? $test->oocyte_quality_3_no : old('oocyte_quality_3_no') }}" />
-                                                @error('oocyte_quality_3_no')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_3_stage') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_3_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_3_stage : old('oocyte_quality_3_stage') }}" />
-                                                @error('oocyte_quality_3_stage')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="Other" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_4_no') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_4_no" class="form-control" value="{{ $test ? $test->oocyte_quality_4_no : old('oocyte_quality_4_no') }}" />
-                                                @error('oocyte_quality_4_no')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_4_stage') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_4_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_4_stage : old('oocyte_quality_4_stage') }}" />
-                                                @error('oocyte_quality_4_stage')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" value="Total" readonly />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_5_no') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_5_no" class="form-control" value="{{ $test ? $test->oocyte_quality_5_no : old('oocyte_quality_5_no') }}" />
-                                                @error('oocyte_quality_5_no')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-group @error('oocyte_quality_5_stage') has-error @enderror">
-                                                <input type="text" name="oocyte_quality_5_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_5_stage : old('oocyte_quality_5_stage') }}" />
-                                                @error('oocyte_quality_5_stage')
-                                                <span class="help-block">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <div class="panel box" id="oOCYTEQUALITYPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#oOCYTEQUALITYPanelOne" href="#oOCYTEQUALITYCollapseOne">
+                        {{ __('OOCYTE QUALITY') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="oOCYTEQUALITYCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __('Maturation Stage.') }}</th>
+                                            <th>{{ __('No. of Oocyte') }}</th>
+                                            <th>{{ __('Remark any other') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="M2" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_1_no') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_1_no" class="form-control" value="{{ $test ? $test->oocyte_quality_1_no : old('oocyte_quality_1_no') }}" />
+                                                    @error('oocyte_quality_1_no')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_1_stage') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_1_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_1_stage : old('oocyte_quality_1_stage') }}" />
+                                                    @error('oocyte_quality_1_stage')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="M1" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_2_no') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_2_no" class="form-control" value="{{ $test ? $test->oocyte_quality_2_no : old('oocyte_quality_2_no') }}" />
+                                                    @error('oocyte_quality_2_no')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_2_stage') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_2_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_2_stage : old('oocyte_quality_2_stage') }}" />
+                                                    @error('oocyte_quality_2_stage')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="GV" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_3_no') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_3_no" class="form-control" value="{{ $test ? $test->oocyte_quality_3_no : old('oocyte_quality_3_no') }}" />
+                                                    @error('oocyte_quality_3_no')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_3_stage') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_3_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_3_stage : old('oocyte_quality_3_stage') }}" />
+                                                    @error('oocyte_quality_3_stage')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="Other" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_4_no') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_4_no" class="form-control" value="{{ $test ? $test->oocyte_quality_4_no : old('oocyte_quality_4_no') }}" />
+                                                    @error('oocyte_quality_4_no')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_4_stage') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_4_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_4_stage : old('oocyte_quality_4_stage') }}" />
+                                                    @error('oocyte_quality_4_stage')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="Total" readonly />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_5_no') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_5_no" class="form-control" value="{{ $test ? $test->oocyte_quality_5_no : old('oocyte_quality_5_no') }}" />
+                                                    @error('oocyte_quality_5_no')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group @error('oocyte_quality_5_stage') has-error @enderror">
+                                                    <input type="text" name="oocyte_quality_5_stage" class="form-control" value="{{ $test ? $test->oocyte_quality_5_stage : old('oocyte_quality_5_stage') }}" />
+                                                    @error('oocyte_quality_5_stage')
+                                                    <span class="help-block">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="spermSourcePanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#spermSourcePanelOne" href="#spermSourceCollapseOne">
-                    {{ __('Sperm Source') }}
-                </a>
-            </h4>
+        <div class="panel box" id="spermSourcePanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#spermSourcePanelOne" href="#spermSourceCollapseOne">
+                        {{ __('Sperm Source') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="spermSourceCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_ejaculated') has-error @enderror">
+                                <label for="sperm_source_ejaculated">{{ __('Ejaculated') }}</label>
+                                <input type="text" name="sperm_source_ejaculated" class="form-control" value="{{ $test ? $test->sperm_source_ejaculated : old('sperm_source_ejaculated') }}" />
+                                @error('sperm_source_ejaculated')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_donor') has-error @enderror">
+                                <label for="sperm_source_donor">{{ __('Donor') }}</label>
+                                <input type="text" name="sperm_source_donor" class="form-control" value="{{ $test ? $test->sperm_source_donor : old('sperm_source_donor') }}" />
+                                @error('sperm_source_donor')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_pesa') has-error @enderror">
+                                <label for="sperm_source_pesa">{{ __('PESA') }}</label>
+                                <input type="text" name="sperm_source_pesa" class="form-control" value="{{ $test ? $test->sperm_source_pesa : old('sperm_source_pesa') }}" />
+                                @error('sperm_source_pesa')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_cryo') has-error @enderror">
+                                <label for="sperm_source_cryo">{{ __('Cryo') }}</label>
+                                <input type="text" name="sperm_source_cryo" class="form-control" value="{{ $test ? $test->sperm_source_cryo : old('sperm_source_cryo') }}" />
+                                @error('sperm_source_cryo')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_test') has-error @enderror">
+                                <label for="sperm_source_test">{{ __('TESA') }}</label>
+                                <input type="text" name="sperm_source_test" class="form-control" value="{{ $test ? $test->sperm_source_test : old('sperm_source_test') }}" />
+                                @error('sperm_source_test')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_recovery') has-error @enderror">
+                                <label for="sperm_source_recovery">{{ __('Recovery Checked') }}</label>
+                                <input type="text" name="sperm_source_recovery" class="form-control" value="{{ $test ? $test->sperm_source_recovery : old('sperm_source_recovery') }}" />
+                                @error('sperm_source_recovery')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_whom') has-error @enderror">
+                                <label for="sperm_source_whom">{{ __('Whom') }}</label>
+                                <input type="text" name="sperm_source_whom" class="form-control" value="{{ $test ? $test->sperm_source_whom : old('sperm_source_whom') }}" />
+                                @error('sperm_source_whom')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group @error('sperm_source_when') has-error @enderror">
+                                <label for="sperm_source_when">{{ __('When') }}</label>
+                                <input type="text" name="sperm_source_when" class="form-control" value="{{ $test ? $test->sperm_source_when : old('sperm_source_when') }}" />
+                                @error('sperm_source_when')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{{ __('Semen Analysis') }}</th>
+                                    <th>{{ __('Native') }}</th>
+                                    <th>{{ __('After Harvest') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Volume" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_volume_native') has-error @enderror">
+                                            <input type="text" name="sa_volume_native" class="form-control" value="{{ $test ? $test->sa_volume_native : old('sa_volume_native') }}" />
+                                            @error('sa_volume_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_volume_ah') has-error @enderror">
+                                            <input type="text" name="sa_volume_ah" class="form-control" value="{{ $test ? $test->sa_volume_ah : old('sa_volume_ah') }}" />
+                                            @error('sa_volume_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Mucoid" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_mucoid_native') has-error @enderror">
+                                            <input type="text" name="sa_mucoid_native" class="form-control" value="{{ $test ? $test->sa_mucoid_native : old('sa_mucoid_native') }}" />
+                                            @error('sa_mucoid_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_mucoid_ah') has-error @enderror">
+                                            <input type="text" name="sa_mucoid_ah" class="form-control" value="{{ $test ? $test->sa_mucoid_ah : old('sa_mucoid_ah') }}" />
+                                            @error('sa_mucoid_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Sperm Count/ml" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_sperm_count_native') has-error @enderror">
+                                            <input type="text" name="sa_sperm_count_native" class="form-control" value="{{ $test ? $test->sa_sperm_count_native : old('sa_sperm_count_native') }}" />
+                                            @error('sa_sperm_count_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_sperm_count_ah') has-error @enderror">
+                                            <input type="text" name="sa_sperm_count_ah" class="form-control" value="{{ $test ? $test->sa_sperm_count_ah : old('sa_sperm_count_ah') }}" />
+                                            @error('sa_sperm_count_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Motility" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_motility_native') has-error @enderror">
+                                            <input type="text" name="sa_motility_native" class="form-control" value="{{ $test ? $test->sa_motility_native : old('sa_motility_native') }}" />
+                                            @error('sa_motility_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_motility_ah') has-error @enderror">
+                                            <input type="text" name="sa_motility_ah" class="form-control" value="{{ $test ? $test->sa_motility_ah : old('sa_motility_ah') }}" />
+                                            @error('sa_motility_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Grade" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_grade_native') has-error @enderror">
+                                            <input type="text" name="sa_grade_native" class="form-control" value="{{ $test ? $test->sa_grade_native : old('sa_grade_native') }}" />
+                                            @error('sa_grade_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_grade_ah') has-error @enderror">
+                                            <input type="text" name="sa_grade_ah" class="form-control" value="{{ $test ? $test->sa_grade_ah : old('sa_grade_ah') }}" />
+                                            @error('sa_grade_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Pus cells" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_pus_cells_native') has-error @enderror">
+                                            <input type="text" name="sa_pus_cells_native" class="form-control" value="{{ $test ? $test->sa_pus_cells_native : old('sa_pus_cells_native') }}" />
+                                            @error('sa_pus_cells_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_pus_cells_ah') has-error @enderror">
+                                            <input type="text" name="sa_pus_cells_ah" class="form-control" value="{{ $test ? $test->sa_pus_cells_ah : old('sa_pus_cells_ah') }}" />
+                                            @error('sa_pus_cells_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Immature cells" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_immature_cells_native') has-error @enderror">
+                                            <input type="text" name="sa_immature_cells_native" class="form-control" value="{{ $test ? $test->sa_immature_cells_native : old('sa_immature_cells_native') }}" />
+                                            @error('sa_immature_cells_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_immature_cells_ah') has-error @enderror">
+                                            <input type="text" name="sa_immature_cells_ah" class="form-control" value="{{ $test ? $test->sa_immature_cells_ah : old('sa_immature_cells_ah') }}" />
+                                            @error('sa_immature_cells_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Agglutination" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_agglutination_native') has-error @enderror">
+                                            <input type="text" name="sa_agglutination_native" class="form-control" value="{{ $test ? $test->sa_agglutination_native : old('sa_agglutination_native') }}" />
+                                            @error('sa_agglutination_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_agglutination_ah') has-error @enderror">
+                                            <input type="text" name="sa_agglutination_ah" class="form-control" value="{{ $test ? $test->sa_agglutination_ah : old('sa_agglutination_ah') }}" />
+                                            @error('sa_agglutination_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Granular Debris" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_granular_debris_native') has-error @enderror">
+                                            <input type="text" name="sa_granular_debris_native" class="form-control" value="{{ $test ? $test->sa_granular_debris_native : old('sa_granular_debris_native') }}" />
+                                            @error('sa_granular_debris_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_granular_debris_ah') has-error @enderror">
+                                            <input type="text" name="sa_granular_debris_ah" class="form-control" value="{{ $test ? $test->sa_granular_debris_ah : old('sa_granular_debris_ah') }}" />
+                                            @error('sa_granular_debris_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="Insemination Time" readonly>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_insemination_time_native') has-error @enderror">
+                                            <input type="text" name="sa_insemination_time_native" class="form-control" value="{{ $test ? $test->sa_insemination_time_native : old('sa_insemination_time_native') }}" />
+                                            @error('sa_insemination_time_native')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group @error('sa_insemination_time_ah') has-error @enderror">
+                                            <input type="text" name="sa_insemination_time_ah" class="form-control" value="{{ $test ? $test->sa_insemination_time_ah : old('sa_insemination_time_ah') }}" />
+                                            @error('sa_insemination_time_ah')
+                                            <span class="help-block">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="spermSourceCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_ejaculated') has-error @enderror">
-                            <label for="sperm_source_ejaculated">{{ __('Ejaculated') }}</label>
-                            <input type="text" name="sperm_source_ejaculated" class="form-control" value="{{ $test ? $test->sperm_source_ejaculated : old('sperm_source_ejaculated') }}" />
-                            @error('sperm_source_ejaculated')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+        <div class="panel box" id="icficsiPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#icficsiPanelOne" href="#icficsiCollapseOne">
+                        {{ __('IVF/ICSI') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="icficsiCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_ivf') has-error @enderror">
+                                <label for="result_ivf">{{ __('IVF') }}</label>
+                                <input type="text" name="result_ivf" class="form-control" value="{{ $test ? $test->result_ivf : old('result_ivf') }}" />
+                                @error('result_ivf')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_icsi') has-error @enderror">
+                                <label for="result_icsi">{{ __('ICSI') }}</label>
+                                <input type="text" name="result_icsi" class="form-control" value="{{ $test ? $test->result_icsi : old('result_icsi') }}" />
+                                @error('result_icsi')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_donor') has-error @enderror">
-                            <label for="sperm_source_donor">{{ __('Donor') }}</label>
-                            <input type="text" name="sperm_source_donor" class="form-control" value="{{ $test ? $test->sperm_source_donor : old('sperm_source_donor') }}" />
-                            @error('sperm_source_donor')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                    <div class="row">
+                        <div class="col-md-2 ivf-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="IVF Day 1" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_pesa') has-error @enderror">
-                            <label for="sperm_source_pesa">{{ __('PESA') }}</label>
-                            <input type="text" name="sperm_source_pesa" class="form-control" value="{{ $test ? $test->sperm_source_pesa : old('sperm_source_pesa') }}" />
-                            @error('sperm_source_pesa')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_no2pn_1') has-error @enderror">
+                                <label for="ivf_no2pn_1">{{ __('No.2 PN') }}</label>
+                                <input type="text" name="ivf_no2pn_1" class="form-control" value="{{ $test ? $test->ivf_no2pn_1 : old('ivf_no2pn_1') }}" />
+                                @error('ivf_no2pn_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_cryo') has-error @enderror">
-                            <label for="sperm_source_cryo">{{ __('Cryo') }}</label>
-                            <input type="text" name="sperm_source_cryo" class="form-control" value="{{ $test ? $test->sperm_source_cryo : old('sperm_source_cryo') }}" />
-                            @error('sperm_source_cryo')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_2pn_1') has-error @enderror">
+                                <label for="ivf_2pn_1">{{ __('2PN') }}</label>
+                                <input type="text" name="ivf_2pn_1" class="form-control" value="{{ $test ? $test->ivf_2pn_1 : old('ivf_2pn_1') }}" />
+                                @error('ivf_2pn_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_test') has-error @enderror">
-                            <label for="sperm_source_test">{{ __('TESA') }}</label>
-                            <input type="text" name="sperm_source_test" class="form-control" value="{{ $test ? $test->sperm_source_test : old('sperm_source_test') }}" />
-                            @error('sperm_source_test')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 ivf-div">
+                            <div class="form-group @error('ivf_discard_1') has-error @enderror">
+                                <label for="ivf_discard_1">{{ __('Discard') }}</label>
+                                <input type="text" name="ivf_discard_1" class="form-control" value="{{ $test ? $test->ivf_discard_1 : old('ivf_discard_1') }}" />
+                                @error('ivf_discard_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_recovery') has-error @enderror">
-                            <label for="sperm_source_recovery">{{ __('Recovery Checked') }}</label>
-                            <input type="text" name="sperm_source_recovery" class="form-control" value="{{ $test ? $test->sperm_source_recovery : old('sperm_source_recovery') }}" />
-                            @error('sperm_source_recovery')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_whom') has-error @enderror">
-                            <label for="sperm_source_whom">{{ __('Whom') }}</label>
-                            <input type="text" name="sperm_source_whom" class="form-control" value="{{ $test ? $test->sperm_source_whom : old('sperm_source_whom') }}" />
-                            @error('sperm_source_whom')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('sperm_source_when') has-error @enderror">
-                            <label for="sperm_source_when">{{ __('When') }}</label>
-                            <input type="text" name="sperm_source_when" class="form-control" value="{{ $test ? $test->sperm_source_when : old('sperm_source_when') }}" />
-                            @error('sperm_source_when')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>{{ __('Semen Analysis') }}</th>
-                                <th>{{ __('Native') }}</th>
-                                <th>{{ __('After Harvest') }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Volume" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_volume_native') has-error @enderror">
-                                        <input type="text" name="sa_volume_native" class="form-control" value="{{ $test ? $test->sa_volume_native : old('sa_volume_native') }}" />
-                                        @error('sa_volume_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_volume_ah') has-error @enderror">
-                                        <input type="text" name="sa_volume_ah" class="form-control" value="{{ $test ? $test->sa_volume_ah : old('sa_volume_ah') }}" />
-                                        @error('sa_volume_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Mucoid" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_mucoid_native') has-error @enderror">
-                                        <input type="text" name="sa_mucoid_native" class="form-control" value="{{ $test ? $test->sa_mucoid_native : old('sa_mucoid_native') }}" />
-                                        @error('sa_mucoid_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_mucoid_ah') has-error @enderror">
-                                        <input type="text" name="sa_mucoid_ah" class="form-control" value="{{ $test ? $test->sa_mucoid_ah : old('sa_mucoid_ah') }}" />
-                                        @error('sa_mucoid_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Sperm Count/ml" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_sperm_count_native') has-error @enderror">
-                                        <input type="text" name="sa_sperm_count_native" class="form-control" value="{{ $test ? $test->sa_sperm_count_native : old('sa_sperm_count_native') }}" />
-                                        @error('sa_sperm_count_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_sperm_count_ah') has-error @enderror">
-                                        <input type="text" name="sa_sperm_count_ah" class="form-control" value="{{ $test ? $test->sa_sperm_count_ah : old('sa_sperm_count_ah') }}" />
-                                        @error('sa_sperm_count_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Motility" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_motility_native') has-error @enderror">
-                                        <input type="text" name="sa_motility_native" class="form-control" value="{{ $test ? $test->sa_motility_native : old('sa_motility_native') }}" />
-                                        @error('sa_motility_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_motility_ah') has-error @enderror">
-                                        <input type="text" name="sa_motility_ah" class="form-control" value="{{ $test ? $test->sa_motility_ah : old('sa_motility_ah') }}" />
-                                        @error('sa_motility_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Grade" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_grade_native') has-error @enderror">
-                                        <select name="sa_grade_native" class="form-control">
-                                            <option value="I" @if(($test && $test->sa_grade_native == "I") || (old('sa_grade_native') == "I")) selected @endif>I</option>
-                                            <option value="II" @if(($test && $test->sa_grade_native == "II") || (old('sa_grade_native') == "II")) selected @endif>II</option>
-                                            <option value="III" @if(($test && $test->sa_grade_native == "III") || (old('sa_grade_native') == "III")) selected @endif>III</option>
-                                            <option value="IV" @if(($test && $test->sa_grade_native == "IV") || (old('sa_grade_native') == "IV")) selected @endif>IV</option>
-                                        </select>
-                                        @error('sa_grade_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_grade_ah') has-error @enderror">
-                                        <select name="sa_grade_ah" class="form-control">
-                                            <option value="I" @if(($test && $test->sa_grade_ah == "I") || (old('sa_grade_ah') == "I")) selected @endif>I</option>
-                                            <option value="II" @if(($test && $test->sa_grade_ah == "II") || (old('sa_grade_ah') == "II")) selected @endif>II</option>
-                                            <option value="III" @if(($test && $test->sa_grade_ah == "III") || (old('sa_grade_ah') == "III")) selected @endif>III</option>
-                                            <option value="IV" @if(($test && $test->sa_grade_ah == "IV") || (old('sa_grade_ah') == "IV")) selected @endif>IV</option>
-                                        </select>
-                                        @error('sa_grade_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Pus cells" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_pus_cells_native') has-error @enderror">
-                                        <input type="text" name="sa_pus_cells_native" class="form-control" value="{{ $test ? $test->sa_pus_cells_native : old('sa_pus_cells_native') }}" />
-                                        @error('sa_pus_cells_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_pus_cells_ah') has-error @enderror">
-                                        <input type="text" name="sa_pus_cells_ah" class="form-control" value="{{ $test ? $test->sa_pus_cells_ah : old('sa_pus_cells_ah') }}" />
-                                        @error('sa_pus_cells_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Immature cells" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_immature_cells_native') has-error @enderror">
-                                        <input type="text" name="sa_immature_cells_native" class="form-control" value="{{ $test ? $test->sa_immature_cells_native : old('sa_immature_cells_native') }}" />
-                                        @error('sa_immature_cells_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_immature_cells_ah') has-error @enderror">
-                                        <input type="text" name="sa_immature_cells_ah" class="form-control" value="{{ $test ? $test->sa_immature_cells_ah : old('sa_immature_cells_ah') }}" />
-                                        @error('sa_immature_cells_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Agglutination" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_agglutination_native') has-error @enderror">
-                                        <input type="text" name="sa_agglutination_native" class="form-control" value="{{ $test ? $test->sa_agglutination_native : old('sa_agglutination_native') }}" />
-                                        @error('sa_agglutination_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_agglutination_ah') has-error @enderror">
-                                        <input type="text" name="sa_agglutination_ah" class="form-control" value="{{ $test ? $test->sa_agglutination_ah : old('sa_agglutination_ah') }}" />
-                                        @error('sa_agglutination_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Granular Debris" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_granular_debris_native') has-error @enderror">
-                                        <input type="text" name="sa_granular_debris_native" class="form-control" value="{{ $test ? $test->sa_granular_debris_native : old('sa_granular_debris_native') }}" />
-                                        @error('sa_granular_debris_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_granular_debris_ah') has-error @enderror">
-                                        <input type="text" name="sa_granular_debris_ah" class="form-control" value="{{ $test ? $test->sa_granular_debris_ah : old('sa_granular_debris_ah') }}" />
-                                        @error('sa_granular_debris_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" value="Insemination Time" readonly>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_insemination_time_native') has-error @enderror">
-                                        <input type="text" name="sa_insemination_time_native" class="form-control" value="{{ $test ? $test->sa_insemination_time_native : old('sa_insemination_time_native') }}" />
-                                        @error('sa_insemination_time_native')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group @error('sa_insemination_time_ah') has-error @enderror">
-                                        <input type="text" name="sa_insemination_time_ah" class="form-control" value="{{ $test ? $test->sa_insemination_time_ah : old('sa_insemination_time_ah') }}" />
-                                        @error('sa_insemination_time_ah')
-                                        <span class="help-block">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <div class="col-md-2 icsi-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="ICSI Day 1" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_no2pn_1') has-error @enderror">
+                                <label for="icsi_no2pn_1">{{ __('No.2 PN') }}</label>
+                                <input type="text" name="icsi_no2pn_1" class="form-control" value="{{ $test ? $test->icsi_no2pn_1 : old('icsi_no2pn_1') }}" />
+                                @error('icsi_no2pn_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_2pn_1') has-error @enderror">
+                                <label for="icsi_2pn_1">{{ __('2PN') }}</label>
+                                <input type="text" name="icsi_2pn_1" class="form-control" value="{{ $test ? $test->icsi_2pn_1 : old('icsi_2pn_1') }}" />
+                                @error('icsi_2pn_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4 icsi-div">
+                            <div class="form-group @error('icsi_discard_1') has-error @enderror">
+                                <label for="icsi_discard_1">{{ __('Discard') }}</label>
+                                <input type="text" name="icsi_discard_1" class="form-control" value="{{ $test ? $test->icsi_discard_1 : old('icsi_discard_1') }}" />
+                                @error('icsi_discard_1')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_ivf') has-error @enderror">
-                            <label for="result_ivf">{{ __('IVF') }}</label>
-                            <input type="text" name="result_ivf" class="form-control" value="{{ $test ? $test->result_ivf : old('result_ivf') }}" />
-                            @error('result_ivf')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-2 ivf-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="IVF Day 2" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_icsi') has-error @enderror">
-                            <label for="result_icsi">{{ __('ICSI') }}</label>
-                            <input type="text" name="result_icsi" class="form-control" value="{{ $test ? $test->result_icsi : old('result_icsi') }}" />
-                            @error('result_icsi')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_no2pn_2') has-error @enderror">
+                                <label for="ivf_no2pn_2">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_no2pn_2" class="form-control" value="{{ $test ? $test->ivf_no2pn_2 : old('ivf_no2pn_2') }}" />
+                                @error('ivf_no2pn_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_2pn_2') has-error @enderror">
+                                <label for="ivf_2pn_2">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_2pn_2" class="form-control" value="{{ $test ? $test->ivf_2pn_2 : old('ivf_2pn_2') }}" />
+                                @error('ivf_2pn_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4 ivf-div">
+                            <div class="form-group @error('ivf_discard_2') has-error @enderror">
+                                <label for="ivf_discard_2">{{ __('Discard') }}</label>
+                                <input type="text" name="ivf_discard_2" class="form-control" value="{{ $test ? $test->ivf_discard_2 : old('ivf_discard_2') }}" />
+                                @error('ivf_discard_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                    <div class="col-md-2 ivf-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="IVF Day 1" readonly>
+                        <div class="col-md-2 icsi-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="ICSI Day 2" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_1" class="form-control" value="{{ $test ? $test->sa_no2pn_1 : old('sa_no2pn_1') }}" />
-                            @error('sa_no2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_no2pn_2') has-error @enderror">
+                                <label for="icsi_no2pn_2">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_no2pn_2" class="form-control" value="{{ $test ? $test->icsi_no2pn_2 : old('icsi_no2pn_2') }}" />
+                                @error('icsi_no2pn_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_1" class="form-control" value="{{ $test ? $test->sa_2pn_1 : old('sa_2pn_1') }}" />
-                            @error('sa_2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_2pn_2') has-error @enderror">
+                                <label for="icsi_2pn_2">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_2pn_2" class="form-control" value="{{ $test ? $test->icsi_2pn_2 : old('icsi_2pn_2') }}" />
+                                @error('icsi_2pn_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 ivf-div">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_1" class="form-control" value="{{ $test ? $test->sa_max2pn_1 : old('sa_max2pn_1') }}" />
-                            @error('sa_max2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 icsi-div">
+                            <div class="form-group @error('icsi_discard_2') has-error @enderror">
+                                <label for="icsi_discard_2">{{ __('Discard') }}</label>
+                                <input type="text" name="icsi_discard_2" class="form-control" value="{{ $test ? $test->icsi_discard_2 : old('icsi_discard_2') }}" />
+                                @error('icsi_discard_2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-2 icsi-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="ICSI Day 1" readonly>
+                        <div class="col-md-2 ivf-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="IVF Day 3" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_2" class="form-control" value="{{ $test ? $test->sa_no2pn_2 : old('sa_no2pn_2') }}" />
-                            @error('sa_no2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_no2pn_3') has-error @enderror">
+                                <label for="ivf_no2pn_3">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_no2pn_3" class="form-control" value="{{ $test ? $test->ivf_no2pn_3 : old('ivf_no2pn_3') }}" />
+                                @error('ivf_no2pn_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_2" class="form-control" value="{{ $test ? $test->sa_2pn_2 : old('sa_2pn_2') }}" />
-                            @error('sa_2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_2pn_3') has-error @enderror">
+                                <label for="ivf_2pn_3">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_2pn_3" class="form-control" value="{{ $test ? $test->ivf_2pn_3 : old('ivf_2pn_3') }}" />
+                                @error('ivf_2pn_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 icsi-div">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_2" class="form-control" value="{{ $test ? $test->sa_max2pn_2 : old('sa_max2pn_2') }}" />
-                            @error('sa_max2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 ivf-div">
+                            <div class="form-group @error('ivf_discard_3') has-error @enderror">
+                                <label for="ivf_discard_3">{{ __('Discard') }}</label>
+                                <input type="text" name="ivf_discard_3" class="form-control" value="{{ $test ? $test->ivf_discard_3 : old('ivf_discard_3') }}" />
+                                @error('ivf_discard_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-2 ivf-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="IVF Day 2" readonly>
+                        <div class="col-md-2 icsi-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="ICSI Day 3" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN ') }}</label>
-                            <input type="text" name="sa_no2pn_1" class="form-control" value="{{ $test ? $test->sa_no2pn_1 : old('sa_no2pn_1') }}" />
-                            @error('sa_no2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_no2pn_3') has-error @enderror">
+                                <label for="icsi_no2pn_3">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_no2pn_3" class="form-control" value="{{ $test ? $test->icsi_no2pn_3 : old('icsi_no2pn_3') }}" />
+                                @error('icsi_no2pn_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_1" class="form-control" value="{{ $test ? $test->sa_2pn_1 : old('sa_2pn_1') }}" />
-                            @error('sa_2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_2pn_3') has-error @enderror">
+                                <label for="icsi_2pn_3">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_2pn_3" class="form-control" value="{{ $test ? $test->icsi_2pn_3 : old('icsi_2pn_3') }}" />
+                                @error('icsi_2pn_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 ivf-div">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_1" class="form-control" value="{{ $test ? $test->sa_max2pn_1 : old('sa_max2pn_1') }}" />
-                            @error('sa_max2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 icsi-div">
+                            <div class="form-group @error('icsi_discard_3') has-error @enderror">
+                                <label for="icsi_discard_3">{{ __('Discard') }}</label>
+                                <input type="text" name="icsi_discard_3" class="form-control" value="{{ $test ? $test->icsi_discard_3 : old('icsi_discard_3') }}" />
+                                @error('icsi_discard_3')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2 icsi-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="ICSI Day 2" readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_2" class="form-control" value="{{ $test ? $test->sa_no2pn_2 : old('sa_no2pn_2') }}" />
-                            @error('sa_no2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_2" class="form-control" value="{{ $test ? $test->sa_2pn_2 : old('sa_2pn_2') }}" />
-                            @error('sa_2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4 icsi-div">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_2" class="form-control" value="{{ $test ? $test->sa_max2pn_2 : old('sa_max2pn_2') }}" />
-                            @error('sa_max2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
 
-                    <div class="col-md-2 ivf-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="IVF Day 3" readonly>
+                        <div class="col-md-2 ivf-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="IVF Day 4" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_1" class="form-control" value="{{ $test ? $test->sa_no2pn_1 : old('sa_no2pn_1') }}" />
-                            @error('sa_no2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_no2pn_4') has-error @enderror">
+                                <label for="ivf_no2pn_4">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_no2pn_4" class="form-control" value="{{ $test ? $test->ivf_no2pn_4 : old('ivf_no2pn_4') }}" />
+                                @error('ivf_no2pn_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_1" class="form-control" value="{{ $test ? $test->sa_2pn_1 : old('sa_2pn_1') }}" />
-                            @error('sa_2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_2pn_4') has-error @enderror">
+                                <label for="ivf_2pn_4">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_2pn_4" class="form-control" value="{{ $test ? $test->ivf_2pn_4 : old('ivf_2pn_4') }}" />
+                                @error('ivf_2pn_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 ivf-div">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_1" class="form-control" value="{{ $test ? $test->sa_max2pn_1 : old('sa_max2pn_1') }}" />
-                            @error('sa_max2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 ivf-div">
+                            <div class="form-group @error('ivf_discard_4') has-error @enderror">
+                                <label for="ivf_discard_4">{{ __('Discard') }}</label>
+                                <input type="text" name="ivf_discard_4" class="form-control" value="{{ $test ? $test->ivf_discard_4 : old('ivf_discard_4') }}" />
+                                @error('ivf_discard_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-2 icsi-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="ICSI Day 3" readonly>
+                        <div class="col-md-2 icsi-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="ICSI Day 4" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_2" class="form-control" value="{{ $test ? $test->sa_no2pn_2 : old('sa_no2pn_2') }}" />
-                            @error('sa_no2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_no2pn_4') has-error @enderror">
+                                <label for="icsi_no2pn_4">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_no2pn_4" class="form-control" value="{{ $test ? $test->icsi_no2pn_4 : old('icsi_no2pn_4') }}" />
+                                @error('icsi_no2pn_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_2" class="form-control" value="{{ $test ? $test->sa_2pn_2 : old('sa_2pn_2') }}" />
-                            @error('sa_2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_2pn_4') has-error @enderror">
+                                <label for="icsi_2pn_4">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_2pn_4" class="form-control" value="{{ $test ? $test->icsi_2pn_4 : old('icsi_2pn_4') }}" />
+                                @error('icsi_2pn_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 icsi-div">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_2" class="form-control" value="{{ $test ? $test->sa_max2pn_2 : old('sa_max2pn_2') }}" />
-                            @error('sa_max2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 icsi-div">
+                            <div class="form-group @error('icsi_discard_4') has-error @enderror">
+                                <label for="icsi_discard_4">{{ __('Discard') }}</label>
+                                <input type="text" name="icsi_discard_4" class="form-control" value="{{ $test ? $test->icsi_discard_4 : old('icsi_discard_4') }}" />
+                                @error('icsi_discard_4')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-2 ivf-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="IVF Day 4" readonly>
+                        <div class="col-md-2 ivf-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="IVF Day 5" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_1" class="form-control" value="{{ $test ? $test->sa_no2pn_1 : old('sa_no2pn_1') }}" />
-                            @error('sa_no2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_no2pn_5') has-error @enderror">
+                                <label for="ivf_no2pn_5">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_no2pn_5" class="form-control" value="{{ $test ? $test->ivf_no2pn_5 : old('ivf_no2pn_5') }}" />
+                                @error('ivf_no2pn_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_1" class="form-control" value="{{ $test ? $test->sa_2pn_1 : old('sa_2pn_1') }}" />
-                            @error('sa_2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 ivf-div">
+                            <div class="form-group @error('ivf_2pn_5') has-error @enderror">
+                                <label for="ivf_2pn_5">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="ivf_2pn_5" class="form-control" value="{{ $test ? $test->ivf_2pn_5 : old('ivf_2pn_5') }}" />
+                                @error('ivf_2pn_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 ivf-div">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_1" class="form-control" value="{{ $test ? $test->sa_max2pn_1 : old('sa_max2pn_1') }}" />
-                            @error('sa_max2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 ivf-div">
+                            <div class="form-group @error('ivf_discard_5') has-error @enderror">
+                                <label for="ivf_discard_5">{{ __('Discard') }}</label>
+                                <input type="text" name="ivf_discard_5" class="form-control" value="{{ $test ? $test->ivf_discard_5 : old('ivf_discard_5') }}" />
+                                @error('ivf_discard_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-2 icsi-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="ICSI Day 4" readonly>
+                        <div class="col-md-2 icsi-div">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <input type="text" class="form-control" value="ICSI Day 5" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_2" class="form-control" value="{{ $test ? $test->sa_no2pn_2 : old('sa_no2pn_2') }}" />
-                            @error('sa_no2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_no2pn_5') has-error @enderror">
+                                <label for="icsi_no2pn_5">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_no2pn_5" class="form-control" value="{{ $test ? $test->icsi_no2pn_5 : old('icsi_no2pn_5') }}" />
+                                @error('icsi_no2pn_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_2" class="form-control" value="{{ $test ? $test->sa_2pn_2 : old('sa_2pn_2') }}" />
-                            @error('sa_2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3 icsi-div">
+                            <div class="form-group @error('icsi_2pn_5') has-error @enderror">
+                                <label for="icsi_2pn_5">{{ __('Cell Stage') }}</label>
+                                <input type="text" name="icsi_2pn_5" class="form-control" value="{{ $test ? $test->icsi_2pn_5 : old('icsi_2pn_5') }}" />
+                                @error('icsi_2pn_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 icsi-div">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_2" class="form-control" value="{{ $test ? $test->sa_max2pn_2 : old('sa_max2pn_2') }}" />
-                            @error('sa_max2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 ivf-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="IVF Day 5" readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_no2pn_1') has-error @enderror">
-                            <label for="sa_no2pn_1">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_1" class="form-control" value="{{ $test ? $test->sa_no2pn_1 : old('sa_no2pn_1') }}" />
-                            @error('sa_no2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3 ivf-div">
-                        <div class="form-group @error('sa_2pn_1') has-error @enderror">
-                            <label for="sa_2pn_1">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_1" class="form-control" value="{{ $test ? $test->sa_2pn_1 : old('sa_2pn_1') }}" />
-                            @error('sa_2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4 ivf-div">
-                        <div class="form-group @error('sa_max2pn_1') has-error @enderror">
-                            <label for="sa_max2pn_1">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_1" class="form-control" value="{{ $test ? $test->sa_max2pn_1 : old('sa_max2pn_1') }}" />
-                            @error('sa_max2pn_1')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-2 icsi-div">
-                        <div class="form-group">
-                            <label for="sa_no2pn_1">&nbsp;</label>
-                            <input type="text" class="form-control" value="ICSI Day 5" readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_no2pn_2') has-error @enderror">
-                            <label for="sa_no2pn_2">{{ __('No.2 PN') }}</label>
-                            <input type="text" name="sa_no2pn_2" class="form-control" value="{{ $test ? $test->sa_no2pn_2 : old('sa_no2pn_2') }}" />
-                            @error('sa_no2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-3 icsi-div">
-                        <div class="form-group @error('sa_2pn_2') has-error @enderror">
-                            <label for="sa_2pn_2">{{ __('2PN') }}</label>
-                            <input type="text" name="sa_2pn_2" class="form-control" value="{{ $test ? $test->sa_2pn_2 : old('sa_2pn_2') }}" />
-                            @error('sa_2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-4 icsi-div">
-                        <div class="form-group @error('sa_max2pn_2') has-error @enderror">
-                            <label for="sa_max2pn_2">{{ __('Discard') }}</label>
-                            <input type="text" name="sa_max2pn_2" class="form-control" value="{{ $test ? $test->sa_max2pn_2 : old('sa_max2pn_2') }}" />
-                            @error('sa_max2pn_2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4 icsi-div">
+                            <div class="form-group @error('icsi_discard_5') has-error @enderror">
+                                <label for="icsi_discard_5">{{ __('Discard') }}</label>
+                                <input type="text" name="icsi_discard_5" class="form-control" value="{{ $test ? $test->icsi_discard_5 : old('icsi_discard_5') }}" />
+                                @error('icsi_discard_5')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="embryoTransferPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#embryoTransferPanelOne" href="#embryoTransferCollapseOne">
-                    {{ __('Embryo Transfer') }}
-                </a>
-            </h4>
-        </div>
-        <div id="embryoTransferCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_date_of_et') has-error @enderror">
-                            <label for="et_date_of_et">{{ __('Date of ET') }}</label>
-                            <input type="date" name="et_date_of_et" class="form-control" value="{{ $test ? $test->et_date_of_et : old('et_date_of_et') }}" />
-                            @error('et_date_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+        <div class="panel box" id="embryoTransferPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#embryoTransferPanelOne" href="#embryoTransferCollapseOne">
+                        {{ __('Embryo Transfer') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="embryoTransferCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_date_of_et') has-error @enderror">
+                                <label for="et_date_of_et">{{ __('Date of ET') }}</label>
+                                <input type="date" name="et_date_of_et" class="form-control" value="{{ $test ? $test->et_date_of_et : old('et_date_of_et') }}" />
+                                @error('et_date_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_time_of_et') has-error @enderror">
-                            <label for="et_time_of_et">{{ __('Time of ET') }}</label>
-                            <input type="time" name="et_time_of_et" class="form-control" value="{{ $test ? $test->et_time_of_et : old('et_time_of_et') }}" />
-                            @error('et_time_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_time_of_et') has-error @enderror">
+                                <label for="et_time_of_et">{{ __('Time of ET') }}</label>
+                                <input type="time" name="et_time_of_et" class="form-control" value="{{ $test ? $test->et_time_of_et : old('et_time_of_et') }}" />
+                                @error('et_time_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_endometrium_t') has-error @enderror">
-                            <label for="et_endometrium_t">{{ __('Endometrium Thickness') }}</label>
-                            <input type="text" name="et_endometrium_t" class="form-control" value="{{ $test ? $test->et_endometrium_t : old('et_endometrium_t') }}" />
-                            @error('et_endometrium_t')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_endometrium_t') has-error @enderror">
+                                <label for="et_endometrium_t">{{ __('Endometrium Thickness') }}</label>
+                                <input type="text" name="et_endometrium_t" class="form-control" value="{{ $test ? $test->et_endometrium_t : old('et_endometrium_t') }}" />
+                                @error('et_endometrium_t')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_cathetar') has-error @enderror">
-                            <label for="et_cathetar">{{ __('ET Cathetar used') }}</label>
-                            <input type="text" name="et_cathetar" class="form-control" value="{{ $test ? $test->et_cathetar : old('et_cathetar') }}" />
-                            @error('et_cathetar')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_cathetar') has-error @enderror">
+                                <label for="et_cathetar">{{ __('ET Cathetar used') }}</label>
+                                <input type="text" name="et_cathetar" class="form-control" value="{{ $test ? $test->et_cathetar : old('et_cathetar') }}" />
+                                @error('et_cathetar')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_transfer_stage') has-error @enderror">
-                            <label for="et_transfer_stage">{{ __('Total No. of Embryo Transfer & Stage') }}</label>
-                            <input type="text" name="et_transfer_stage" class="form-control" value="{{ $test ? $test->et_transfer_stage : old('et_transfer_stage') }}" />
-                            @error('et_transfer_stage')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_transfer_stage') has-error @enderror">
+                                <label for="et_transfer_stage">{{ __('Total No. of Embryo Transfer & Stage') }}</label>
+                                <input type="text" name="et_transfer_stage" class="form-control" value="{{ $test ? $test->et_transfer_stage : old('et_transfer_stage') }}" />
+                                @error('et_transfer_stage')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('et_embryo_transfer') has-error @enderror">
-                            <label for="et_embryo_transfer">{{ __('Embryo Transfer') }}</label>
-                            <select name="et_embryo_transfer" class="form-control">
-                                <option value="good" @if(($test && $test->et_embryo_transfer == "good") || (old('et_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
-                                <option value="difficult" @if(($test && $test->et_embryo_transfer == "difficult") || (old('et_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
-                                <option value="no_satisfactory" @if(($test && $test->et_embryo_transfer == "no_satisfactory") || (old('et_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
-                            </select>
-                            @error('et_embryo_transfer')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('et_embryo_transfer') has-error @enderror">
+                                <label for="et_embryo_transfer">{{ __('Embryo Transfer') }}</label>
+                                <select name="et_embryo_transfer" class="form-control">
+                                    <option value="" @if(($test && !$test->et_embryo_transfer) || !old('et_embryo_transfer')) selected @endif>{{ __('Select Option') }}</option>
+                                    <option value="good" @if(($test && $test->et_embryo_transfer == "good") || (old('et_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
+                                    <option value="difficult" @if(($test && $test->et_embryo_transfer == "difficult") || (old('et_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
+                                    <option value="no_satisfactory" @if(($test && $test->et_embryo_transfer == "no_satisfactory") || (old('et_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
+                                </select>
+                                @error('et_embryo_transfer')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="blastocystTransferPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#blastocystTransferPanelOne" href="#blastocystTransferCollapseOne">
-                    {{ __('Blastocyst Transfer') }}
-                </a>
-            </h4>
-        </div>
-        <div id="blastocystTransferCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_date_of_et') has-error @enderror">
-                            <label for="bt_date_of_et">{{ __('Date of ET') }}</label>
-                            <input type="date" name="bt_date_of_et" class="form-control" value="{{ $test ? $test->bt_date_of_et : old('bt_date_of_et') }}" />
-                            @error('bt_date_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+        <div class="panel box" id="blastocystTransferPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#blastocystTransferPanelOne" href="#blastocystTransferCollapseOne">
+                        {{ __('Blastocyst Transfer') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="blastocystTransferCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_date_of_et') has-error @enderror">
+                                <label for="bt_date_of_et">{{ __('Date of ET') }}</label>
+                                <input type="date" name="bt_date_of_et" class="form-control" value="{{ $test ? $test->bt_date_of_et : old('bt_date_of_et') }}" />
+                                @error('bt_date_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_time_of_et') has-error @enderror">
-                            <label for="bt_time_of_et">{{ __('Time of ET') }}</label>
-                            <input type="time" name="bt_time_of_et" class="form-control" value="{{ $test ? $test->bt_time_of_et : old('bt_time_of_et') }}" />
-                            @error('bt_time_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_time_of_et') has-error @enderror">
+                                <label for="bt_time_of_et">{{ __('Time of ET') }}</label>
+                                <input type="time" name="bt_time_of_et" class="form-control" value="{{ $test ? $test->bt_time_of_et : old('bt_time_of_et') }}" />
+                                @error('bt_time_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_endometrium_t') has-error @enderror">
-                            <label for="bt_endometrium_t">{{ __('Endometrium Thickness') }}</label>
-                            <input type="text" name="bt_endometrium_t" class="form-control" value="{{ $test ? $test->bt_endometrium_t : old('bt_endometrium_t') }}" />
-                            @error('bt_endometrium_t')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_endometrium_t') has-error @enderror">
+                                <label for="bt_endometrium_t">{{ __('Endometrium Thickness') }}</label>
+                                <input type="text" name="bt_endometrium_t" class="form-control" value="{{ $test ? $test->bt_endometrium_t : old('bt_endometrium_t') }}" />
+                                @error('bt_endometrium_t')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_cathetar') has-error @enderror">
-                            <label for="bt_cathetar">{{ __('BT Cathetar used') }}</label>
-                            <input type="text" name="bt_cathetar" class="form-control" value="{{ $test ? $test->bt_cathetar : old('bt_cathetar') }}" />
-                            @error('bt_cathetar')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_cathetar') has-error @enderror">
+                                <label for="bt_cathetar">{{ __('BT Cathetar used') }}</label>
+                                <input type="text" name="bt_cathetar" class="form-control" value="{{ $test ? $test->bt_cathetar : old('bt_cathetar') }}" />
+                                @error('bt_cathetar')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_transfer_stage') has-error @enderror">
-                            <label for="bt_transfer_stage">{{ __('Total No. of Blastocyst Transfer & Stage') }}</label>
-                            <input type="text" name="bt_transfer_stage" class="form-control" value="{{ $test ? $test->bt_transfer_stage : old('bt_transfer_stage') }}" />
-                            @error('bt_transfer_stage')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_transfer_stage') has-error @enderror">
+                                <label for="bt_transfer_stage">{{ __('Total No. of Blastocyst Transfer & Stage') }}</label>
+                                <input type="text" name="bt_transfer_stage" class="form-control" value="{{ $test ? $test->bt_transfer_stage : old('bt_transfer_stage') }}" />
+                                @error('bt_transfer_stage')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('bt_embryo_transfer') has-error @enderror">
-                            <label for="bt_embryo_transfer">{{ __('Blastocyst Transfer') }}</label>
-                            <select name="bt_embryo_transfer" class="form-control">
-                                <option value="good" @if(($test && $test->bt_embryo_transfer == "good") || (old('bt_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
-                                <option value="difficult" @if(($test && $test->bt_embryo_transfer == "difficult") || (old('bt_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
-                                <option value="no_satisfactory" @if(($test && $test->bt_embryo_transfer == "no_satisfactory") || (old('bt_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
-                            </select>
-                            @error('bt_embryo_transfer')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('bt_embryo_transfer') has-error @enderror">
+                                <label for="bt_embryo_transfer">{{ __('Blastocyst Transfer') }}</label>
+                                <select name="bt_embryo_transfer" class="form-control">
+                                    <option value="" @if(($test && !$test->bt_embryo_transfer) || !old('bt_embryo_transfer')) selected @endif>{{ __('Select Option') }}</option>
+                                    <option value="good" @if(($test && $test->bt_embryo_transfer == "good") || (old('bt_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
+                                    <option value="difficult" @if(($test && $test->bt_embryo_transfer == "difficult") || (old('bt_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
+                                    <option value="no_satisfactory" @if(($test && $test->bt_embryo_transfer == "no_satisfactory") || (old('bt_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
+                                </select>
+                                @error('bt_embryo_transfer')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="frozenPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#frozenPanelOne" href="#frozenCollapseOne">
-                    {{ __('Frozen') }}
-                </a>
-            </h4>
-        </div>
-        <div id="frozenCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_stage') has-error @enderror">
-                            <label for="frozen_stage">{{ __('No. of Embryo frozen & stage') }}</label>
-                            <input type="text" name="frozen_stage" class="form-control" value="{{ $test ? $test->frozen_stage : old('frozen_stage') }}" />
-                            @error('frozen_stage')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+        <div class="panel box" id="frozenPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#frozenPanelOne" href="#frozenCollapseOne">
+                        {{ __('Frozen') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="frozenCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_stage') has-error @enderror">
+                                <label for="frozen_stage">{{ __('No. of Embryo frozen & stage') }}</label>
+                                <input type="text" name="frozen_stage" class="form-control" value="{{ $test ? $test->frozen_stage : old('frozen_stage') }}" />
+                                @error('frozen_stage')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_blastocyst') has-error @enderror">
-                            <label for="frozen_blastocyst">{{ __('No. of Blastocyst frozen') }}</label>
-                            <input type="text" name="frozen_blastocyst" class="form-control" value="{{ $test ? $test->frozen_blastocyst : old('frozen_blastocyst') }}" />
-                            @error('frozen_blastocyst')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_blastocyst') has-error @enderror">
+                                <label for="frozen_blastocyst">{{ __('No. of Blastocyst frozen') }}</label>
+                                <input type="text" name="frozen_blastocyst" class="form-control" value="{{ $test ? $test->frozen_blastocyst : old('frozen_blastocyst') }}" />
+                                @error('frozen_blastocyst')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_embryo_datetime') has-error @enderror">
-                            <label for="frozen_embryo_datetime">{{ __('Date & Time of Embryo freezing') }}</label>
-                            <input type="text" name="frozen_embryo_datetime" class="form-control" value="{{ $test ? $test->frozen_embryo_datetime : old('frozen_embryo_datetime') }}" />
-                            @error('frozen_embryo_datetime')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_embryo_datetime') has-error @enderror">
+                                <label for="frozen_embryo_datetime">{{ __('Date & Time of Embryo freezing') }}</label>
+                                <input type="text" name="frozen_embryo_datetime" class="form-control" value="{{ $test ? $test->frozen_embryo_datetime : old('frozen_embryo_datetime') }}" />
+                                @error('frozen_embryo_datetime')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_blastocyst_datetime') has-error @enderror">
-                            <label for="frozen_blastocyst_datetime">{{ __('Date & Time of Blastocyst freezing') }}</label>
-                            <input type="text" name="frozen_blastocyst_datetime" class="form-control" value="{{ $test ? $test->frozen_blastocyst_datetime : old('frozen_blastocyst_datetime') }}" />
-                            @error('frozen_blastocyst_datetime')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_blastocyst_datetime') has-error @enderror">
+                                <label for="frozen_blastocyst_datetime">{{ __('Date & Time of Blastocyst freezing') }}</label>
+                                <input type="text" name="frozen_blastocyst_datetime" class="form-control" value="{{ $test ? $test->frozen_blastocyst_datetime : old('frozen_blastocyst_datetime') }}" />
+                                @error('frozen_blastocyst_datetime')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_straws') has-error @enderror">
-                            <label for="frozen_straws">{{ __('No. of Straws used') }}</label>
-                            <input type="text" name="frozen_straws" class="form-control" value="{{ $test ? $test->frozen_straws : old('frozen_straws') }}" />
-                            @error('frozen_straws')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_straws') has-error @enderror">
+                                <label for="frozen_straws">{{ __('No. of Straws used') }}</label>
+                                <input type="text" name="frozen_straws" class="form-control" value="{{ $test ? $test->frozen_straws : old('frozen_straws') }}" />
+                                @error('frozen_straws')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_mark') has-error @enderror">
-                            <label for="frozen_mark">{{ __('Colour Code & Mark') }}</label>
-                            <input type="text" name="frozen_mark" class="form-control" value="{{ $test ? $test->frozen_mark : old('frozen_mark') }}" />
-                            @error('frozen_mark')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_mark') has-error @enderror">
+                                <label for="frozen_mark">{{ __('Colour Code & Mark') }}</label>
+                                <input type="text" name="frozen_mark" class="form-control" value="{{ $test ? $test->frozen_mark : old('frozen_mark') }}" />
+                                @error('frozen_mark')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_plastic_colour') has-error @enderror">
-                            <label for="frozen_plastic_colour">{{ __('Globlet Colour') }}</label>
-                            <input type="text" name="frozen_plastic_colour" class="form-control" value="{{ $test ? $test->frozen_plastic_colour : old('frozen_plastic_colour') }}" />
-                            @error('frozen_plastic_colour')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_plastic_colour') has-error @enderror">
+                                <label for="frozen_plastic_colour">{{ __('Globlet Colour') }}</label>
+                                <input type="text" name="frozen_plastic_colour" class="form-control" value="{{ $test ? $test->frozen_plastic_colour : old('frozen_plastic_colour') }}" />
+                                @error('frozen_plastic_colour')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group @error('frozen_ln2') has-error @enderror">
-                            <label for="frozen_ln2">Con. No. in L.N2</label>
-                            <input type="text" name="frozen_ln2" class="form-control" value="{{ $test ? $test->frozen_ln2 : old('frozen_ln2') }}" />
-                            @error('frozen_ln2')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-3">
+                            <div class="form-group @error('frozen_ln2') has-error @enderror">
+                                <label for="frozen_ln2">Con. No. in L.N2</label>
+                                <input type="text" name="frozen_ln2" class="form-control" value="{{ $test ? $test->frozen_ln2 : old('frozen_ln2') }}" />
+                                @error('frozen_ln2')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
+                        <!-- Cylinder No Add input type -->
                     </div>
-                    <!-- Cylinder No Add input type -->
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel box" id="thawingPanelOne">
-        <div class="box-header">
-            <h4 class="box-title">
-                <a class="text-muted" data-toggle="collapse" data-parent="#thawingPanelOne" href="#thawingCollapseOne">
-                    {{ __('Thawing') }}
-                </a>
-            </h4>
-        </div>
-        <div id="thawingCollapseOne" class="panel-collapse collapse">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_date_of_et') has-error @enderror">
-                            <label for="thawing_date_of_et">{{ __('Date of thow') }}</label>
-                            <input type="date" name="thawing_date_of_et" class="form-control" value="{{ $test ? $test->thawing_date_of_et : old('thawing_date_of_et') }}" />
-                            @error('thawing_date_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+        <div class="panel box" id="thawingPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#thawingPanelOne" href="#thawingCollapseOne">
+                        {{ __('Thawing') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="thawingCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group @error('thawing_blast_formation') has-error @enderror">
+                                <label for="thawing_blast_formation">{{ __('Kept for blast formation') }}</label>
+                                <textarea name="thawing_blast_formation" class="form-control">{{ $test ? $test->thawing_blast_formation : old('thawing_blast_formation') }}</textarea>
+                                @error('thawing_blast_formation')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_time_of_et') has-error @enderror">
-                            <label for="thawing_time_of_et">{{ __('Time of ET') }}</label>
-                            <input type="time" name="thawing_time_of_et" class="form-control" value="{{ $test ? $test->thawing_time_of_et : old('thawing_time_of_et') }}" />
-                            @error('thawing_time_of_et')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_date_of_et') has-error @enderror">
+                                <label for="thawing_date_of_et">{{ __('Date of thaw') }}</label>
+                                <input type="date" name="thawing_date_of_et" class="form-control" value="{{ $test ? $test->thawing_date_of_et : old('thawing_date_of_et') }}" />
+                                @error('thawing_date_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_endometrium_t') has-error @enderror">
-                            <label for="thawing_endometrium_t">{{ __('Endometrium Thickness') }}</label>
-                            <input type="text" name="thawing_endometrium_t" class="form-control" value="{{ $test ? $test->thawing_endometrium_t : old('thawing_endometrium_t') }}" />
-                            @error('thawing_endometrium_t')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_time_of_et') has-error @enderror">
+                                <label for="thawing_time_of_et">{{ __('Time of ET / Date') }}</label>
+                                <input type="text" name="thawing_time_of_et" class="form-control" value="{{ $test ? $test->thawing_time_of_et : old('thawing_time_of_et') }}" />
+                                @error('thawing_time_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_cathetar') has-error @enderror">
-                            <label for="thawing_cathetar">{{ __('ET Cathetar used') }}</label>
-                            <input type="text" name="thawing_cathetar" class="form-control" value="{{ $test ? $test->thawing_cathetar : old('thawing_cathetar') }}" />
-                            @error('thawing_cathetar')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_color') has-error @enderror">
+                                <label for="thawing_color">{{ __('Thaw color straw and No. of embryo/blast') }}</label>
+                                <input type="text" name="thawing_color" class="form-control" value="{{ $test ? $test->thawing_color : old('thawing_color') }}" />
+                                @error('thawing_color')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_transfer_stage') has-error @enderror">
-                            <label for="thawing_transfer_stage">{{ __('Total No. of Embryo Transfer & Stage') }}</label>
-                            <input type="text" name="thawing_transfer_stage" class="form-control" value="{{ $test ? $test->thawing_transfer_stage : old('thawing_transfer_stage') }}" />
-                            @error('thawing_transfer_stage')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_endometrium_t') has-error @enderror">
+                                <label for="thawing_endometrium_t">{{ __('Endometrium Thickness') }}</label>
+                                <input type="text" name="thawing_endometrium_t" class="form-control" value="{{ $test ? $test->thawing_endometrium_t : old('thawing_endometrium_t') }}" />
+                                @error('thawing_endometrium_t')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('thawing_embryo_transfer') has-error @enderror">
-                            <label for="thawing_embryo_transfer">{{ __('Embryo Transfer') }}</label>
-                            <select name="thawing_embryo_transfer" class="form-control">
-                                <option value="good" @if(($test && $test->thawing_embryo_transfer == "good") || (old('thawing_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
-                                <option value="difficult" @if(($test && $test->thawing_embryo_transfer == "difficult") || (old('thawing_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
-                                <option value="no_satisfactory" @if(($test && $test->thawing_embryo_transfer == "no_satisfactory") || (old('thawing_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
-                            </select>
-                            @error('thawing_embryo_transfer')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_cathetar') has-error @enderror">
+                                <label for="thawing_cathetar">{{ __('ET Cathetar used') }}</label>
+                                <input type="text" name="thawing_cathetar" class="form-control" value="{{ $test ? $test->thawing_cathetar : old('thawing_cathetar') }}" />
+                                @error('thawing_cathetar')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_transfer_stage') has-error @enderror">
+                                <label for="thawing_transfer_stage">{{ __('Total No. of Embryo Transfer & Stage') }}</label>
+                                <input type="text" name="thawing_transfer_stage" class="form-control" value="{{ $test ? $test->thawing_transfer_stage : old('thawing_transfer_stage') }}" />
+                                @error('thawing_transfer_stage')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_embryo_transfer') has-error @enderror">
+                                <label for="thawing_embryo_transfer">{{ __('Embryo Transfer') }}</label>
+                                <select name="thawing_embryo_transfer" class="form-control">
+                                    <option value="" @if(($test && !$test->thawing_embryo_transfer) || !old('thawing_embryo_transfer')) selected @endif>{{ __('Select Option') }}</option>
+                                    <option value="good" @if(($test && $test->thawing_embryo_transfer == "good") || (old('thawing_embryo_transfer') == "good")) selected @endif>{{ __('Good') }}</option>
+                                    <option value="difficult" @if(($test && $test->thawing_embryo_transfer == "difficult") || (old('thawing_embryo_transfer') == "difficult")) selected @endif>{{ __('Difficult') }}</option>
+                                    <option value="no_satisfactory" @if(($test && $test->thawing_embryo_transfer == "no_satisfactory") || (old('thawing_embryo_transfer') == "no_satisfactory")) selected @endif>{{ __('No Satisfactory') }}</option>
+                                </select>
+                                @error('thawing_embryo_transfer')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_eudate') has-error @enderror">
-                            <label for="result_eudate">{{ __('F/U Date') }}</label>
-                            <input type="text" name="result_eudate" class="form-control" value="{{ $test ? $test->result_eudate : old('result_eudate') }}" />
-                            @error('result_eudate')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+            </div>
+        </div>
+        <div class="panel box" id="followupPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#followupPanelOne" href="#followupCollapseOne">
+                        {{ __('Follow Up/Result') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="followupCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_eudate') has-error @enderror">
+                                <label for="result_eudate">{{ __('F/U Date') }}</label>
+                                <input type="text" name="result_eudate" class="form-control" value="{{ $test ? $test->result_eudate : old('result_eudate') }}" />
+                                @error('result_eudate')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('result_bhcg') has-error @enderror">
-                            <label for="result_bhcg">{{ __('B-HCG Value') }}</label>
-                            <input type="text" name="result_bhcg" class="form-control" value="{{ $test ? $test->result_bhcg : old('result_bhcg') }}" />
-                            @error('result_bhcg')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-6">
+                            <div class="form-group @error('result_bhcg') has-error @enderror">
+                                <label for="result_bhcg">{{ __('B-HCG Value') }}</label>
+                                <input type="text" name="result_bhcg" class="form-control" value="{{ $test ? $test->result_bhcg : old('result_bhcg') }}" />
+                                @error('result_bhcg')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group @error('result_semen_cryo') has-error @enderror">
-                            <label for="result_semen_cryo">{{ __('Result') }}</label>
-                            <input type="text" name="result_semen_cryo" class="form-control" value="{{ $test ? $test->result_semen_cryo : old('result_semen_cryo') }}" />
-                            @error('result_semen_cryo')
-                            <span class="help-block">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        <div class="col-md-4">
+                            <div class="form-group @error('result_semen_cryo') has-error @enderror">
+                                <label for="result_semen_cryo">{{ __('Result') }}</label>
+                                <input type="text" name="result_semen_cryo" class="form-control" value="{{ $test ? $test->result_semen_cryo : old('result_semen_cryo') }}" />
+                                @error('result_semen_cryo')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -6320,7 +6699,3 @@
         <button type="submit" class="btn btn-primary">{{ $test ? __('Update') : __('Submit') }}</button>
     </div>
 </form>
-
-@if ($test && $history)
-<x-history-model :histories="$history" test="Infertility" />
-@endif

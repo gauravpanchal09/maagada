@@ -109,8 +109,24 @@
             }
         });
 
+        $('select[name="treatment_plan"]').on('change' , function (event) {
+            let value = event.target.value;
+            if (value && value == 'iui') {
+                showResultElements('iui-treatment-plan');
+                hideResultElements('ivf-treatment-plan');
+            } else if (value && value == 'ivf') {
+                showResultElements('ivf-treatment-plan');
+                hideResultElements('iui-treatment-plan');
+            } else {
+                hideResultElements('ivf-treatment-plan');
+                hideResultElements('iui-treatment-plan');
+            }
+        });
+
         hideResultElements('ivf');
         hideResultElements('icsi');
+        hideResultElements('ivf-treatment-plan');
+        hideResultElements('iui-treatment-plan');
     });
 </script>
 @endpush

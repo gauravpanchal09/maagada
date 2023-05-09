@@ -20,9 +20,15 @@ keygen:
 	docker exec -it ${MAIN_CONTAINER} php artisan key:generate
 
 migrate:
+	docker exec -it ${MAIN_CONTAINER} php artisan migrate
+
+migrate.seed:
 	docker exec -it ${MAIN_CONTAINER} php artisan migrate --seed
 
 migrate.fresh:
+	docker exec -it ${MAIN_CONTAINER} php artisan migrate:fresh
+
+migrate.fresh.seed:
 	docker exec -it ${MAIN_CONTAINER} php artisan migrate:fresh --seed
 
 shell:

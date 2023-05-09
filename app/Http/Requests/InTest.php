@@ -178,6 +178,36 @@ class InTest extends FormRequest
             'he_tsh_day_of_cycle' => 'nullable|max:255',
             'he_tsh_result' => 'nullable|max:255',
             'he_tsh_normal_range' => 'nullable|max:255',
+            'ivf_no2pn_1' => 'nullable|max:255',
+            'ivf_2pn_1' => 'nullable|max:255',
+            'ivf_discard_1' => 'nullable|max:255',
+            'icsi_no2pn_1' => 'nullable|max:255',
+            'icsi_2pn_1' => 'nullable|max:255',
+            'icsi_discard_1' => 'nullable|max:255',
+            'ivf_no2pn_2' => 'nullable|max:255',
+            'ivf_2pn_2' => 'nullable|max:255',
+            'ivf_discard_2' => 'nullable|max:255',
+            'icsi_no2pn_2' => 'nullable|max:255',
+            'icsi_2pn_2' => 'nullable|max:255',
+            'icsi_discard_2' => 'nullable|max:255',
+            'ivf_no2pn_3' => 'nullable|max:255',
+            'ivf_2pn_3' => 'nullable|max:255',
+            'ivf_discard_3' => 'nullable|max:255',
+            'icsi_no2pn_3' => 'nullable|max:255',
+            'icsi_2pn_3' => 'nullable|max:255',
+            'icsi_discard_3' => 'nullable|max:255',
+            'ivf_no2pn_4' => 'nullable|max:255',
+            'ivf_2pn_4' => 'nullable|max:255',
+            'ivf_discard_4' => 'nullable|max:255',
+            'icsi_no2pn_4' => 'nullable|max:255',
+            'icsi_2pn_4' => 'nullable|max:255',
+            'icsi_discard_4' => 'nullable|max:255',
+            'ivf_no2pn_5' => 'nullable|max:255',
+            'ivf_2pn_5' => 'nullable|max:255',
+            'ivf_discard_5' => 'nullable|max:255',
+            'icsi_no2pn_5' => 'nullable|max:255',
+            'icsi_2pn_5' => 'nullable|max:255',
+            'icsi_discard_5' => 'nullable|max:255',
             'wife_hea_date' => 'nullable|date',
             'wife_hea_toxoplasma_g' => 'nullable|max:255',
             'wife_hea_toxoplasma_m' => 'nullable|max:255',
@@ -232,6 +262,37 @@ class InTest extends FormRequest
             'wife_ici_rtov_6' => 'nullable|max:255',
             'wife_ici_ltov_6' => 'nullable|max:255',
             'wife_ici_remark_6' => 'nullable|max:255',
+            'wife_ici_day_7' => 'nullable|max:255',
+            'wife_ici_date_7' => 'nullable|date',
+            'wife_ici_endo_7' => 'nullable|max:255',
+            'wife_ici_rtov_7' => 'nullable|max:255',
+            'wife_ici_ltov_7' => 'nullable|max:255',
+            'wife_ici_remark_7' => 'nullable|max:255',
+            'wife_ici_day_8' => 'nullable|max:255',
+            'wife_ici_date_8' => 'nullable|date',
+            'wife_ici_endo_8' => 'nullable|max:255',
+            'wife_ici_rtov_8' => 'nullable|max:255',
+            'wife_ici_ltov_8' => 'nullable|max:255',
+            'wife_ici_remark_8' => 'nullable|max:255',
+            'wife_ici_day_9' => 'nullable|max:255',
+            'wife_ici_date_9' => 'nullable|date',
+            'wife_ici_endo_9' => 'nullable|max:255',
+            'wife_ici_rtov_9' => 'nullable|max:255',
+            'wife_ici_ltov_9' => 'nullable|max:255',
+            'wife_ici_remark_9' => 'nullable|max:255',
+            'wife_ici_day_10' => 'nullable|max:255',
+            'wife_ici_date_10' => 'nullable|date',
+            'wife_ici_endo_10' => 'nullable|max:255',
+            'wife_ici_rtov_10' => 'nullable|max:255',
+            'wife_ici_ltov_10' => 'nullable|max:255',
+            'wife_ici_remark_10' => 'nullable|max:255',
+            'wife_ici_extra_data' => 'array',
+            'wife_ici_extra_data.*.day' => 'nullable|max:255',
+            'wife_ici_extra_data.*.date' => 'nullable|date',
+            'wife_ici_extra_data.*.endo' => 'nullable|max:255',
+            'wife_ici_extra_data.*.rtov' => 'nullable|max:255',
+            'wife_ici_extra_data.*.ltov' => 'nullable|max:255',
+            'wife_ici_extra_data.*.remark' => 'nullable|max:255',
             'wife_iuid_day_1' => 'nullable|max:255',
             'wife_iuid_volume_1' => 'nullable|max:255',
             'wife_iuid_native_couint_1' => 'nullable|max:255',
@@ -516,7 +577,19 @@ class InTest extends FormRequest
             'thawing_embryo_transfer' => 'nullable|max:255',
             'result_eudate' => 'nullable|max:255',
             'result_bhcg' => 'nullable|max:255',
-            'result_semen_cryo' => 'nullable|max:255'
+            'result_semen_cryo' => 'nullable|max:255',
+            'treatment_plan' => 'nullable|max:255',
+            'thawing_color' => 'nullable|max:255',
+            'thawing_blast_formation' => 'nullable|max:255',
+            'wife_ici_hcg_trigger' => 'nullable|max:255',
+            'wife_ici_dose' => 'nullable|max:255',
+            'wife_ici_datetime' => 'nullable|max:255',
+            'wife_ici_iui' => 'nullable|max:255',
+            'wife_ici_time' => 'nullable|max:255',
+            'wife_ici_treatment_advice' => 'nullable|max:255',
+            'wife_ici_fu_date' => 'nullable|max:255',
+            'wife_ici_bhcg' => 'nullable|max:255',
+            'wife_ici_result' => 'nullable|max:255'
         ];
 
         if ($this->method() == "POST") {
@@ -524,5 +597,17 @@ class InTest extends FormRequest
         }
 
         return $rules;
+    }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'wife_ici_extra_data' => empty($this->get('wife_ici_extra_data', [])) ? [] : $this->get('wife_ici_extra_data')
+        ]);
     }
 }

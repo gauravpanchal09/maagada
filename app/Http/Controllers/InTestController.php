@@ -33,10 +33,13 @@ class InTestController extends Controller
      */
     public function store(InTestRequest $request)
     {
-        $oldTest = InTest::forPatient($request->patient_id)->first();
-        if (!empty($oldTest)) {
+        $exists = InTest::forPatient($request->patient_id)->first();
+        if (!empty($exists)) {
             return redirect()->back()->with(['error' => 'Report already exists for this patient!']);
         }
+
+        // Incress temp memory
+        ini_set('memory_limit','2048M');
 
         $test = new InTest();
         $test->fill($request->validated());
@@ -78,20 +81,9 @@ class InTestController extends Controller
     public function update(InTestRequest $request, int $id)
     {
         $test = InTest::findOrFail($id);
-        $test->computedChanges();
         $test->fill($request->validated());
         $images = $test->inv_images;
-        if ($request->hasFile('inv_image')) {
-            // if (!empty($images)) {
-            //     foreach ($images as $image) {
-            //         $path = storage_path()."/app/{$image}";
-            //         if(File::exists($path)){
-            //             unlink($path);
-            //         }
-            //     }
-            //     $images = [];
-            // }
-
+        if ($request->hasFile('inv_image')) {            
             $files = $request->file('inv_image');
             foreach ($files as $file) {
                 $images[] = $file->store('tests/in');
