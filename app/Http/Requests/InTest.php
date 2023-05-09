@@ -578,7 +578,18 @@ class InTest extends FormRequest
             'result_eudate' => 'nullable|max:255',
             'result_bhcg' => 'nullable|max:255',
             'result_semen_cryo' => 'nullable|max:255',
-            'treatment_plan' => 'nullable|max:255'
+            'treatment_plan' => 'nullable|max:255',
+            'thawing_color' => 'nullable|max:255',
+            'thawing_blast_formation' => 'nullable|max:255',
+            'wife_ici_hcg_trigger' => 'nullable|max:255',
+            'wife_ici_dose' => 'nullable|max:255',
+            'wife_ici_datetime' => 'nullable|max:255',
+            'wife_ici_iui' => 'nullable|max:255',
+            'wife_ici_time' => 'nullable|max:255',
+            'wife_ici_treatment_advice' => 'nullable|max:255',
+            'wife_ici_fu_date' => 'nullable|max:255',
+            'wife_ici_bhcg' => 'nullable|max:255',
+            'wife_ici_result' => 'nullable|max:255'
         ];
 
         if ($this->method() == "POST") {

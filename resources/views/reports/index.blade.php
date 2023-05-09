@@ -19,6 +19,10 @@
     .widget-user-header {
         height: 180px !important;
     }
+
+    fieldset .row {
+        margin-left: 0.5rem !important;
+    }
 </style>
 @endpush
 

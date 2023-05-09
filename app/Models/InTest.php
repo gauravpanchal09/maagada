@@ -563,7 +563,18 @@ class InTest extends Model
         'treatment_plan',
         'result_eudate',
         'result_bhcg',
-        'result_semen_cryo'
+        'result_semen_cryo',
+        'thawing_color',
+        'thawing_blast_formation',
+        'wife_ici_hcg_trigger',
+        'wife_ici_dose',
+        'wife_ici_datetime',
+        'wife_ici_iui',
+        'wife_ici_time',
+        'wife_ici_treatment_advice',
+        'wife_ici_fu_date',
+        'wife_ici_bhcg',
+        'wife_ici_result'
     ];
 
     protected $casts = [

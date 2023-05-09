@@ -2859,7 +2859,16 @@
                                             </td>
                                         </tr>
                                         @if($test)
+                                            @php $cycle = 2; @endphp
                                             @foreach($test->wife_ici_extra_data as $key => $data)
+                                                @if (($key + 10) % 10 == 0)
+                                                    <tr class="skip-tr">
+                                                        <td colspan="7">
+                                                            <strong> IUI Cycle {{ $cycle }} </strong>
+                                                        </td>
+                                                    </tr>
+                                                    @php $cycle ++; @endphp
+                                                @endif
                                                 <tr>
                                                     <td>{{ $key + 11 }}</td>
                                                     <td>
@@ -2901,6 +2910,105 @@
                                     <button type="button" class="btn btn-info mb-2 add-more-btn">Add More 10 Fields</button>
                                     <button type="button" class="btn btn-danger mb-2 remove-more-btn">Remove Last 10 Fields</button>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_hcg_trigger') has-error @enderror">
+                                <label for="wife_ici_hcg_trigger">{{ __('Inj. / HCG / Trigger') }}</label>
+                                <input type="text" name="wife_ici_hcg_trigger" class="form-control" value="{{ $test ? $test->wife_ici_hcg_trigger : old('wife_ici_hcg_trigger') }}" />
+                                @error('wife_ici_hcg_trigger')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_dose') has-error @enderror">
+                                <label for="wife_ici_dose">{{ __('Dose') }}</label>
+                                <input type="text" name="wife_ici_dose" class="form-control" value="{{ $test ? $test->wife_ici_dose : old('wife_ici_dose') }}" />
+                                @error('wife_ici_dose')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_datetime') has-error @enderror">
+                                <label for="wife_ici_datetime">{{ __('Date / Time AM/PM') }}</label>
+                                <input type="text" name="wife_ici_datetime" class="form-control" value="{{ $test ? $test->wife_ici_datetime : old('wife_ici_datetime') }}" />
+                                @error('wife_ici_datetime')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_iui') has-error @enderror">
+                                <label for="wife_ici_iui">{{ __('IUI') }}</label>
+                                <input type="text" name="wife_ici_iui" class="form-control" value="{{ $test ? $test->wife_ici_iui : old('wife_ici_iui') }}" />
+                                @error('wife_ici_iui')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_time') has-error @enderror">
+                                <label for="wife_ici_time">{{ __('Time AM/PM') }}</label>
+                                <input type="text" name="wife_ici_time" class="form-control" value="{{ $test ? $test->wife_ici_time : old('wife_ici_time') }}" />
+                                @error('wife_ici_time')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_treatment_advice') has-error @enderror">
+                                <label for="wife_ici_treatment_advice">{{ __('Treatment Advice') }}</label>
+                                <input type="text" name="wife_ici_treatment_advice" class="form-control" value="{{ $test ? $test->wife_ici_treatment_advice : old('wife_ici_treatment_advice') }}" />
+                                @error('wife_ici_treatment_advice')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_fu_date') has-error @enderror">
+                                <label for="wife_ici_fu_date">{{ __('F/U Date') }}</label>
+                                <input type="text" name="wife_ici_fu_date" class="form-control" value="{{ $test ? $test->wife_ici_fu_date : old('wife_ici_fu_date') }}" />
+                                @error('wife_ici_fu_date')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_bhcg') has-error @enderror">
+                                <label for="wife_ici_bhcg">{{ __('B-HCG Value') }}</label>
+                                <input type="text" name="wife_ici_bhcg" class="form-control" value="{{ $test ? $test->wife_ici_bhcg : old('wife_ici_bhcg') }}" />
+                                @error('wife_ici_bhcg')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('wife_ici_result') has-error @enderror">
+                                <label for="wife_ici_result">{{ __('Result') }}</label>
+                                <input type="text" name="wife_ici_result" class="form-control" value="{{ $test ? $test->wife_ici_result : old('wife_ici_result') }}" />
+                                @error('wife_ici_result')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -5850,7 +5958,7 @@
                         </div>
                         <div class="col-md-3 ivf-div">
                             <div class="form-group @error('ivf_2pn_2') has-error @enderror">
-                                <label for="ivf_2pn_2">{{ __('2PN') }}</label>
+                                <label for="ivf_2pn_2">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="ivf_2pn_2" class="form-control" value="{{ $test ? $test->ivf_2pn_2 : old('ivf_2pn_2') }}" />
                                 @error('ivf_2pn_2')
                                 <span class="help-block">
@@ -5890,7 +5998,7 @@
                         </div>
                         <div class="col-md-3 icsi-div">
                             <div class="form-group @error('icsi_2pn_2') has-error @enderror">
-                                <label for="icsi_2pn_2">{{ __('2PN') }}</label>
+                                <label for="icsi_2pn_2">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="icsi_2pn_2" class="form-control" value="{{ $test ? $test->icsi_2pn_2 : old('icsi_2pn_2') }}" />
                                 @error('icsi_2pn_2')
                                 <span class="help-block">
@@ -5930,7 +6038,7 @@
                         </div>
                         <div class="col-md-3 ivf-div">
                             <div class="form-group @error('ivf_2pn_3') has-error @enderror">
-                                <label for="ivf_2pn_3">{{ __('2PN') }}</label>
+                                <label for="ivf_2pn_3">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="ivf_2pn_3" class="form-control" value="{{ $test ? $test->ivf_2pn_3 : old('ivf_2pn_3') }}" />
                                 @error('ivf_2pn_3')
                                 <span class="help-block">
@@ -5970,7 +6078,7 @@
                         </div>
                         <div class="col-md-3 icsi-div">
                             <div class="form-group @error('icsi_2pn_3') has-error @enderror">
-                                <label for="icsi_2pn_3">{{ __('2PN') }}</label>
+                                <label for="icsi_2pn_3">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="icsi_2pn_3" class="form-control" value="{{ $test ? $test->icsi_2pn_3 : old('icsi_2pn_3') }}" />
                                 @error('icsi_2pn_3')
                                 <span class="help-block">
@@ -6010,7 +6118,7 @@
                         </div>
                         <div class="col-md-3 ivf-div">
                             <div class="form-group @error('ivf_2pn_4') has-error @enderror">
-                                <label for="ivf_2pn_4">{{ __('2PN') }}</label>
+                                <label for="ivf_2pn_4">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="ivf_2pn_4" class="form-control" value="{{ $test ? $test->ivf_2pn_4 : old('ivf_2pn_4') }}" />
                                 @error('ivf_2pn_4')
                                 <span class="help-block">
@@ -6050,7 +6158,7 @@
                         </div>
                         <div class="col-md-3 icsi-div">
                             <div class="form-group @error('icsi_2pn_4') has-error @enderror">
-                                <label for="icsi_2pn_4">{{ __('2PN') }}</label>
+                                <label for="icsi_2pn_4">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="icsi_2pn_4" class="form-control" value="{{ $test ? $test->icsi_2pn_4 : old('icsi_2pn_4') }}" />
                                 @error('icsi_2pn_4')
                                 <span class="help-block">
@@ -6090,7 +6198,7 @@
                         </div>
                         <div class="col-md-3 ivf-div">
                             <div class="form-group @error('ivf_2pn_5') has-error @enderror">
-                                <label for="ivf_2pn_5">{{ __('2PN') }}</label>
+                                <label for="ivf_2pn_5">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="ivf_2pn_5" class="form-control" value="{{ $test ? $test->ivf_2pn_5 : old('ivf_2pn_5') }}" />
                                 @error('ivf_2pn_5')
                                 <span class="help-block">
@@ -6130,7 +6238,7 @@
                         </div>
                         <div class="col-md-3 icsi-div">
                             <div class="form-group @error('icsi_2pn_5') has-error @enderror">
-                                <label for="icsi_2pn_5">{{ __('2PN') }}</label>
+                                <label for="icsi_2pn_5">{{ __('Cell Stage') }}</label>
                                 <input type="text" name="icsi_2pn_5" class="form-control" value="{{ $test ? $test->icsi_2pn_5 : old('icsi_2pn_5') }}" />
                                 @error('icsi_2pn_5')
                                 <span class="help-block">
@@ -6441,9 +6549,20 @@
             <div id="thawingCollapseOne" class="panel-collapse collapse">
                 <div class="box-body">
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group @error('thawing_blast_formation') has-error @enderror">
+                                <label for="thawing_blast_formation">{{ __('Kept for blast formation') }}</label>
+                                <textarea name="thawing_blast_formation" class="form-control">{{ $test ? $test->thawing_blast_formation : old('thawing_blast_formation') }}</textarea>
+                                @error('thawing_blast_formation')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group @error('thawing_date_of_et') has-error @enderror">
-                                <label for="thawing_date_of_et">{{ __('Date of thow') }}</label>
+                                <label for="thawing_date_of_et">{{ __('Date of thaw') }}</label>
                                 <input type="date" name="thawing_date_of_et" class="form-control" value="{{ $test ? $test->thawing_date_of_et : old('thawing_date_of_et') }}" />
                                 @error('thawing_date_of_et')
                                 <span class="help-block">
@@ -6454,9 +6573,20 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group @error('thawing_time_of_et') has-error @enderror">
-                                <label for="thawing_time_of_et">{{ __('Time of ET') }}</label>
-                                <input type="time" name="thawing_time_of_et" class="form-control" value="{{ $test ? $test->thawing_time_of_et : old('thawing_time_of_et') }}" />
+                                <label for="thawing_time_of_et">{{ __('Time of ET / Date') }}</label>
+                                <input type="text" name="thawing_time_of_et" class="form-control" value="{{ $test ? $test->thawing_time_of_et : old('thawing_time_of_et') }}" />
                                 @error('thawing_time_of_et')
+                                <span class="help-block">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group @error('thawing_color') has-error @enderror">
+                                <label for="thawing_color">{{ __('Thaw color straw and No. of embryo/blast') }}</label>
+                                <input type="text" name="thawing_color" class="form-control" value="{{ $test ? $test->thawing_color : old('thawing_color') }}" />
+                                @error('thawing_color')
                                 <span class="help-block">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -6513,6 +6643,19 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel box" id="followupPanelOne">
+            <div class="box-header">
+                <h4 class="box-title">
+                    <a class="text-muted" data-toggle="collapse" data-parent="#followupPanelOne" href="#followupCollapseOne">
+                        {{ __('Follow Up/Result') }}
+                    </a>
+                </h4>
+            </div>
+            <div id="followupCollapseOne" class="panel-collapse collapse">
+                <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group @error('result_eudate') has-error @enderror">

@@ -195,8 +195,16 @@
 
         $('button.add-more-btn').on('click', function() {
             let target = $('table.wife-ici-table > tbody'), 
-            totalRow = $('table.wife-ici-table tr').length - 1;
+            totalRow = $('table.wife-ici-table tr').not('tr.skip-tr').length - 1;
 
+            let cycle = totalRow / 10;
+            target.append(`
+                <tr class="skip-tr">
+                    <td colspan="7">
+                        <strong> IUI Cycle ${(cycle+1)}</strong>
+                    </td>
+                </tr>
+            `);
             for (let index = 1; index < 11; index++) {
                 let count = totalRow + index, key = (totalRow - 11) + index;
                 target.append(generateTableRow(count, key));
@@ -211,7 +219,7 @@
                 return;
             }
 
-            for (let index = 1; index < 11; index++) {
+            for (let index = 1; index < 12; index++) {
                 target.find('tr:last').remove();
             }
         });

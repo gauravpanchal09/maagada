@@ -1550,12 +1550,22 @@
                                 </div>
                             </td>
                         </tr>
+                        @php $cycle = 2; @endphp
                         @foreach($report->wife_ici_extra_data as $key => $data)
                         @php
                             if (!is_array($data)) {
                                 $data = json_decode(json_encode($data), true);
                             }
                         @endphp
+
+                        @if (($key + 10) % 10 == 0)
+                            <tr>
+                                <td colspan="7">
+                                    <strong> IUI Cycle {{ $cycle }} </strong>
+                                </td>
+                            </tr>
+                            @php $cycle ++; @endphp
+                        @endif
                         <tr>
                             <td>{{ $key + 11 }}</td>
                             <td>
@@ -1592,6 +1602,60 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_hcg_trigger">{{ __('Inj. / HCG / Trigger') }}</label>
+                <span class="form-control">{{ $report->wife_ici_hcg_trigger ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_dose">{{ __('Dose') }}</label>
+                <span class="form-control">{{ $report->wife_ici_dose ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_datetime">{{ __('Date / Time AM/PM') }}</label>
+                <span class="form-control">{{ $report->wife_ici_datetime ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_iui">{{ __('IUI') }}</label>
+                <span class="form-control">{{ $report->wife_ici_iui ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_time">{{ __('Time AM/PM') }}</label>
+                <span class="form-control">{{ $report->wife_ici_time ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_treatment_advice">{{ __('Treatment Advice') }}</label>
+                <span class="form-control">{{ $report->wife_ici_treatment_advice ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_fu_date">{{ __('F/U Date') }}</label>
+                <span class="form-control">{{ $report->wife_ici_fu_date ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_bhcg">{{ __('B-HCG Value') }}</label>
+                <span class="form-control">{{ $report->wife_ici_bhcg ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="wife_ici_result">{{ __('Result') }}</label>
+                <span class="form-control">{{ $report->wife_ici_result ?: 'N/A' }}</span>
             </div>
         </div>
         <div class="col-md-12">
@@ -3244,7 +3308,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="ivf_2pn_2">{{ __('2PN') }}</label>
+                <label for="ivf_2pn_2">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->ivf_2pn_2 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3270,7 +3334,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="icsi_2pn_2">{{ __('2PN') }}</label>
+                <label for="icsi_2pn_2">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->icsi_2pn_2 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3297,7 +3361,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="ivf_2pn_3">{{ __('2PN') }}</label>
+                <label for="ivf_2pn_3">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->ivf_2pn_3 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3323,7 +3387,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="icsi_2pn_3">{{ __('2PN') }}</label>
+                <label for="icsi_2pn_3">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->icsi_2pn_3 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3350,7 +3414,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="ivf_2pn_4">{{ __('2PN') }}</label>
+                <label for="ivf_2pn_4">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->ivf_2pn_4 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3376,7 +3440,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="icsi_2pn_4">{{ __('2PN') }}</label>
+                <label for="icsi_2pn_4">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->icsi_2pn_4 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3403,7 +3467,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="ivf_2pn_5">{{ __('2PN') }}</label>
+                <label for="ivf_2pn_5">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->ivf_2pn_5 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3429,7 +3493,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="icsi_2pn_5">{{ __('2PN') }}</label>
+                <label for="icsi_2pn_5">{{ __('Cell Stage') }}</label>
                 <span class="form-control">{{ $report->icsi_2pn_5 ?: 'N/A' }}</span>
             </div>
         </div>
@@ -3579,16 +3643,28 @@
 <fieldset>
     <legend>{{ __('Thawing') }}</legend>
     <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="thawing_blast_formation">{{ __('Kept for blast formation') }}</label>
+                <span class="form-control">{{ $report->thawing_blast_formation ?: 'N/A' }}</span>
+            </div>
+        </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="thawing_date_of_et">{{ __('Date of ET of thow Embryo') }}</label>
+                <label for="thawing_date_of_et">{{ __('Date of thaw') }}</label>
                 <span class="form-control">{{ $report->thawing_date_of_et ?: 'N/A' }}</span>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="thawing_time_of_et">{{ __('Time of ET') }}</label>
+                <label for="thawing_time_of_et">{{ __('Time of ET / Date') }}</label>
                 <span class="form-control">{{ $report->thawing_time_of_et ?: 'N/A' }}</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="thawing_color">{{ __('Thaw color straw and No. of embryo/blast') }}</label>
+                <span class="form-control">{{ $report->thawing_color ?: 'N/A' }}</span>
             </div>
         </div>
         <div class="col-md-4">
@@ -3618,6 +3694,7 @@
     </div>
 </fieldset>
 <fieldset>
+    <legend>{{ __('Follow Up/Result') }}</legend>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
